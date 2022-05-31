@@ -43,3 +43,9 @@ Data and R script used for the manuscript: Nest shape does not affect ant colony
 * Distance: The raw farthest distance from the entrance the invader penetrated the nest 
 * MaxDist: Max possible shortest distance from the nest entrance
 * ScaledDist: Quotient from Distance / MaxDist
+
+###  INTERACTION NETWORKS
+#### All matrix .csv's, e.g., Colony5TubeAggnRMatrix.csv
+##### Adjacency matrices that show the number of reciprocal and non-reciprocal interactions between two workers
+* Columns and rows are symmetrically filled with all worker IDs from ABCTracker
+* Cells are the total number of times an interaction occurred between a pair of individuals throughout the assay video
