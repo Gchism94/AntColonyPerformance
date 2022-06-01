@@ -1,13 +1,13 @@
 ##########################################################################################################
 ## Author: GREG CHISM
-## Date: MAY 2022
+## Date: JUNE 2022
 ## email: gchism@arizona.edu
-## Project: Nest shape influences colony organization in ants (movement / activity)
+## Project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
 ## Title: Performance against a nest invader
 ##########################################################################################################
 
 #######DESCRIPTION OF THE SCRIPT##########
-# Aggression performance analyses & visualizations
+# Aggression performance data wrangling, analyses, and visualizations
 
 ##########################################################################################################
 # INSTALL & LOAD REQUIRED PACKAGES

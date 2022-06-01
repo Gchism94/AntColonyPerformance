@@ -1,7 +1,7 @@
 ####################################################################################################################
 ## Author: GREG CHISM
-## Date: Dec 2021
-## email: gchism@email.arizona.edu
+## Date: JUNE 2022
+## email: gchism@arizona.edu
 ## Project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
 ## Title: Nest section bin functions, worker density in nest sections across nest shapes 
 ####################################################################################################################
@@ -91,7 +91,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony5BinnedMoveCircleAggn <- data_table %>%
@@ -113,7 +113,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-     select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+     dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony5AggnBinned <<- full_join(Colony5BinnedMoveTubeAggn, Colony5BinnedMoveCircleAggn)
@@ -170,7 +170,7 @@ CoordBinnedMovePre <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony5BinnedMoveCirclePre <- data_table %>%
@@ -192,7 +192,7 @@ CoordBinnedMovePre <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony5PreBinned <<- full_join(Colony5BinnedMoveTubePre, Colony5BinnedMoveCirclePre)
@@ -249,7 +249,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony6BinnedMoveCircleAggn <- data_table %>%
@@ -271,7 +271,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony6AggnBinned <<- full_join(Colony6BinnedMoveTubeAggn, Colony6BinnedMoveCircleAggn)
@@ -328,7 +328,7 @@ CoordBinnedMovePre <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony6BinnedMoveCirclePre <- data_table %>%
@@ -350,7 +350,7 @@ CoordBinnedMovePre <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony6PreBinned <<- full_join(Colony6BinnedMoveTubePre, Colony6BinnedMoveCirclePre)
@@ -407,7 +407,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony7BinnedMoveCircleAggn <- data_table %>%
@@ -429,7 +429,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony7AggnBinned <<- full_join(Colony7BinnedMoveTubeAggn, Colony7BinnedMoveCircleAggn)
@@ -485,7 +485,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony7BinnedMoveCirclePre <- data_table %>%
@@ -507,7 +507,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony7PreBinned <<- full_join(Colony7BinnedMoveTubePre, Colony7BinnedMoveCirclePre)
@@ -564,7 +564,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony8BinnedMoveCircleAggn <- data_table %>%
@@ -586,7 +586,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony8AggnBinned <<- full_join(Colony8BinnedMoveTubeAggn, Colony8BinnedMoveCircleAggn)
@@ -642,7 +642,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony8BinnedMoveCirclePre <- data_table %>%
@@ -664,7 +664,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony8PreBinned <<- full_join(Colony8BinnedMoveTubePre, Colony8BinnedMoveCirclePre)
@@ -721,7 +721,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony9BinnedMoveCircleAggn <- data_table %>%
@@ -743,7 +743,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony9AggnBinned <<- full_join(Colony9BinnedMoveTubeAggn, Colony9BinnedMoveCircleAggn)
@@ -799,7 +799,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony9BinnedMoveCirclePre <- data_table %>%
@@ -821,7 +821,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony9PreBinned <<- full_join(Colony9BinnedMoveTubePre, Colony9BinnedMoveCirclePre)
@@ -878,7 +878,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony11BinnedMoveCircleAggn <- data_table %>%
@@ -900,7 +900,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony11AggnBinned <<- full_join(Colony11BinnedMoveTubeAggn, Colony11BinnedMoveCircleAggn)
@@ -956,7 +956,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony11BinnedMoveCirclePre <- data_table %>%
@@ -978,7 +978,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony11PreBinned <<- full_join(Colony11BinnedMoveTubePre, Colony11BinnedMoveCirclePre)
@@ -1035,7 +1035,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony13BinnedMoveCircleAggn <- data_table %>%
@@ -1057,7 +1057,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony13AggnBinned <<- full_join(Colony13BinnedMoveTubeAggn, Colony13BinnedMoveCircleAggn)
@@ -1113,7 +1113,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony13BinnedMoveCirclePre <- data_table %>%
@@ -1135,7 +1135,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony13PreBinned <<- full_join(Colony13BinnedMoveTubePre, Colony13BinnedMoveCirclePre)
@@ -1192,7 +1192,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony17BinnedMoveCircleAggn <- data_table %>%
@@ -1214,7 +1214,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony17AggnBinned <<- full_join(Colony17BinnedMoveTubeAggn, Colony17BinnedMoveCircleAggn)
@@ -1270,7 +1270,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony17BinnedMoveCirclePre <- data_table %>%
@@ -1292,7 +1292,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony17PreBinned <<- full_join(Colony17BinnedMoveTubePre, Colony17BinnedMoveCirclePre)
@@ -1349,7 +1349,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony18BinnedMoveCircleAggn <- data_table %>%
@@ -1371,7 +1371,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony18AggnBinned <<- full_join(Colony18BinnedMoveTubeAggn, Colony18BinnedMoveCircleAggn)
@@ -1427,7 +1427,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony18BinnedMoveCirclePre <- data_table %>%
@@ -1449,7 +1449,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony18PreBinned <<- full_join(Colony18BinnedMoveTubePre, Colony18BinnedMoveCirclePre)
@@ -1506,7 +1506,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony20BinnedMoveCircleAggn <- data_table %>%
@@ -1528,7 +1528,7 @@ CoordBinnedMoveAggn <- function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony20AggnBinned <<- full_join(Colony20BinnedMoveTubeAggn, Colony20BinnedMoveCircleAggn)
@@ -1584,7 +1584,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                                Y >= BinCoordAssignMoveTube$Y[9], 8, # Bin 7
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds", "AntLength.sec", "Bin")) # Select the desired columns
   
   # CIRCLE NEST
   Colony20BinnedMoveCirclePre <- data_table %>%
@@ -1606,7 +1606,7 @@ CoordBinnedMovePre<-function(data_table){
                                                                      if_else(Y >= BinCoordAssignMoveCircle$Y[7], 8, # Bin 8
                                                                              0 # Else 0 (shouldn't happen)
                                                                      ))))))))) %>%
-    select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
+    dplyr::select(c("Colony", "Nest", "Trial", "Seconds","AntLength.sec","Bin")) # Select the desired columns
   
   # Join the two binned data sets
   Colony20PreBinned <<- full_join(Colony20BinnedMoveTubePre, Colony20BinnedMoveCirclePre)

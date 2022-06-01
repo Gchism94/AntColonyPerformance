@@ -1,8 +1,8 @@
 ##########################################################################################################
 ## Author: GREG CHISM & ALANN RATHERY
-## Date: May 2022 
+## Date: JUNE 2022 
 ## email: gchism@arizona.edu
-## Project: Impact of nest architecture on communication networks in the ant Temnothorax rugatulus 
+## Project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
 ## Title: Worker interaction network matrix generation 
 ##########################################################################################################
 

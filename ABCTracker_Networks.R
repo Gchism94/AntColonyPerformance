@@ -1,21 +1,19 @@
 ##########################################################################################################
 ## Author: GREG CHISM 
-## Date: JAN 2022 (CURRENT)
-## email: gchism@email.arizona.edu
-## Project: Impact of nest architecture on communication networks in the ant Temnothorax rugatulus 
+## Date: JUNE 2022 
+## email: gchism@.arizona.edu
+## Project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
 ## Title: Worker interaction networks 
 ##########################################################################################################
 
 ####### DESCRIPTION OF THE SCRIPT##########
-# This script is to create a graph of network from a matrix of contact. In the first time the aim is to 
-# transform the matrix into the 2 dataset that we will use, the nodes dataset and the edge dataset
-# Once these datasets are done, we will create the network
+# Network production from adjacency matrices produced from ABCTracker_AdjacencyMatrix.R
+# Network measures related to colony performance
+# Network comparative measures
+# All associated visualization and analyses
 
 # READ ME: 
-# EITHER - You will need to run all of the code from ABCTrackerWorking.R needed to produce the distance from the nest entrance datasets for each video
-# OR - You will need to load all of the files from the NetworkData folder
-# You will also need to produce all matrices from the ABCTracker_data_extraction.R script
-
+# You will need to run all of the code from ABCTracker_Movement.R needed to produce the distance from the nest entrance datasets for each video
 
 ##########################################################################################################
 # INSTALL & LOAD REQUIRED PACKAGES
@@ -3876,7 +3874,7 @@ FullNetComparisonFinal <- full_join(Colony5NetComparison, Colony6NetComparison) 
 # Nest - Nest shape (Tube / Circle)
 # Trial - The assay of the video (Aggn / Pre), note that pre is the baseline assay
 # Colony - Colony identification 
-summary(lm(HC ~ ScaledDist * Nest * Trial + Colony, data = FullHCDistFinal))
+summary(lm(HC ~ ScaledDist * Nest * Trial + Colony, data = FullHCDistFinal))$coefficients
 
 # NETWORK EFFICIENCY
 

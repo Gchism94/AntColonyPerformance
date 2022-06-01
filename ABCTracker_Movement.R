@@ -1,20 +1,18 @@
 ##########################################################################################################
 ## Author: GREG CHISM
-## Date: JUN 2022
+## Date: JUNE 2022
 ## email: gchism@arizona.edu
-## Project: Nest shape influences colony organization in ants (movement / activity)
+## Project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
 ## Title: ABCTracker movement data processing, visualization, and analysis
 ##########################################################################################################
 
 #######DESCRIPTION OF THE SCRIPT##########
-# This code is to replicate the analyses and figures for the following in my second chapter:
 # Movement raw data import and processing
 # Speed comparisons & analyses
 # Traffic jams/ interquartile lengths
 # Distance to the entrance & movement speeds
 # Distance interquartile lengths
-# Aggression performance analyses
-# All visualizations
+# All associated visualizations and analyses
 
 ##########################################################################################################
 # INSTALL & LOAD REQUIRED PACKAGES
@@ -367,8 +365,9 @@ Colony9Pre <- full_join(Colony9CirclePre, Colony9TubePre)
 # COLONY 11
 # INVADER ASSAY
 unzip("Colony11CircleJune_18AggnT.csv.zip")
-Colony11CircleAggnT  <- read_csv("Colony11CircleJune_18AggnT.csv") %>%
-  select(-c(Tag, Completed))
+
+Colony11CircleAggnT  <- read_csv("Colony11CircleJune_18AggnT.csv")%>%
+  dplyr::select(-c("Tag", "Completed"))
 
 Colony11CircleAggnT <- setNames(Colony11CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -674,15 +673,6 @@ Colony20TubePre <- Colony20TubePreT %>%
 
 # Joining the final data sets 
 Colony20Pre <- full_join(Colony20CirclePre, Colony20TubePre)
-
-# Remove the loaded data sets, you don't need them and they take up a lot of computer memory
-rm("Colony13_Tube_29_June_18_AggnPre.csv", "Colony13CircleJune_18AggnT.csv",
-   "Colony13TubeJune_18AggnT.csv", "Colony17_21_July_18_AggnPrePM_2.csv",
-   "Colony17_Circle_12_Aug_18_AggnPreAM.csv", "Colony17CircleAug_18AggnT.csv",
-   "Colony17TubeJuly_18AggnT.csv", "Colony18_Circle_14_Aug_18_AggnPreAM.csv",
-   "Colony18CircleAug_18AggnT.csv", "Colony18TubeJuly_18AggnT.csv",
-   "Colony20_18Aug20_CircPre.csv", "Colony20_Tube_1_Aug_18_AggnPreAM.csv",
-   "Colony20CircleAug_18AggnT.csv", "Colony20TubeAug_18AggnT.csv")
 
 ##########################################################################################################
 # TIME BINS (SECONDS)
@@ -1453,7 +1443,7 @@ DistanceCoordsFunctionTrackerTubeBase6 <- function(data.table){
 
 # Run the distance to the tube nest entrance function for the Colony6TubePre data set
 DistanceCoordsFunctionTrackerTubeBase6(Colony6TubePre)
-head(Colony6AggnDist)
+
 # CIRCLE NEST
 # INVADER
 DistanceCoordsFunctionTrackerCircleAggn6 <-function(data.table){
@@ -4434,6 +4424,7 @@ CirclePreMax = PreAssayTestFull %>% # Baseline assay circle nest data set
   ungroup() %>% # Ungroup the data
   distinct() # Remove duplicates
 
+# INVADER ASSAY
 CircleAggnMax = AggnAssayTestFull %>% # Baseline assay tube nest data set
   filter(Nest == "Circle" & AntLength.sec < 10) %>% # Remove any data points that are usually 1 frame artifacts, they are always above 10 ant-lengths / sec
   group_by(Secs20) %>% # Group by the twenty-second bin column
@@ -4442,7 +4433,9 @@ CircleAggnMax = AggnAssayTestFull %>% # Baseline assay tube nest data set
   ungroup() %>% # Ungroup the data
   distinct() # Remove duplicates
 
-TubeAggnMax = AggnAssayTestFull %>% # Aggression assay circle nest data set
+# TUBE NEST
+# BASELINE ASSAY
+TubePreMax = PreAssayTestFull %>% # Aggression assay tube nest data set
   filter(Nest == "Tube" & AntLength.sec < 10) %>% # Remove any data points that are usually 1 frame artifacts, they are always above 10 ant-lengths / sec
   group_by(Secs20) %>% # Group by the twenty-second bin column
   mutate(MaxValues = specify_decimal(max(AntLength.sec), 3)) %>% # Create a column of max values, rounded to the nearest thousandths 
@@ -4450,7 +4443,9 @@ TubeAggnMax = AggnAssayTestFull %>% # Aggression assay circle nest data set
   ungroup() %>% # Ungroup the data
   distinct() # Remove duplicates
 
-TubePreMax = PreAssayTestFull %>% # Aggression assay tube nest data set
+# TUBE NEST
+# INVADER ASSAY
+TubeAggnMax = AggnAssayTestFull %>% # Aggression assay circle nest data set
   filter(Nest == "Tube" & AntLength.sec < 10) %>% # Remove any data points that are usually 1 frame artifacts, they are always above 10 ant-lengths / sec
   group_by(Secs20) %>% # Group by the twenty-second bin column
   mutate(MaxValues = specify_decimal(max(AntLength.sec), 3)) %>% # Create a column of max values, rounded to the nearest thousandths 
@@ -4526,8 +4521,8 @@ SpeedFig <- ggarrange(PreTime, AggnTime,
                      ncol = 2, nrow = 1,
                      font.label = list(size = 20, color = "black", face = "plain"))
 
-# Annotate the compileded plots and produce common x and y axes
-Speed_Fig <- annotate_figure(Speed.Fig,
+# Annotate the compiled plots and produce common x and y axes
+Speed_Fig <- annotate_figure(SpeedFig,
                 top = NULL,
                 bottom = text_grob("Nest shape", color = "black",
                                    size = 20, x = 0.53),
@@ -4642,7 +4637,7 @@ SpeedFigFull <- ggarrange(Circle.PreTime, Circle.AggnTime,
                          ncol = 2, nrow = 2)
 
 # Annotate the compiled plots and produce common x and y axes
-Speed_FigFull <- annotate_figure(Speed.FigFull,
+Speed_FigFull <- annotate_figure(SpeedFigFull,
                 top = NULL,
                 bottom = text_grob("Time (s)", color = "black",
                                    size = 20, x = 0.53),
@@ -4697,9 +4692,8 @@ PreAssayTestIQR <- PreAssayTestFullRaw %>%
 FullAssayTestIQR <- full_join(AggnAssayTestIQR, PreAssayTestIQR)
 
 ##########################################################################################################
-# FIGURES: OVERALL WORKER SPEED OVER TIME IQR & SAMPLE SIZES
-# (1) Boxplots of the IQR of average worker speed (twenty-second intervals) in the aggression v baseline assays in each nest
-# (2) Sample sizes for the average worker speed IQR aggression and baseline assays: mean and standard deviation
+# FIGURES: OVERALL WORKER SPEED OVER TIME IQR
+# Boxplots of the IQR of average worker speed (twenty-second intervals) in the aggression v baseline assays in each nest
 ##########################################################################################################
 
 # OVERALL AVERAGE WORKER SPEED IQR (INVADER V BASELINE)
@@ -4781,27 +4775,6 @@ summary(lmer(AvgIQR ~ Nest * Trial + (1|Colony), data = FullAssayTestIQR))
 
 # Marginal and conditional R-squared, showing the influence of the random effect on the model
 r.squaredGLMM(lmer(AvgIQR ~ Nest * Trial + (1|Colony), data = FullAssayTestIQR))
-
-# SAMPLE SIZES: AVERAGE WORKER SPEED (TWENTY-SECOND BINS) FOR EACH ASSAY, AVERAGE IQR
-# BASELINE ASSAY
-FullAssayTestIQR %>% # IQR data set
-  filter(Trial == "Pre") %>%
-  group_by(Nest, Trial) %>%
-  mutate(Count = n()) %>%
-  ungroup() %>%
-  mutate(AvgCount = mean(Count), StdDev = sd(Count)) %>%
-  dplyr::select(c(AvgCount), StdDev) %>%
-  distinct()
-
-# INVADER ASSAY
-FullAssayTestIQR %>% 
-  filter(Trial == "Aggn") %>%
-  group_by(Nest, Trial) %>%
-  mutate(Count = n()) %>%
-  ungroup() %>%
-  mutate(AvgCount = mean(Count), StdDev = sd(Count)) %>%
-  dplyr::select(c(AvgCount), StdDev) %>%
-  distinct()
 
 ##########################################################################################################
 # DATA PROCESSING, ANALYSES, VISUALIZATION: WORKER SPEED OVER SPACE 
@@ -5074,9 +5047,8 @@ FullAssayTestDistIQR <- AggnAssayTestDistIQR %>%
   full_join(PreAssayTestDistIQR1)
 
 ##########################################################################################################
-# FIGURES: OVERALL WORKER SPEED OVER NEST SPACE IQR & SAMPLE SIZES
-# (1) Boxplots of the IQR of average worker speed (0.05 scaled distance from the nest entrance bins) in the aggression v baseline assays in each nest
-# (2) Sample sizes for the average worker speed distance IQR aggression and baseline assays: mean and standard deviation
+# FIGURES: OVERALL WORKER SPEED OVER NEST SPACE IQRs
+# Boxplots of the IQR of average worker speed (0.05 scaled distance from the nest entrance bins) in the aggression v baseline assays in each nest
 ##########################################################################################################
 
 # OVERALL AVERAGE WORKER SPEED IQR DISTANCE (INVADER V BASELINE)
