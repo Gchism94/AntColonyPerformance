@@ -18,6 +18,7 @@ pacman::p_load(assertthat, # Loading required packages for code below. p_load() 
                data.table,
                forcats,
                ggpubr,
+               here,
                lme4,
                lmerTest,
                magrittr,
@@ -25,12 +26,12 @@ pacman::p_load(assertthat, # Loading required packages for code below. p_load() 
                readr,
                tidyverse)
 
-##########################################################################################################
+ ##########################################################################################################
 # LOAD THE REQUIRED DATA SETS
 ##########################################################################################################
 
 # RAW DATA PROCESSING
-Aggression_Data_Full <- read.csv("Aggression_Data_Working.csv") %>% # Raw data set
+Aggression_Data_Full <- read.csv(here("analysis", "data", "raw_data", "Aggression_Data_Working.csv")) %>% # Raw data set
   mutate(Removed = Inv.Remov - Inv.Insert) # Add a column for invader removal time (invader removal time - invader insertion time, in seconds)
 
 ##########################################################################################################

@@ -48,10 +48,10 @@ pacman::p_load(reshape2, # Loading required packages for code below. p_load() wi
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony5TubeAggnNRMatrix <- read.csv("Colony5TubeAggnNRMatrix.csv", row.names = 1, header = TRUE)
+Colony5TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony5TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE)
 
 # RECIPROCAL
-Colony5TubeAggnRMatrix <- read.csv("Colony5TubeAggnRMatrix.csv", row.names = 1, header = TRUE)
+Colony5TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony5TubeAggnRMatrix.csv"), row.names = 1, header = TRUE)
 
 # Matrix addition of the two matrices
 Colony5TubeAggnMatrix <- as.matrix(Colony5TubeAggnNRMatrix + Colony5TubeAggnRMatrix)
@@ -61,10 +61,10 @@ rm("Colony5TubeAggnNRMatrix", "Colony5TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony5CircleAggnNRMatrix <- read.csv("Colony5CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony5CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony5CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony5CircleAggnRMatrix <- read.csv("Colony5CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony5CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony5CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony5CircleAggnMatrix <- as.matrix(Colony5CircleAggnNRMatrix + Colony5CircleAggnRMatrix)
@@ -75,10 +75,10 @@ rm("Colony5CircleAggnNRMatrix", "Colony5CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony5TubePreNRMatrix <- read.csv("Colony5TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony5TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony5TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony5TubePreRMatrix <- read.csv("Colony5TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony5TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony5TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony5TubePreMatrix <- as.matrix(Colony5TubePreNRMatrix + Colony5TubePreRMatrix)
@@ -88,10 +88,10 @@ rm("Colony5TubePreNRMatrix", "Colony5TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony5CirclePreNRMatrix <- read.csv("Colony5CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony5CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony5CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony5CirclePreRMatrix <- read.csv("Colony5CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony5CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony5CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony5CirclePreMatrix <- as.matrix(Colony5CirclePreNRMatrix + Colony5CirclePreRMatrix)
@@ -103,10 +103,10 @@ rm("Colony5CirclePreNRMatrix", "Colony5CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony6TubeAggnNRMatrix <- read.csv("Colony6TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony6TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony6TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony6TubeAggnRMatrix <- read.csv("Colony6TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony6TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony6TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony6TubeAggnMatrix <- as.matrix(Colony6TubeAggnNRMatrix + Colony6TubeAggnRMatrix)
@@ -116,10 +116,10 @@ rm("Colony6TubeAggnNRMatrix", "Colony6TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony6CircleAggnNRMatrix <- read.csv("Colony6CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony6CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony6CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony6CircleAggnRMatrix <- read.csv("Colony6CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony6CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony6CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony6CircleAggnMatrix <- as.matrix(Colony6CircleAggnNRMatrix + Colony6CircleAggnRMatrix)
@@ -130,10 +130,10 @@ rm("Colony6CircleAggnNRMatrix", "Colony6CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony6TubePreNRMatrix <- read.csv("Colony6TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony6TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony6TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony6TubePreRMatrix <- read.csv("Colony6TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony6TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony6TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony6TubePreMatrix <- as.matrix(Colony6TubePreNRMatrix + Colony6TubePreRMatrix)
@@ -143,10 +143,10 @@ rm("Colony6TubePreNRMatrix", "Colony6TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony6CirclePreNRMatrix <- read.csv("Colony6CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony6CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony6CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony6CirclePreRMatrix <- read.csv("Colony6CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony6CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony6CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony6CirclePreMatrix <- as.matrix(Colony6CirclePreNRMatrix + Colony6CirclePreRMatrix)
@@ -158,10 +158,10 @@ rm("Colony6CirclePreNRMatrix", "Colony6CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony7TubeAggnNRMatrix <- read.csv("Colony7TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony7TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony7TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony7TubeAggnRMatrix <- read.csv("Colony7TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony7TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony7TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony7TubeAggnMatrix <- as.matrix(Colony7TubeAggnNRMatrix + Colony7TubeAggnRMatrix)
@@ -171,10 +171,10 @@ rm("Colony7TubeAggnNRMatrix", "Colony7TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony7CircleAggnNRMatrix <- read.csv("Colony7CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony7CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony7CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony7CircleAggnRMatrix <- read.csv("Colony7CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony7CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony7CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony7CircleAggnMatrix <- as.matrix(Colony7CircleAggnNRMatrix + Colony7CircleAggnRMatrix)
@@ -184,10 +184,10 @@ rm("Colony7CircleAggnNRMatrix", "Colony7CircleAggnRMatrix")
 
 # BASELINE ASSAY
 # TUBE NEST
-Colony7TubePreNRMatrix <- read.csv("Colony7TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony7TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony7TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony7TubePreRMatrix <- read.csv("Colony7TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony7TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony7TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony7TubePreMatrix <- as.matrix(Colony7TubePreNRMatrix + Colony7TubePreRMatrix)
@@ -197,10 +197,10 @@ rm("Colony7TubePreNRMatrix", "Colony7TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony7CirclePreNRMatrix <- read.csv("Colony7CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony7CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony7CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony7CirclePreRMatrix <- read.csv("Colony7CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony7CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony7CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony7CirclePreMatrix <- as.matrix(Colony7CirclePreNRMatrix + Colony7CirclePreRMatrix)
@@ -212,10 +212,10 @@ rm("Colony7CirclePreNRMatrix", "Colony7CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony8TubeAggnNRMatrix <- read.csv("Colony8TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony8TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony8TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony8TubeAggnRMatrix <- read.csv("Colony8TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony8TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony8TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony8TubeAggnMatrix <- as.matrix(Colony8TubeAggnNRMatrix + Colony8TubeAggnRMatrix)
@@ -225,10 +225,10 @@ rm("Colony8TubeAggnNRMatrix", "Colony8TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony8CircleAggnNRMatrix <- read.csv("Colony8CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony8CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony8CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony8CircleAggnRMatrix <- read.csv("Colony8CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony8CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony8CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony8CircleAggnMatrix <- as.matrix(Colony8CircleAggnNRMatrix + Colony8CircleAggnRMatrix)
@@ -239,10 +239,10 @@ rm("Colony8CircleAggnNRMatrix", "Colony8CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony8TubePreNRMatrix <- read.csv("Colony8TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony8TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony8TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony8TubePreRMatrix <- read.csv("Colony8TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony8TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony8TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony8TubePreMatrix <- as.matrix(Colony8TubePreNRMatrix + Colony8TubePreRMatrix)
@@ -252,10 +252,10 @@ rm("Colony8TubePreNRMatrix", "Colony8TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony8CirclePreNRMatrix <- read.csv("Colony8CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony8CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony8CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony8CirclePreRMatrix <- read.csv("Colony8CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony8CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony8CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony8CirclePreMatrix <- as.matrix(Colony8CirclePreNRMatrix + Colony8CirclePreRMatrix)
@@ -267,10 +267,10 @@ rm("Colony8CirclePreNRMatrix", "Colony8CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony9TubeAggnNRMatrix <- read.csv("Colony9TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony9TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony9TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony9TubeAggnRMatrix <- read.csv("Colony9TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony9TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony9TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony9TubeAggnMatrix <- as.matrix(Colony9TubeAggnNRMatrix + Colony9TubeAggnRMatrix)
@@ -280,10 +280,10 @@ rm("Colony9TubeAggnNRMatrix", "Colony9TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony9CircleAggnNRMatrix <- read.csv("Colony9CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony9CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony9CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony9CircleAggnRMatrix <- read.csv("Colony9CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony9CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony9CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony9CircleAggnMatrix <- as.matrix(Colony9CircleAggnNRMatrix + Colony9CircleAggnRMatrix)
@@ -294,10 +294,10 @@ rm("Colony9CircleAggnNRMatrix", "Colony9CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony9TubePreNRMatrix <- read.csv("Colony9TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony9TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony9TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony9TubePreRMatrix <- read.csv("Colony9TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony9TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony9TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony9TubePreMatrix <- as.matrix(Colony9TubePreNRMatrix + Colony9TubePreRMatrix)
@@ -307,10 +307,10 @@ rm("Colony9TubePreNRMatrix", "Colony9TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony9CirclePreNRMatrix <- read.csv("Colony9CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony9CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony9CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony9CirclePreRMatrix <- read.csv("Colony9CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony9CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony9CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony9CirclePreMatrix <- as.matrix(Colony9CirclePreNRMatrix + Colony9CirclePreRMatrix)
@@ -322,10 +322,10 @@ rm("Colony9CirclePreNRMatrix", "Colony9CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony11TubeAggnNRMatrix <- read.csv("Colony11TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony11TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony11TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony11TubeAggnRMatrix <- read.csv("Colony11TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony11TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony11TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony11TubeAggnMatrix <- as.matrix(Colony11TubeAggnNRMatrix + Colony11TubeAggnRMatrix)
@@ -335,10 +335,10 @@ rm("Colony11TubeAggnNRMatrix", "Colony11TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony11CircleAggnNRMatrix <- read.csv("Colony11CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony11CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony11CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony11CircleAggnRMatrix <- read.csv("Colony11CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony11CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony11CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony11CircleAggnMatrix <- as.matrix(Colony11CircleAggnNRMatrix + Colony11CircleAggnRMatrix)
@@ -349,10 +349,10 @@ rm("Colony11CircleAggnNRMatrix", "Colony11CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony11TubePreNRMatrix <- read.csv("Colony11TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony11TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony11TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony11TubePreRMatrix <- read.csv("Colony11TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony11TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony11TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony11TubePreMatrix <- as.matrix(Colony11TubePreNRMatrix + Colony11TubePreRMatrix)
@@ -362,10 +362,10 @@ rm("Colony11TubePreNRMatrix", "Colony11TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony11CirclePreNRMatrix <- read.csv("Colony11CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony11CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony11CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony11CirclePreRMatrix <- read.csv("Colony11CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony11CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony11CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony11CirclePreMatrix <- as.matrix(Colony11CirclePreNRMatrix + Colony11CirclePreRMatrix)
@@ -377,10 +377,10 @@ rm("Colony11CirclePreNRMatrix", "Colony11CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony13TubeAggnNRMatrix <- read.csv("Colony13TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony13TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony13TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony13TubeAggnRMatrix <- read.csv("Colony13TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony13TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony13TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony13TubeAggnMatrix <- as.matrix(Colony13TubeAggnNRMatrix + Colony13TubeAggnRMatrix)
@@ -390,10 +390,10 @@ rm("Colony13TubeAggnNRMatrix", "Colony13TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony13CircleAggnNRMatrix <- read.csv("Colony13CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony13CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony13CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony13CircleAggnRMatrix <- read.csv("Colony13CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony13CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony13CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony13CircleAggnMatrix <- as.matrix(Colony13CircleAggnNRMatrix + Colony13CircleAggnRMatrix) 
@@ -404,10 +404,10 @@ rm("Colony13CircleAggnNRMatrix", "Colony13CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony13TubePreNRMatrix <- read.csv("Colony13TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony13TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony13TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony13TubePreRMatrix <- read.csv("Colony13TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony13TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony13TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony13TubePreMatrix <- as.matrix(Colony13TubePreNRMatrix + Colony13TubePreRMatrix)
@@ -417,10 +417,10 @@ rm("Colony13TubePreNRMatrix", "Colony13TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony13CirclePreNRMatrix <- read.csv("Colony13CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony13CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony13CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony13CirclePreRMatrix <- read.csv("Colony13CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony13CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony13CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony13CirclePreMatrix <- as.matrix(Colony13CirclePreNRMatrix + Colony13CirclePreRMatrix)
@@ -432,10 +432,10 @@ rm("Colony13CirclePreNRMatrix", "Colony13CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony17TubeAggnNRMatrix <- read.csv("Colony17TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony17TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony17TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony17TubeAggnRMatrix <- read.csv("Colony17TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony17TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony17TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony17TubeAggnMatrix <- as.matrix(Colony17TubeAggnNRMatrix + Colony17TubeAggnRMatrix)
@@ -445,10 +445,10 @@ rm("Colony17TubeAggnNRMatrix", "Colony17TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony17CircleAggnNRMatrix <- read.csv("Colony17CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony17CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony17CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony17CircleAggnRMatrix <- read.csv("Colony17CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony17CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony17CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony17CircleAggnMatrix <- as.matrix(Colony17CircleAggnNRMatrix + Colony17CircleAggnRMatrix)
@@ -459,10 +459,10 @@ rm("Colony17CircleAggnNRMatrix", "Colony17CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony17TubePreNRMatrix <- read.csv("Colony17TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony17TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony17TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony17TubePreRMatrix <- read.csv("Colony17TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony17TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony17TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony17TubePreMatrix <- as.matrix(Colony17TubePreNRMatrix + Colony17TubePreRMatrix)
@@ -472,10 +472,10 @@ rm("Colony17TubePreNRMatrix", "Colony17TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony17CirclePreNRMatrix <- read.csv("Colony17CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony17CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony17CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony17CirclePreRMatrix <- read.csv("Colony17CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony17CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony17CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony17CirclePreMatrix <- as.matrix(Colony17CirclePreNRMatrix + Colony17CirclePreRMatrix)
@@ -487,10 +487,10 @@ rm("Colony17CirclePreNRMatrix", "Colony17CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony18TubeAggnNRMatrix <- read.csv("Colony18TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony18TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony18TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony18TubeAggnRMatrix <- read.csv("Colony18TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony18TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony18TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony18TubeAggnMatrix <- as.matrix(Colony18TubeAggnNRMatrix + Colony18TubeAggnRMatrix)
@@ -500,10 +500,10 @@ rm("Colony18TubeAggnNRMatrix", "Colony18TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony18CircleAggnNRMatrix <- read.csv("Colony18CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony18CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony18CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony18CircleAggnRMatrix <- read.csv("Colony18CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony18CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony18CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony18CircleAggnMatrix <- as.matrix(Colony18CircleAggnNRMatrix + Colony18CircleAggnRMatrix)
@@ -514,10 +514,10 @@ rm("Colony18CircleAggnNRMatrix", "Colony18CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony18TubePreNRMatrix <- read.csv("Colony18TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony18TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony18TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony18TubePreRMatrix <- read.csv("Colony18TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony18TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony18TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony18TubePreMatrix <- as.matrix(Colony18TubePreNRMatrix + Colony18TubePreRMatrix)
@@ -527,10 +527,10 @@ rm("Colony18TubePreNRMatrix", "Colony18TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony18CirclePreNRMatrix <- read.csv("Colony18CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony18CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony18CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony18CirclePreRMatrix <- read.csv("Colony18CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony18CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony18CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony18CirclePreMatrix <- as.matrix(Colony18CirclePreNRMatrix + Colony18CirclePreRMatrix)
@@ -542,10 +542,10 @@ rm("Colony18CirclePreNRMatrix", "Colony18CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony20TubeAggnNRMatrix <- read.csv("Colony20TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony20TubeAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony20TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony20TubeAggnRMatrix <- read.csv("Colony20TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony20TubeAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony20TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony20TubeAggnMatrix <- as.matrix(Colony20TubeAggnNRMatrix + Colony20TubeAggnRMatrix)
@@ -555,10 +555,10 @@ rm("Colony20TubeAggnNRMatrix", "Colony20TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony20CircleAggnNRMatrix <- read.csv("Colony20CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony20CircleAggnNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony20CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony20CircleAggnRMatrix <- read.csv("Colony20CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
+Colony20CircleAggnRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony20CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony20CircleAggnMatrix <- as.matrix(Colony20CircleAggnNRMatrix + Colony20CircleAggnRMatrix)
@@ -569,10 +569,10 @@ rm("Colony20CircleAggnNRMatrix", "Colony20CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony20TubePreNRMatrix <- read.csv("Colony20TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony20TubePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony20TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony20TubePreRMatrix <- read.csv("Colony20TubePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony20TubePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony20TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony20TubePreMatrix <- as.matrix(Colony20TubePreNRMatrix + Colony20TubePreRMatrix)
@@ -582,10 +582,10 @@ rm("Colony20TubePreNRMatrix", "Colony20TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony20CirclePreNRMatrix <- read.csv("Colony20CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
+Colony20CirclePreNRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony20CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony20CirclePreRMatrix <- read.csv("Colony20CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
+Colony20CirclePreRMatrix <- read.csv(here("analysis", "data", "raw_data", "Colony20CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony20CirclePreMatrix <- as.matrix(Colony20CirclePreNRMatrix + Colony20CirclePreRMatrix)
@@ -4230,8 +4230,8 @@ NetComparisonsDiam_Full <- annotate_figure(NetComparisonsDiam,
                 right = NULL
 )
 
-# Save plot as a PDF
-ggsave(file = "FigS5.pdf", plot = NetComparisonsDiam_Full, width = 10.4, height = 5.2, units = "in")
+# Save plot as a PDF (CURRENTLY NOT USING)
+# ggsave(file = "FigS5.pdf", plot = NetComparisonsDiam_Full, width = 10.4, height = 5.2, units = "in")
 
 # NETWORK RECIPROCITY
 # BASELINE ASSAY
@@ -4294,7 +4294,7 @@ NetComparisonsRecip_Full <- annotate_figure(NetComparisonsRecip,
 )
 
 # Save plot as a PDF
-ggsave(file = "FigS6.pdf", plot = NetComparisonsRecip_Full, width = 10.4, height = 5.2, units = "in")
+ggsave(file = "FigS5.pdf", plot = NetComparisonsRecip_Full, width = 10.4, height = 5.2, units = "in")
 
 # NETWORK TRANSITIVITY
 # BASELINE ASSAY
@@ -4357,7 +4357,7 @@ NetComparisonsTrans_Full <- annotate_figure(NetComparisonsTrans,
 )
 
 # Save plot as a PDF
-ggsave(file = "FigS7.pdf", plot = NetComparisonsTrans_Full, width = 10.4, height = 5.2, units = "in")
+ggsave(file = "FigS6.pdf", plot = NetComparisonsTrans_Full, width = 10.4, height = 5.2, units = "in")
 
 # NETWORKS 
 # Palette for networks

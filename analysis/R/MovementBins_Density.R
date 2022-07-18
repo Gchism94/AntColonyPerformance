@@ -20,6 +20,7 @@ pacman::p_load(assertthat, # Loading required packages for code below. p_load() 
                data.table,
                forcats,
                ggpubr,
+               here,
                lme4,
                lmerTest,
                magrittr,
@@ -33,7 +34,7 @@ pacman::p_load(assertthat, # Loading required packages for code below. p_load() 
 
 # REFERENCE DATA SETS
 # BIN REFERENCE COORDINATES
-BinCoordAssignMove <- read.csv("BinCoordAssignMove.csv")
+BinCoordAssignMove <- read.csv(here("analysis", "data", "ref_data", "BinCoordAssignMove.csv"))
 
 
 # BIN ASSIGNMENT FUNCTION
@@ -1865,5 +1866,5 @@ SpeedDensityPlot <- annotate_figure(SpeedDensity,
 )
 
 # Save plot as a PDF
-ggsave(file = "Fig8.pdf", plot = SpeedDensityPlot, width = 10.4, height = 10.4, units = "in")
+ggsave(file = "Fig8.jpg", plot = SpeedDensityPlot, width = 10.4, height = 10.4, units = "in")
 
