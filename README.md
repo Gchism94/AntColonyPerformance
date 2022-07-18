@@ -1,7 +1,7 @@
 # AntColonyPerformance compendium
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Gchism94/AntColonyPerformance/main?urlpath=rstudio)
-[![.github/workflows/docker-hub.yml](https://github.com/Gchism94/NestArchOrg/actions/workflows/rdocker-hub.yml/badge.svg)](https://github.com/Gchism94/AntColonyPerformance/actions/workflows/run-on-docker.yml)
+[![.github/workflows/docker-hub.yml](https://github.com/Gchism94/AntColonyPerformance/actions/workflows/docker-hub.yml/badge.svg)](https://github.com/Gchism94/AntColonyPerformance/actions/workflows/run-on-docker.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## A compendium of code, data, and author's manuscript draft for In Preparation work
