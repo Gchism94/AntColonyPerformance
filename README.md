@@ -1,95 +1,53 @@
-# README for Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
+# AntColonyPerformance compendium
 
-***
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Gchism94/AntColonyPerformance/main?urlpath=rstudio)
+[![.github/workflows/docker-hub.yml](https://github.com/Gchism94/NestArchOrg/actions/workflows/rdocker-hub.yml/badge.svg)](https://github.com/Gchism94/AntColonyPerformance/actions/workflows/run-on-docker.yml)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+## A compendium of code, data, and author's manuscript draft for In Preparation work
 
 ## Overview
-Data and R script used for the manuscript: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
+This repository is organized as a reproducible research compendium. 
+Click the [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/Gchism94/AntColonyPerformance/main?urlpath=rstudio) button above to explore in an interactive RStudio session.  Binder uses [rocker-project.org](https://rocker-project.org) Docker images to ensure a consistent and reproducible computational environment.  These Docker images can also be used locally.  
 
-***
+## File Organization
 
-## Purpose of the study
-### Investigating how nest shape influences how _Temnothorax rugatulus_ colonies perform essential tasks, specifically nest defense. This includes colony performance against a conspecific nest invader, communication through worker interaction networks, and movement and traffic jams through the nest. 
+    analysis/
+    |
+    ├── paper/
+    │   ├── paper.Rmd       # this is the main document to edit
+    │   └── paper.pdf       # this is an elsevier .pdf written from paper.Rmd
+    |
+    ├── figures/            # location of the figures produced by the scripts in R
+    |
+    ├── data/
+    │   ├── RawData/        # data obtained from elsewhere
+    │   └── RefData/        # data used to obtain final data and during the analysis
+    |   
+    ├── supplementary-materials/
+    │   ├── Supplementary_Figures/     
+    |   |                   # supplementary figures for the main manuscript
+    │   └── Supplementary_Tables/      
+    |                       # supplementary tables for the main manuscript 
+    |
+    └── R                   # Run in the following order (also see associated README.md
+        ├── Stat_boxplot_custom.R
+        |                   # Custom box plot function to extend the whiskers to full data range (0th and 100th percentiles)
+        ├── AggnPerformance.R        
+        |                   # R script used to determine colony performance against an invader, including code for analyses and figures
+        ├── ABCTracker_Movement.R 
+        |                   # R script used to transform raw ABCTracker movement data to analyze colony activity
+        ├── MovementBins_Density.R  
+        |                   # R script used to bin data from ABCTracker_Movement.R to calculate worker traffic jams in relation to worker density
+        ├── ABCTracker_AdjacencyMatrix.R  
+        |                   # R script used to create adjacency matrices from raw ABCTracker movement data
+        └── ABCTracker_Networks.R  
+                            # R script used to create and analyze worker interaction networks from adjacency matrices per ABCTracker_AdjacencyMatrix.R
+        
 
-## Dependencies 
-##### Scripts for this manuscript should be executed in the following order: 
-1. Stat_boxplot_custom.R - Custom boxplot function, replacing geom_boxplot() in ggplot2. The function extends the whisker range to the data range
-2. AggnPerformance.r - Functions, plots, and analyses for colony performance in removing a conspecific nest invader
-3. ABCTracker_Networks.R - Functions, plots, and analyses for worker interaction networks
-4. ABCTracker_Movement.R - Functions, plots, and analyses for worker traffic analysis (excluding density)
-5. MovementBins_Density.R - Functions, plots, and analyses for worker traffic analysis in nest sections (density in the nest)
+An `Rmd` notebook and associated pdf for the manuscript can be found in [analysis](/paper). This notebook produces a .pdf document in elsevier format.  
 
-##### TO REPRODUCE ADJACENCY MATRICES
-* ABCTracker_AdjacencyMatrix.R
+README.md files are included in all subdirectories with explanations or contents related to the paper. It should also provide a useful starting point for extending and exploring these materials for other projects.
 
-##### Several packages are required, however all are loaded through the package "pacman", so be certain to install this package before running any other code.
-##### See the following documentation for further information on the "pacman" package: https://www.rdocumentation.org/packages/pacman/versions/0.5.1 
+Or to explore the code locally, clone or download this repository into RStudio or your preferred environment and install the compendium by running `devtools::install()`.  To install additional dependencies used only in formatting the figures, use `devtools::install(dep=TRUE)`.  
 
-***
-
-## Structure of the data
-### COLONY PERFORMANCE 
-#### Aggression_Data_Working.CSV
-###### Raw experimental data regarding invader removal 
-* Colony: Unique experimental colony identifiers
-* Nest: The nest shape treatment (Tube / Circle)
-* Trial: The experimental trial (Pre / Aggn), Pre = baseline and Aggn = Invader in the manuscript
-* Nest.Numb: The nest number in relation to whether the occupied nest was the first or second for that colony (1, 2) 
-* Assay: The invader assay number for the nest & trial combination (1-5)
-* Inv.Insert: Time (secs) in the assay video that the invader was inserted into the nest
-* Inv.Remov: Time (secs) in the assay video that the invader was removed from the nest (max = 900secs, indicating the invader was not removed)
-* Density: The density treatment (High / Low) 
-* Attacking.Max: The maximum number of workers attacking the invader in the nest
-* Attack.Remove: The number of workers attacking the invader when it was removed
-* Distance: The raw farthest distance from the entrance the invader penetrated the nest 
-* MaxDist: Max possible shortest distance from the nest entrance
-* ScaledDist: Quotient from Distance / MaxDist
-
-***
-
-###  INTERACTION NETWORKS
-#### All matrix .csv's, e.g., Colony5TubeAggnRMatrix.csv
-##### Adjacency matrices that show the number of reciprocal and non-reciprocal interactions between two workers
-* Columns and rows are symmetrically filled with all worker IDs from ABCTracker
-* Cells are the total number of times an interaction occurred between a pair of individuals throughout the assay video
-
-***
-
-### WORKER TRAFFIC
-#### All raw ABCTracker outputs, e.g., Colony5_2CircleOct_18AggnTest (names reflect original ABCTracker process names) 
-##### Raw ABCTracker outputs used for all traffic analyses and to produce interaction adjacency matrices (see above) 
-* id: ABCTracker assigned unique tracklet identifier (representing an individual ant)
-* frames: The frame number from the input video
-* locX: x-coordinate location (px) of the tracked ant 
-* locY: y-coordinate location (px) of the tracked ant
-* orientation: Direction the tracked ant is facing (0-360 degrees)
-* size1Px: Width of the tracklet box assigned to an individual ant (px)
-* size2Px: Length of the tracklet box assigned to an individual ant (px)
-* speedPxPerSec: Speed of the tracked ant (px/s)
-* Interpolated: IGNORE
-* headLocX: x-coordinate location (px) of the head of the tracked ant
-* headLocY: y-coordinate location (px) of the head of the tracked ant
-
-***
-
-### REFERENCE DATA (ABCTracker_Movement.R)
-#### Reference coordinates for the entrance of nest sections front-to-back and shortest distance to the entrance  
-##### AggnStudyTubeRefCoords.csv (Tube nest); AggnStudyCircleRefCoords.csv (Circle nest)
-* Colony: Unique experimental colony identifiers
-* Nest: The nest shape treatment (Tube / Circle)
-* Trial: The experimental trial (Pre / Aggn), Pre = baseline and Aggn = Invader in the manuscript
-* Coord: The reference coordinate number
-* XREF: x-coordinate reference
-* YREF: y-coordinate reference 
-
-***
-
-### REFERENCE DATA (MovementBins_Density.R)
-#### Reference binning coordinates to group ABCTracker output coordinates into nest sections
-* Colony: Unique experimental colony identifiers
-* Nest: The nest shape treatment (Tube / Circle)
-* Trial: The experimental trial (Pre / Aggn), Pre = baseline and Aggn = Invader in the manuscript
-* Coord: The reference coordinate number
-* X: x-coordinate reference
-* Y: y-coordinate reference 
-
-***
