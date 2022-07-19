@@ -46,7 +46,7 @@ Click the [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2
         
 
 An `Rmd` notebook and associated pdf for the manuscript can be found in [analysis](/paper). This notebook produces a .pdf document in elsevier format.
-NOTE: paper.md is NOT a current manuscript draft. 
+**NOTE: paper.md is NOT a current manuscript draft**. 
 
 README.md files are included in all subdirectories with explanations or contents related to the paper. It should also provide a useful starting point for extending and exploring these materials for other projects.
 
