@@ -4,6 +4,7 @@
 [![.github/workflows/docker-hub.yml](https://github.com/Gchism94/AntColonyPerformance/actions/workflows/docker-hub.yml/badge.svg)](https://github.com/Gchism94/AntColonyPerformance/actions/workflows/docker-hub.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <a href="https://de.cyverse.org/apps/de/48b6e7ae-8b64-11ec-92dc-008cfa5ae621/launch" target="_blank"><img src="https://img.shields.io/badge/Verse-latest-blue?style=plastic&logo=rstudio"></a>
+[![DOI](https://zenodo.org/badge/498113063.svg)](https://zenodo.org/badge/latestdoi/498113063)
 
 ## A compendium of code, data, and author's manuscript draft for In Preparation work
 
@@ -47,7 +48,6 @@ Click the [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2
         
 
 An `Rmd` notebook and associated pdf for the manuscript can be found in [analysis](/paper). This notebook produces a .pdf document in elsevier format.
-**NOTE: paper.md is NOT a current manuscript draft**. 
 
 README.md files are included in all subdirectories with explanations or contents related to the paper. It should also provide a useful starting point for extending and exploring these materials for other projects.
 
