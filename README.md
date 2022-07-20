@@ -8,7 +8,7 @@
 
 ## A compendium of code, data, and author's manuscript draft for In Preparation work
 
-### This pre-release can be cited as the following: 
+## This pre-release can be cited as the following: 
 > Greg T. Chism. (2022). Gchism94/AntColonyPerformance: (Pre-release) Research Compendium for In preparation work (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.6872019
 
 ## Overview
