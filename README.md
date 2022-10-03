@@ -13,7 +13,13 @@
 
 ## Overview
 This repository is organized as a reproducible research compendium. 
-Click the [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/Gchism94/AntColonyPerformance/main?urlpath=rstudio) button above to explore in an interactive RStudio session.  Binder uses [rocker-project.org](https://rocker-project.org) Docker images to ensure a consistent and reproducible computational environment.  These Docker images can also be used locally.  
+Click the [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/Gchism94/AntColonyPerformance/main?urlpath=rstudio) button above to explore in an interactive RStudio session.  Binder uses [rocker-project.org](https://rocker-project.org) Docker images to ensure a consistent and reproducible computational environment.  These Docker images can also be used locally. 
+
+This repository promotes the use of [CyVerse](https://cyverse.org/), a cloud-based alternative to the RStudio IDE, and a more scalable option to RStudio Cloud. <a href="https://de.cyverse.org/apps/de/48b6e7ae-8b64-11ec-92dc-008cfa5ae621/launch" target="_blank"></a>
+
+To use CyVerse, subscribe at the top-right corner found in the link here. Next click the badge above to open the latest version of rocker-verse, which opens an RStudio container with the tidyverse meta-package installed.
+
+Once loaded, run git clone https://github.com/Gchism94/Data7_EDA_In_R_Workshops.git to clone this repository and run everything as normal.
 
 ## File Organization
 
