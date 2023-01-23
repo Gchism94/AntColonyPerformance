@@ -56,7 +56,7 @@ Once loaded, run `git clone https://github.com/Gchism94/Data7_EDA_In_R_Workshops
                             # R script used to create and analyze worker interaction networks from adjacency matrices per ABCTracker_AdjacencyMatrix.R
         
 
-An `Rmd` notebook and associated pdf for the manuscript can be found in [analysis](/paper). This notebook produces a .pdf document in elsevier format.
+An `Rmd` notebook and associated pdf for the manuscript can be found in [analysis/paper](https://github.com/Gchism94/AntColonyPerformance/tree/main/analysis). This notebook produces a .pdf document in elsevier format.
 
 README.md files are included in all subdirectories with explanations or contents related to the paper. It should also provide a useful starting point for extending and exploring these materials for other projects.
 
