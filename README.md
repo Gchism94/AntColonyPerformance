@@ -19,7 +19,7 @@ This repository promotes the use of [CyVerse](https://cyverse.org/), a cloud-bas
 
 To use CyVerse, subscribe at the top-right corner found in the link here. Next click the badge above to open the latest version of rocker-verse, which opens an RStudio container with the tidyverse meta-package installed.
 
-Once loaded, run git clone https://github.com/Gchism94/Data7_EDA_In_R_Workshops.git to clone this repository and run everything as normal.
+Once loaded, run `git clone https://github.com/Gchism94/Data7_EDA_In_R_Workshops.git` to clone this repository and run everything as normal.
 
 ## File Organization
 
