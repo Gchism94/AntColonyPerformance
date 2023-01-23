@@ -5,7 +5,7 @@ Authors:
     person(given = "Greg",
            family = "Chism", "gchism@arizona.edu", role = c("aut", "cre"))
 Maintainer: Greg Chism <gchism@arizona.edu> 
-Description: Research comdendium for the project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
+Description: Research compendium for the project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
 License: GPLv3 + file LICENSE
 ByteCompile: true
 Encoding: UTF-8
