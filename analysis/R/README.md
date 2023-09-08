@@ -14,8 +14,8 @@ Data and R script used for the manuscript: Nest shape does not affect ant colony
 ##### Scripts for this manuscript should be executed in the following order: 
 1. Stat_boxplot_custom.R - Custom boxplot function, replacing geom_boxplot() in ggplot2. The function extends the whisker range to the data range
 2. AggnPerformance.r - Functions, plots, and analyses for colony performance in removing a conspecific nest invader
-3. ABCTracker_Networks.R - Functions, plots, and analyses for worker interaction networks
-4. ABCTracker_Movement.R - Functions, plots, and analyses for worker traffic analysis (excluding density)
+3. ABCTracker_Movement.R - Functions, plots, and analyses for worker traffic analysis (excluding density)
+4. ABCTracker_Networks.R - Functions, plots, and analyses for worker interaction networks
 5. MovementBins_Density.R - Functions, plots, and analyses for worker traffic analysis in nest sections (density in the nest)
 
 ##### TO REPRODUCE ADJACENCY MATRICES
