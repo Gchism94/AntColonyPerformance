@@ -12,9 +12,11 @@
 ##########################################################################################################
 # INSTALL & LOAD REQUIRED PACKAGES
 ##########################################################################################################
-install.packages("pacman") # Download package with function to load multiple packaged at once
+# Download package with function to load multiple packaged at once
+if (!require(pacman)) install.packages('pacman')
 
 pacman::p_load(assertthat, # Loading required packages for code below. p_load() will download packages that aren't in system library
+               CRSSIO,
                data.table,
                forcats,
                ggpubr,
@@ -31,7 +33,7 @@ pacman::p_load(assertthat, # Loading required packages for code below. p_load() 
 ##########################################################################################################
 
 # RAW DATA PROCESSING
-Aggression_Data_Full <- read.csv(here("analysis", "data", "raw_data", "Aggression_Data_Working.csv")) %>% # Raw data set
+Aggression_Data_Full <- read.csv(here("analysis", "data", "raw_data", "aggression", "Aggression_Data_Working.csv")) %>% # Raw data set
   mutate(Removed = Inv.Remov - Inv.Insert) # Add a column for invader removal time (invader removal time - invader insertion time, in seconds)
 
 ##########################################################################################################
@@ -123,7 +125,7 @@ AggnPerformPlot <- ggarrange(AggnPlot1, AggnPlot2, AggnPlot3,
           vjust = 1) 
 
 # Save plot as a PDF
-ggsave(file = "Fig2.pdf", plot = AggnPerformPlot, width = 10.4, height = 10.4, units = "in")
+ggsave(file = here("analysis", "figures", "Fig2.pdf"), plot = AggnPerformPlot, width = 10.4, height = 10.4, units = "in")
 
 # LINEAR MIXED EFFECTS MODEL
 # RESPONSE VARIABLE 

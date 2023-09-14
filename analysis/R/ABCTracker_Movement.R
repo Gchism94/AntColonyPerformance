@@ -1,6 +1,6 @@
 ##########################################################################################################
 ## Author: GREG CHISM
-## Date: JUNE 2022
+## Date: Feb 2023
 ## email: gchism@arizona.edu
 ## Project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
 ## Title: ABCTracker movement data processing, visualization, and analysis
@@ -17,11 +17,11 @@
 ##########################################################################################################
 # INSTALL & LOAD REQUIRED PACKAGES
 ##########################################################################################################
-install.packages("pacman") # Download package with function to load multiple packaged at once
+# Download package with function to load multiple packaged at once
+if (!require(pacman)) install.packages('pacman')
 
 pacman::p_load(assertthat, # Loading required packages for code below. p_load() will download packages that aren't in system library
                data.table,
-               filesstrings,
                forcats,
                janitor,
                gganimate,
@@ -56,12 +56,12 @@ AggnStudyCircleRefCoords <- read.csv(here("analysis", "data", "ref_data", "AggnS
 # COLONY 5 
 # INVADER ASSAY
 # Import the data and change raw column headers to a more compatible format
-Colony5CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony5_2CircleOct_18AggnTest.csv"))
+Colony5CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Circle_Aggn.csv"))
 
 Colony5CircleAggnT <- setNames(Colony5CircleAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                      "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony5TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony5TubeAug_17AggnTNew.csv"))
+Colony5TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Tube_Aggn.csv"))
 
 Colony5TubeAggnT <- setNames(Colony5TubeAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                  "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
@@ -95,12 +95,12 @@ Colony5TubeAggn <- Colony5TubeAggnT %>%
 Colony5Aggn <- full_join(Colony5CircleAggn, Colony5TubeAggn)
 
 # BASELINE ASSAY
-Colony5CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony5_2_Oct_17_AggnPreAM2.csv"))
+Colony5CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Circle_Pre.csv"))
 
 Colony5CirclePreT <- setNames(Colony5CirclePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                    "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony5TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony5_24Tube_Oct_17_AggnExpPM.csv"))
+Colony5TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Tube_Pre.csv"))
 
 Colony5TubePreT <- setNames(Colony5TubePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
@@ -127,12 +127,12 @@ Colony5Pre <- full_join(Colony5CirclePre, Colony5TubePre)
 
 # COLONY 6 
 # INVADER ASSAY
-Colony6CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony6_3CircleOct_18AggnT.csv"))
+Colony6CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Circle_Aggn.csv"))
 
 Colony6CircleAggnT <- setNames(Colony6CircleAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                      "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony6TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony6TubeOct_17AggnT.csv"))
+Colony6TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Tube_Aggn.csv"))
 
 Colony6TubeAggnT <- setNames(Colony6TubeAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                  "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
@@ -156,12 +156,12 @@ Colony6TubeAggn <- Colony6TubeAggnT %>%
 Colony6Aggn <- full_join(Colony6CircleAggn, Colony6TubeAggn)
 
 # BASELINE ASSAY
-Colony6CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony6_3_Circle_Oct_17_AggnPreAM.csv"))
+Colony6CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Circle_Pre.csv"))
 
 Colony6CirclePreT <- setNames(Colony6CirclePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                    "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony6TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony6_27_Oct_17_AggnPreAM.csv"))
+Colony6TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Tube_Pre.csv"))
 
 Colony6TubePreT <- setNames(Colony6TubePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
@@ -186,12 +186,12 @@ Colony6Pre <- full_join(Colony6CirclePre, Colony6TubePre)
 
 # COLONY 7 
 # INVADER ASSAY
-Colony7CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony7Circle_AggnT.csv"))
+Colony7CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Circle_Aggn.csv"))
 
 Colony7CircleAggnT <- setNames(Colony7CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony7TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony7Tube_AggnT.csv")) 
+Colony7TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Tube_Aggn.csv")) 
 
 Colony7TubeAggnT <- setNames(Colony7TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -215,12 +215,12 @@ Colony7TubeAggn <- Colony7TubeAggnT %>%
 Colony7Aggn <- full_join(Colony7CircleAggn, Colony7TubeAggn)
 
 # BASELINE ASSAY
-Colony7CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony7_Circle_5_Oct_17_VidAMPre.csv"))
+Colony7CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Circle_Pre.csv"))
 
 Colony7CirclePreT <- setNames(Colony7CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony7TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony7_23_Oct_17_AggnPreAM.csv"))
+Colony7TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Tube_Pre.csv"))
 
 Colony7TubePreT <- setNames(Colony7TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -246,12 +246,12 @@ Colony7Pre <- full_join(Colony7CirclePre, Colony7TubePre)
 
 # COLONY 8
 # INVADER ASSAY
-Colony8CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony8CircleJune_18AggnT.csv")) 
+Colony8CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Circle_Aggn.csv")) 
 
 Colony8CircleAggnT <- setNames(Colony8CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony8TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony8TubeJune_18AggnT.csv")) 
+Colony8TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Tube_Aggn.csv")) 
 
 Colony8TubeAggnT <- setNames(Colony8TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -275,12 +275,12 @@ Colony8TubeAggn <- Colony8TubeAggnT%>%
 Colony8Aggn <- full_join(Colony8CircleAggn, Colony8TubeAggn)
 
 # BASELINE ASSAY 
-Colony8CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony8_25_June_18_AggnPreAM.csv")) 
+Colony8CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Circle_Pre.csv")) 
 
 Colony8CirclePreT <- setNames(Colony8CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony8TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony8_7_June_18_AggnPreAM.csv"))
+Colony8TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Tube_Pre.csv"))
 
 Colony8TubePreT <- setNames(Colony8TubePreT, c("ID","Frames","X","Y","Orientation",
                                              "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -306,12 +306,12 @@ Colony8Pre <- full_join(Colony8CirclePre, Colony8TubePre)
 
 # COLONY 9
 # INVADER ASSAY
-Colony9CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony9CircleJune_18AggnT.csv"))
+Colony9CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Circle_Aggn.csv"))
 
 Colony9CircleAggnT <- setNames(Colony9CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony9TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony9TubeJune_18AggnT.csv"))
+Colony9TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Tube_Aggn.csv"))
 
 Colony9TubeAggnT <- setNames(Colony9TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -336,11 +336,11 @@ Colony9TubeAggn <- Colony9TubeAggnT %>%
 Colony9Aggn <- full_join(Colony9CircleAggn, Colony9TubeAggn)
 
 # BASELINE ASSAY 
-Colony9CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony9CirclePre.csv"))
+Colony9CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Circle_Pre.csv"))
 
 Colony9CirclePreT <- setNames(Colony9CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony9TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony9_Tube_6_June_18_AggnP.csv"))
+Colony9TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Tube_Pre.csv"))
 
 Colony9TubePreT <- setNames(Colony9TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -366,18 +366,13 @@ Colony9Pre <- full_join(Colony9CirclePre, Colony9TubePre)
 
 # COLONY 11
 # INVADER ASSAY
-
-unzip(here("analysis", "data", "raw_data", "Colony11CircleJune_18AggnT.csv.zip")) 
-
-filesstrings::file.move("Colony11CircleJune_18AggnT.csv", here("analysis", "data", "raw_data"))
-
-Colony11CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony11CircleJune_18AggnT.csv"))%>%
+Colony11CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Circle_Aggn.csv")) %>%
   dplyr::select(-c("Tag", "Completed"))
 
 Colony11CircleAggnT <- setNames(Colony11CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony11TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony11TubeJune_18AggnT.csv")) 
+Colony11TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Tube_Aggn.csv")) 
 
 Colony11TubeAggnT <- setNames(Colony11TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -402,15 +397,11 @@ Colony11TubeAggn <- Colony11TubeAggnT %>%
 Colony11Aggn <- full_join(Colony11CircleAggn, Colony11TubeAggn)
 
 # BASELINE ASSAY
-unzip(here("analysis", "data", "raw_data", "Colony11_Circle_28_June_18_AggnPreAM.csv.zip")) 
-
-filesstrings::file.move("Colony11_Circle_28_June_18_AggnPreAM.csv", here("analysis", "data", "raw_data"))
-
-Colony11CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony11_Circle_28_June_18_AggnPreAM.csv"))
+Colony11CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Circle_Pre.csv"))
 
 Colony11CirclePreT <- setNames(Colony11CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony11TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony11_10_June_18_AggnPreAM_2.csv"))
+Colony11TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Tube_Pre.csv"))
 
 Colony11TubePreT <- setNames(Colony11TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -436,12 +427,12 @@ Colony11Pre <- full_join(Colony11TubePre, Colony11CirclePre)
 
 # COLONY 13
 # INVADER ASSAY
-Colony13CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony13CircleJune_18AggnT.csv"))
+Colony13CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Circle_Aggn.csv"))
 
 Colony13CircleAggnT <- setNames(Colony13CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony13TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony13TubeJune_18AggnT.csv")) 
+Colony13TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Tube_Aggn.csv")) 
 
 Colony13TubeAggnT <- setNames(Colony13TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -466,11 +457,11 @@ Colony13TubeAggn <- Colony13TubeAggnT %>%
 Colony13Aggn <- full_join(Colony13CircleAggn, Colony13TubeAggn)
 
 #Pre assay
-Colony13CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony13CirclePre.csv"))
+Colony13CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Circle_Pre.csv"))
 
 Colony13CirclePreT <- setNames(Colony13CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony13TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony13_Tube_29_June_18_AggnPre.csv"))
+Colony13TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Tube_Pre.csv"))
 
 Colony13TubePreT <- setNames(Colony13TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -496,12 +487,12 @@ Colony13Pre <- full_join(Colony13CirclePre, Colony13TubePre)
 
 # COLONY 17
 # INVADER ASSAY
-Colony17CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony17CircleAug_18AggnT.csv"))
+Colony17CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Circle_Aggn.csv"))
 
 Colony17CircleAggnT <- setNames(Colony17CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony17TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony17TubeJuly_18AggnT.csv"))
+Colony17TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Tube_Aggn.csv"))
 
 Colony17TubeAggnT <- setNames(Colony17TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -526,12 +517,12 @@ Colony17TubeAggn <- Colony17TubeAggnT %>%
 Colony17Aggn <- full_join(Colony17CircleAggn, Colony17TubeAggn)
 
 # BASELINE ASSAY
-Colony17CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony17_Circle_12_Aug_18_AggnPreAM.csv"))
+Colony17CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Circle_Pre.csv"))
 
 Colony17CirclePreT <- setNames(Colony17CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony17TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony17_21_July_18_AggnPrePM_2.csv"))
+Colony17TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Tube_Pre.csv"))
 
 Colony17TubePreT <- setNames(Colony17TubePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -557,12 +548,12 @@ Colony17Pre <- full_join(Colony17CirclePre, Colony17TubePre)
 
 # COLONY18
 # INVADER ASSAY
-Colony18CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony18CircleAug_18AggnT.csv")) 
+Colony18CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Circle_Aggn.csv")) 
 
 Colony18CircleAggnT <- setNames(Colony18CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony18TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "Colony18TubeJuly_18AggnT.csv"))
+Colony18TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Tube_Aggn.csv"))
 
 Colony18TubeAggnT <- setNames(Colony18TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -587,12 +578,12 @@ Colony18TubeAggn <- Colony18TubeAggnT %>%
 Colony18Aggn <- full_join(Colony18CircleAggn, Colony18TubeAggn)
 
 # BASELINE ASSAY
-Colony18CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony18_Circle_14_Aug_18_AggnPreAM.csv"))
+Colony18CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Circle_Pre.csv"))
 
 Colony18CirclePreT <- setNames(Colony18CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony18TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony18TubePreVideo.csv")) 
+Colony18TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Tube_Pre.csv")) 
 
 Colony18TubePreT <- setNames(Colony18TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -622,12 +613,12 @@ Colony18Pre <- full_join(Colony18CirclePre, Colony18TubePre)
 
 # COLONY 20
 # INVADER ASSAY
-Colony20CircleAggnT <- read_csv(here("analysis", "data", "raw_data", "Colony20CircleAug_18AggnT.csv"))
+Colony20CircleAggnT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Circle_Aggn.csv"))
 
 Colony20CircleAggnT <- setNames(Colony20CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony20TubeAggnT<- read_csv(here("analysis", "data", "raw_data", "Colony20TubeAug_18AggnT.csv")) 
+Colony20TubeAggnT<- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Tube_Aggn.csv")) 
 
 Colony20TubeAggnT <- setNames(Colony20TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -652,12 +643,12 @@ Colony20TubeAggn <- Colony20TubeAggnT %>%
 Colony20Aggn <- full_join(Colony20CircleAggn, Colony20TubeAggn)
 
 # BASELINE ASSAY
-Colony20CirclePreT <- read_csv(here("analysis", "data", "raw_data", "Colony20_18Aug20_CircPre.csv")) 
+Colony20CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Circle_Pre.csv")) 
 
 Colony20CirclePreT <- setNames(Colony20CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony20TubePreT <- read_csv(here("analysis", "data", "raw_data", "Colony20_Tube_1_Aug_18_AggnPreAM.csv"))
+Colony20TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Tube_Pre.csv"))
 
 Colony20TubePreT <- setNames(Colony20TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -4287,13 +4278,74 @@ PreAssayTestFullRaw <- full_join(PreAssayTest, PreAssayTest1)
 # FULL DATA SET
 FullAssayTestSpeed <- full_join(AggnAssayTestFullRaw, PreAssayTestFullRaw)
 
+# Write datasets for later use
+# Colony 5 Aggression
+write.csv(Colony5Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony5Aggn.csv"))
+
+# Colony 5 Baseline
+write.csv(Colony5Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony5Pre.csv"))
+
+# Colony 6 Aggression
+write.csv(Colony6Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony6Aggn.csv"))
+
+# Colony 6 Baseline
+write.csv(Colony6Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony6Pre.csv"))
+
+# Colony 7 Aggression
+write.csv(Colony7Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Aggn.csv"))
+
+# Colony 7 Baseline
+write.csv(Colony7Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Pre.csv"))
+
+# Colony 8 Aggression
+write.csv(Colony8Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony8Aggn.csv"))
+
+# Colony 8 Baseline
+write.csv(Colony8Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony8Pre.csv"))
+
+# Colony 9 Aggression
+write.csv(Colony9Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony9Aggn.csv"))
+
+# Colony 9 Baseline
+write.csv(Colony9Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony9Pre.csv"))
+
+# Colony 11 Aggression
+write.csv(Colony11Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony11Aggn.csv"))
+
+# Colony 11 Baseline
+write.csv(Colony11Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony11Pre.csv"))
+
+# Colony 13 Aggression
+write.csv(Colony13Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony13Aggn.csv"))
+
+# Colony 13 Baseline
+write.csv(Colony13Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony13Pre.csv"))
+
+# Colony 17 Aggression
+write.csv(Colony17Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony17Aggn.csv"))
+
+# Colony 17 Baseline
+write.csv(Colony17Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony17Pre.csv"))
+
+# Colony 18 Aggression
+write.csv(Colony18Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony18Aggn.csv"))
+
+# Colony 18 Baseline
+write.csv(Colony18Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony18Pre.csv"))
+
+# Colony 20 Aggression
+write.csv(Colony20Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony20Aggn.csv"))
+
+# Colony 20 Baseline
+write.csv(Colony20Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony20Pre.csv"))
+
 # Remove the data sets that were combined, you don't need them and they take up a lot of computer memory 
-#rm("Colony5Aggn", "Colony5Pre", "Colony6Aggn", "Colony6Pre",
- #  "Colony7Aggn", "Colony7Pre", "Colony8Aggn", "Colony8Pre",
-  # "Colony9Aggn", "Colony9Pre", "Colony11Aggn", "Colony11Pre",
-   #"Colony13Aggn", "Colony13Pre", "Colony17Aggn", "Colony17Pre",
-   #"Colony18Aggn", "Colony18Pre", "Colony20Aggn", "Colony20Pre",
-   #"AggnAssayTest", "AggnAssayTest1", "PreAssayTest", "PreAssayTest1")
+rm("Colony5Aggn", "Colony5Pre", "Colony6Aggn", "Colony6Pre",
+   "Colony7Aggn", "Colony7Pre", "Colony8Aggn", "Colony8Pre",
+   "Colony9Aggn", "Colony9Pre", "Colony11Aggn", "Colony11Pre",
+   "Colony13Aggn", "Colony13Pre", "Colony17Aggn", "Colony17Pre",
+   "Colony18Aggn", "Colony18Pre", "Colony20Aggn", "Colony20Pre",
+   "AggnAssayTest", "AggnAssayTest1", "PreAssayTest", "PreAssayTest1")
 
 # CREATE THE FINAL DATA SETS FOR ANALYSES AND VISUALIZATION 
 # Bins the worker speeds into two and twenty second time intervals
@@ -4539,7 +4591,7 @@ Speed_Fig <- annotate_figure(SpeedFig,
 )
 
 # Save plot as a PDF
-ggsave(file = "Fig5.pdf", plot = Speed_Fig, width = 10.4, height = 6.75, units = "in")
+ggsave(file = here("analysis", "figures", "Fig5.pdf"), plot = Speed_Fig, width = 10.4, height = 6.75, units = "in")
 
 
 # SAMPLE SIZES: AVERAGE WORKER SPEED (TWO-SECOND BINS) FOR EACH ASSAY
@@ -4654,7 +4706,7 @@ Speed_FigFull <- annotate_figure(SpeedFigFull,
 )
 
 # Save plot as a PDF
-ggsave(file = "FigS8.pdf", plot = Speed_FigFull, width = 10.4, height = 10.4, units = "in")
+ggsave(file = here("analysis", "supplementary-materials", "Supplementary_Figures", "FigS8.pdf"), plot = Speed_FigFull, width = 10.4, height = 10.4, units = "in")
 
 
 ##########################################################################################################
@@ -4759,7 +4811,7 @@ SpeedIQR_Fig <- annotate_figure(SpeedIQRFig,
 )
 
 # Save plot as a PDF
-ggsave(file = "Fig6.pdf", plot = SpeedIQR_Fig, width = 10.4, height = 6.75, units = "in")
+ggsave(file = here("analysis", "figures", "Fig6.pdf"), plot = SpeedIQR_Fig, width = 10.4, height = 6.75, units = "in")
 
 
 # LINEAR MIXED EFFECTS MODEL
@@ -4974,7 +5026,7 @@ SpeedDist_Full <- annotate_figure(SpeedDist,
 )
 
 # Save plot as a PDF
-ggsave(file = "FigS9.pdf", plot = SpeedDist_Full, width = 10.4, height = 10.4, units = "in")
+ggsave(file = here("analysis", "supplementary-materials", "Supplementary_Figures", "FigS9.pdf"), plot = SpeedDist_Full, width = 10.4, height = 10.4, units = "in")
 
 
 ##########################################################################################################
@@ -5114,7 +5166,7 @@ SpeedDist_IQR<- annotate_figure(SpeedDistIQR,
 )
 
 # Save plot as a PDF
-ggsave(file = "Fig7.pdf", plot = SpeedDist_IQR, width = 10.4, height = 6.75, units = "in")
+ggsave(file = here("analysis", "figures", "Fig7.pdf"), plot = SpeedDist_IQR, width = 10.4, height = 6.75, units = "in")
 
 
 # LINEAR MIXED EFFECTS MODEL

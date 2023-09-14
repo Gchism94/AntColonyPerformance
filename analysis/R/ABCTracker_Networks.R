@@ -1,6 +1,6 @@
 ##########################################################################################################
 ## Author: GREG CHISM 
-## Date: JUNE 2022 
+## Date: FEB 2023 
 ## email: gchism@.arizona.edu
 ## Project: Nest shape does not affect ant colony performance against a nest invader despite altered worker movement and communication
 ## Title: Worker interaction networks 
@@ -18,24 +18,27 @@
 ##########################################################################################################
 # INSTALL & LOAD REQUIRED PACKAGES
 ##########################################################################################################
-install.packages("pacman") # Download package with function to load multiple packaged at once
+# Download package with function to load multiple packaged at once
+if (!require(pacman)) install.packages('pacman')
 
-pacman::p_load(reshape2, # Loading required packages for code below. p_load() will download packages that aren't in system library
-               tidyverse,
-               igraph,
+pacman::p_load(assertthat,
+               CINNA,
+               ggpubr,
                ggraph,
                graphlayouts,
-               matrixStats,
-               CINNA,
+               hablar,
+               here,
+               igraph,
                lme4,
                lmerTest,
-               MuMIn,
                MASS,
+               matrixStats,
+               MuMIn,
+               reshape2, # Loading required packages for code below. p_load() will download packages that aren't in system library
                scales, 
-               hablar, 
-               wesanderson,
-               ggpubr,
-               assertthat)
+               sjPlot, 
+               tidyverse,
+               wesanderson)
 
 
 ##########################################################################################################
@@ -1077,10 +1080,10 @@ Colony20CirclePreNetworkUnweighted <- graph_from_adjacency_matrix(Colony20Circle
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony5TubeAggnNetworkUnweighted)
+n <- gorder(Colony5TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony5TubeAggnNetworkUnweighted)
+m <- gsize(Colony5TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony5TubeAggnNetworkUnweighted)
@@ -1094,8 +1097,11 @@ Colony5TubeAggnHC <- as.data.frame(cbind(HC))
 # Making the column names the row names
 Colony5TubeAggnHC <- rownames_to_column(Colony5TubeAggnHC, "ID") 
 
+# Read in distance to entrance dataset
+Colony5TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony5TubeAggnDist.csv"))
+
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
-Colony5TubeAggnDist1 <- Colony5TubeAggnDist %>%  ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
+Colony5TubeAggnDist1 <- Colony5TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
 
 # Changing the ID column to match the networks 
 Colony5TubeAggnDist1$ID <- interaction("id", Colony5TubeAggnDist1$ID, sep = "_")
@@ -1140,10 +1146,10 @@ Colony5TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony5TubePreNetworkUnweighted)
+n <- gorder(Colony5TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony5TubePreNetworkUnweighted)
+m <- gsize(Colony5TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony5TubePreNetworkUnweighted)
@@ -1156,6 +1162,9 @@ Colony5TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony5TubePreHC <- rownames_to_column(Colony5TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony5TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony5TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony5TubePreDist1 <- Colony5TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1207,10 +1216,10 @@ Colony5TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tran
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony5CircleAggnNetworkUnweighted)
+n <- gorder(Colony5CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony5CircleAggnNetworkUnweighted)
+m <- gsize(Colony5CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony5CircleAggnNetworkUnweighted)
@@ -1223,6 +1232,9 @@ Colony5CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony5CircleAggnHC <- rownames_to_column(Colony5CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony5CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony5CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony5CircleAggnDist1 <- Colony5CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1270,10 +1282,10 @@ Colony5CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, T
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony5CirclePreNetworkUnweighted)
+n <- gorder(Colony5CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony5CirclePreNetworkUnweighted)
+m <- gsize(Colony5CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony5CirclePreNetworkUnweighted)
@@ -1286,6 +1298,9 @@ Colony5CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony5CirclePreHC <- rownames_to_column(Colony5CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony5CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony5CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony5CirclePreDist1 <- Colony5CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1352,10 +1367,10 @@ Colony5NetComparison <- full_join(Colony5TubeAggnComp, Colony5TubePreComp) %>%
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony6TubeAggnNetworkUnweighted)
+n <- gorder(Colony6TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony6TubeAggnNetworkUnweighted)
+m <- gsize(Colony6TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony6TubeAggnNetworkUnweighted)
@@ -1368,6 +1383,9 @@ Colony6TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony6TubeAggnHC <- rownames_to_column(Colony6TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony6TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony6TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony6TubeAggnDist1 <- Colony6TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1415,10 +1433,10 @@ Colony6TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony6TubePreNetworkUnweighted)
+n <- gorder(Colony6TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony6TubePreNetworkUnweighted)
+m <- gsize(Colony6TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony6TubePreNetworkUnweighted)
@@ -1431,6 +1449,9 @@ Colony6TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony6TubePreHC <- rownames_to_column(Colony6TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony6TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony6TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony6TubePreDist1 <- Colony6TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1482,10 +1503,10 @@ Colony6TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tran
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony6CircleAggnNetworkUnweighted)
+n <- gorder(Colony6CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony6CircleAggnNetworkUnweighted)
+m <- gsize(Colony6CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony6CircleAggnNetworkUnweighted)
@@ -1498,6 +1519,9 @@ Colony6CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony6CircleAggnHC <- rownames_to_column(Colony6CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony6CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony6CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony6CircleAggnDist1 <- Colony6CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1545,10 +1569,10 @@ Colony6CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, T
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony6CirclePreNetworkUnweighted)
+n <- gorder(Colony6CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony6CirclePreNetworkUnweighted)
+m <- gsize(Colony6CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony6CirclePreNetworkUnweighted)
@@ -1562,6 +1586,9 @@ Colony6CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony6CirclePreHC <- rownames_to_column(Colony6CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony6CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony6CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony6CirclePreDist1 <- Colony6CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1628,10 +1655,10 @@ Colony6NetComparison <- full_join(Colony6TubeAggnComp, Colony6TubePreComp) %>%
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony7TubeAggnNetworkUnweighted)
+n <- gorder(Colony7TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony7TubeAggnNetworkUnweighted)
+m <- gsize(Colony7TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony7TubeAggnNetworkUnweighted)
@@ -1644,6 +1671,9 @@ Colony7TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony7TubeAggnHC <- rownames_to_column(Colony7TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony7TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony7TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony7TubeAggnDist1 <- Colony7TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1691,10 +1721,10 @@ Colony7TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony7TubePreNetworkUnweighted)
+n <- gorder(Colony7TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony7TubePreNetworkUnweighted)
+m <- gsize(Colony7TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony7TubePreNetworkUnweighted)
@@ -1707,6 +1737,9 @@ Colony7TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony7TubePreHC <- rownames_to_column(Colony7TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony7TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony7TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony7TubePreDist1 <- Colony7TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1758,10 +1791,10 @@ Colony7TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tran
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony7CircleAggnNetworkUnweighted)
+n <- gorder(Colony7CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony7CircleAggnNetworkUnweighted)
+m <- gsize(Colony7CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony7CircleAggnNetworkUnweighted)
@@ -1774,6 +1807,9 @@ Colony7CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony7CircleAggnHC <- rownames_to_column(Colony7CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony7CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony7CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony7CircleAggnDist1 <- Colony7CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1821,10 +1857,10 @@ Colony7CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, T
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony7CirclePreNetworkUnweighted)
+n <- gorder(Colony7CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony7CirclePreNetworkUnweighted)
+m <- gsize(Colony7CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony7CirclePreNetworkUnweighted)
@@ -1837,6 +1873,9 @@ Colony7CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony7CirclePreHC <- rownames_to_column(Colony7CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony7CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony7CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony7CirclePreDist1 <- Colony7CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1902,10 +1941,10 @@ Colony7NetComparison <- full_join(Colony7TubeAggnComp, Colony7TubePreComp) %>%
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony8TubeAggnNetworkUnweighted)
+n <- gorder(Colony8TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony8TubeAggnNetworkUnweighted)
+m <- gsize(Colony8TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony8TubeAggnNetworkUnweighted)
@@ -1918,6 +1957,9 @@ Colony8TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony8TubeAggnHC <- rownames_to_column(Colony8TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony8TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony8TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony8TubeAggnDist1 <- Colony8TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1967,10 +2009,10 @@ Colony8TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony8TubePreNetworkUnweighted)
+n <- gorder(Colony8TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony8TubePreNetworkUnweighted)
+m <- gsize(Colony8TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony8TubePreNetworkUnweighted)
@@ -1983,6 +2025,9 @@ Colony8TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony8TubePreHC <- rownames_to_column(Colony8TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony8TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony8TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony8TubePreDist1 <- Colony8TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2034,10 +2079,10 @@ Colony8TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tran
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony8CircleAggnNetworkUnweighted)
+n <- gorder(Colony8CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony8CircleAggnNetworkUnweighted)
+m <- gsize(Colony8CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony8CircleAggnNetworkUnweighted)
@@ -2050,6 +2095,9 @@ Colony8CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony8CircleAggnHC <- rownames_to_column(Colony8CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony8CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony8CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony8CircleAggnDist1 <- Colony8CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2097,10 +2145,10 @@ Colony8CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, T
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony8CirclePreNetworkUnweighted)
+n <- gorder(Colony8CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony8CirclePreNetworkUnweighted)
+m <- gsize(Colony8CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony8CirclePreNetworkUnweighted)
@@ -2113,6 +2161,9 @@ Colony8CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony8CirclePreHC <- rownames_to_column(Colony8CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony8CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony8CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony8CirclePreDist1 <- Colony8CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2179,10 +2230,10 @@ Colony8NetComparison <- full_join(Colony8TubeAggnComp, Colony8TubePreComp) %>%
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony9TubeAggnNetworkUnweighted)
+n <- gorder(Colony9TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony9TubeAggnNetworkUnweighted)
+m <- gsize(Colony9TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony9TubeAggnNetworkUnweighted)
@@ -2195,6 +2246,9 @@ Colony9TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony9TubeAggnHC <- rownames_to_column(Colony9TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony9TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony9TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony9TubeAggnDist1 <- Colony9TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2242,10 +2296,10 @@ Colony9TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony9TubePreNetworkUnweighted)
+n <- gorder(Colony9TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony9TubePreNetworkUnweighted)
+m <- gsize(Colony9TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony9TubePreNetworkUnweighted)
@@ -2258,6 +2312,9 @@ Colony9TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony9TubePreHC <- rownames_to_column(Colony9TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony9TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony9TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony9TubePreDist1 <- Colony9TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2309,10 +2366,10 @@ Colony9TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tran
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony9CircleAggnNetworkUnweighted)
+n <- gorder(Colony9CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony9CircleAggnNetworkUnweighted)
+m <- gsize(Colony9CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony9CircleAggnNetworkUnweighted)
@@ -2325,6 +2382,9 @@ Colony9CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony9CircleAggnHC <- rownames_to_column(Colony9CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony9CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony9CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony9CircleAggnDist1 <- Colony9CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2372,10 +2432,10 @@ Colony9CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, T
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony9CirclePreNetworkUnweighted)
+n <- gorder(Colony9CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony9CirclePreNetworkUnweighted)
+m <- gsize(Colony9CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony9CirclePreNetworkUnweighted)
@@ -2388,6 +2448,9 @@ Colony9CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony9CirclePreHC <- rownames_to_column(Colony9CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony9CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony9CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony9CirclePreDist1 <- Colony9CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2454,10 +2517,10 @@ Colony9NetComparison <- full_join(Colony9TubeAggnComp, Colony9TubePreComp) %>%
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony11TubeAggnNetworkUnweighted)
+n <- gorder(Colony11TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony11TubeAggnNetworkUnweighted)
+m <- gsize(Colony11TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony11TubeAggnNetworkUnweighted)
@@ -2470,6 +2533,9 @@ Colony11TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony11TubeAggnHC <- rownames_to_column(Colony11TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony11TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony11TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony11TubeAggnDist1 <- Colony11TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2517,10 +2583,10 @@ Colony11TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tr
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony11TubePreNetworkUnweighted)
+n <- gorder(Colony11TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony11TubePreNetworkUnweighted)
+m <- gsize(Colony11TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony11TubePreNetworkUnweighted)
@@ -2533,6 +2599,9 @@ Colony11TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony11TubePreHC <- rownames_to_column(Colony11TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony11TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony11TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony11TubePreDist1 <- Colony11TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2584,10 +2653,10 @@ Colony11TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony11CircleAggnNetworkUnweighted)
+n <- gorder(Colony11CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony11CircleAggnNetworkUnweighted)
+m <- gsize(Colony11CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony11CircleAggnNetworkUnweighted)
@@ -2600,6 +2669,9 @@ Colony11CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony11CircleAggnHC <- rownames_to_column(Colony11CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony11CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony11CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony11CircleAggnDist1 <- Colony11CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2647,10 +2719,10 @@ Colony11CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, 
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony11CirclePreNetworkUnweighted)
+n <- gorder(Colony11CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony11CirclePreNetworkUnweighted)
+m <- gsize(Colony11CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony11CirclePreNetworkUnweighted)
@@ -2663,6 +2735,9 @@ Colony11CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony11CirclePreHC <- rownames_to_column(Colony11CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony11CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony11CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony11CirclePreDist1 <- Colony11CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2729,10 +2804,10 @@ Colony11NetComparison <- full_join(Colony11TubeAggnComp, Colony11TubePreComp) %>
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony13TubeAggnNetworkUnweighted)
+n <- gorder(Colony13TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony13TubeAggnNetworkUnweighted)
+m <- gsize(Colony13TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony13TubeAggnNetworkUnweighted)
@@ -2745,6 +2820,9 @@ Colony13TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony13TubeAggnHC <- rownames_to_column(Colony13TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony13TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony13TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony13TubeAggnDist1 <- Colony13TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2792,10 +2870,10 @@ Colony13TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tr
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony13TubePreNetworkUnweighted)
+n <- gorder(Colony13TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony13TubePreNetworkUnweighted)
+m <- gsize(Colony13TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony13TubePreNetworkUnweighted)
@@ -2808,6 +2886,9 @@ Colony13TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony13TubePreHC <- rownames_to_column(Colony13TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony13TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony13TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony13TubePreDist1 <- Colony13TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2859,10 +2940,10 @@ Colony13TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony13CircleAggnNetworkUnweighted)
+n <- gorder(Colony13CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony13CircleAggnNetworkUnweighted)
+m <- gsize(Colony13CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony13CircleAggnNetworkUnweighted)
@@ -2875,6 +2956,9 @@ Colony13CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony13CircleAggnHC <- rownames_to_column(Colony13CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony13CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony13CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony13CircleAggnDist1 <- Colony13CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2922,10 +3006,10 @@ Colony13CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, 
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony13CirclePreNetworkUnweighted)
+n <- gorder(Colony13CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony13CirclePreNetworkUnweighted)
+m <- gsize(Colony13CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony13CirclePreNetworkUnweighted)
@@ -2938,6 +3022,9 @@ Colony13CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony13CirclePreHC <- rownames_to_column(Colony13CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony13CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony13CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony13CirclePreDist1 <- Colony13CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3004,10 +3091,10 @@ Colony13NetComparison <- full_join(Colony13TubeAggnComp, Colony13TubePreComp) %>
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony17TubeAggnNetworkUnweighted)
+n <- gorder(Colony17TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony17TubeAggnNetworkUnweighted)
+m <- gsize(Colony17TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony17TubeAggnNetworkUnweighted)
@@ -3020,6 +3107,9 @@ Colony17TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony17TubeAggnHC <- rownames_to_column(Colony17TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony17TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony17TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony17TubeAggnDist1 <- Colony17TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3067,10 +3157,10 @@ Colony17TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tr
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony17TubePreNetworkUnweighted)
+n <- gorder(Colony17TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony17TubePreNetworkUnweighted)
+m <- gsize(Colony17TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony17TubePreNetworkUnweighted)
@@ -3083,6 +3173,9 @@ Colony17TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony17TubePreHC <- rownames_to_column(Colony17TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony17TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony17TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony17TubePreDist1 <- Colony17TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3134,10 +3227,10 @@ Colony17TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony17CircleAggnNetworkUnweighted)
+n <- gorder(Colony17CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony17CircleAggnNetworkUnweighted)
+m <- gsize(Colony17CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony17CircleAggnNetworkUnweighted)
@@ -3150,6 +3243,9 @@ Colony17CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony17CircleAggnHC <- rownames_to_column(Colony17CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony17CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony17CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony17CircleAggnDist1 <- Colony17CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3197,10 +3293,10 @@ Colony17CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, 
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony17CirclePreNetworkUnweighted)
+n <- gorder(Colony17CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony17CirclePreNetworkUnweighted)
+m <- gsize(Colony17CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony17CirclePreNetworkUnweighted)
@@ -3213,6 +3309,9 @@ Colony17CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony17CirclePreHC <- rownames_to_column(Colony17CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony17CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony17CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony17CirclePreDist1 <- Colony17CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3279,10 +3378,10 @@ Colony17NetComparison <- full_join(Colony17TubeAggnComp, Colony17TubePreComp) %>
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony18TubeAggnNetworkUnweighted)
+n <- gorder(Colony18TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony18TubeAggnNetworkUnweighted)
+m <- gsize(Colony18TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony18TubeAggnNetworkUnweighted)
@@ -3295,6 +3394,9 @@ Colony18TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony18TubeAggnHC <- rownames_to_column(Colony18TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony18TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony18TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony18TubeAggnDist1 <- Colony18TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3342,10 +3444,10 @@ Colony18TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tr
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony18TubePreNetworkUnweighted)
+n <- gorder(Colony18TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony18TubePreNetworkUnweighted)
+m <- gsize(Colony18TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony18TubePreNetworkUnweighted)
@@ -3358,6 +3460,9 @@ Colony18TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony18TubePreHC <- rownames_to_column(Colony18TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony18TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony18TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony18TubePreDist1 <- Colony18TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3409,10 +3514,10 @@ Colony18TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony18CircleAggnNetworkUnweighted)
+n <- gorder(Colony18CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony18CircleAggnNetworkUnweighted)
+m <- gsize(Colony18CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony18CircleAggnNetworkUnweighted)
@@ -3425,6 +3530,9 @@ Colony18CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony18CircleAggnHC <- rownames_to_column(Colony18CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony18CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony18CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony18CircleAggnDist1 <- Colony18CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3472,10 +3580,10 @@ Colony18CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, 
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony18CirclePreNetworkUnweighted)
+n <- gorder(Colony18CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony18CirclePreNetworkUnweighted)
+m <- gsize(Colony18CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony18CirclePreNetworkUnweighted)
@@ -3488,6 +3596,9 @@ Colony18CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony18CirclePreHC <- rownames_to_column(Colony18CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony18CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony18CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony18CirclePreDist1 <- Colony18CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3554,10 +3665,10 @@ Colony18NetComparison <- full_join(Colony18TubeAggnComp, Colony18TubePreComp) %>
 # TUBE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony20TubeAggnNetworkUnweighted)
+n <- gorder(Colony20TubeAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony20TubeAggnNetworkUnweighted)
+m <- gsize(Colony20TubeAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony20TubeAggnNetworkUnweighted)
@@ -3570,6 +3681,9 @@ Colony20TubeAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony20TubeAggnHC <- rownames_to_column(Colony20TubeAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony20TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony20TubeAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony20TubeAggnDist1 <- Colony20TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3617,10 +3731,10 @@ Colony20TubeAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tr
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony20TubePreNetworkUnweighted)
+n <- gorder(Colony20TubePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony20TubePreNetworkUnweighted)
+m <- gsize(Colony20TubePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony20TubePreNetworkUnweighted)
@@ -3633,6 +3747,9 @@ Colony20TubePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony20TubePreHC <- rownames_to_column(Colony20TubePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony20TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony20TubePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony20TubePreDist1 <- Colony20TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3684,10 +3801,10 @@ Colony20TubePreComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, Tra
 # CIRCLE NEST
 # AGGRESSION ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony20CircleAggnNetworkUnweighted)
+n <- gorder(Colony20CircleAggnNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony20CircleAggnNetworkUnweighted)
+m <- gsize(Colony20CircleAggnNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony20CircleAggnNetworkUnweighted)
@@ -3700,6 +3817,9 @@ Colony20CircleAggnHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony20CircleAggnHC <- rownames_to_column(Colony20CircleAggnHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony20CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony20CircleAggnDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony20CircleAggnDist1 <- Colony20CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3747,10 +3867,10 @@ Colony20CircleAggnComp <- data.frame(GamConn = Gam, Diam = net_diam, Recip = r, 
 
 # BASELINE ASSAY
 # Number of edges in the matrix
-m <- gorder(Colony20CirclePreNetworkUnweighted)
+n <- gorder(Colony20CirclePreNetworkUnweighted)
 
 # Number of nodes in the matrix
-n <- gsize(Colony20CirclePreNetworkUnweighted)
+m <- gsize(Colony20CirclePreNetworkUnweighted)
 
 # Network degree
 d <- degree(Colony20CirclePreNetworkUnweighted)
@@ -3763,6 +3883,9 @@ Colony20CirclePreHC <- as.data.frame(cbind(HC))
 
 # Making the column names the row names
 Colony20CirclePreHC <- rownames_to_column(Colony20CirclePreHC, "ID") 
+
+# Read in distance to entrance dataset
+Colony20CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony20CirclePreDist.csv"))
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony20CirclePreDist1 <- Colony20CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3874,7 +3997,8 @@ FullNetComparisonFinal <- full_join(Colony5NetComparison, Colony6NetComparison) 
 # Nest - Nest shape (Tube / Circle)
 # Trial - The assay of the video (Aggn / Pre), note that pre is the baseline assay
 # Colony - Colony identification 
-summary(lm(HC ~ ScaledDist * Nest * Trial + Colony, data = FullHCDistFinal))$coefficients
+tab_model(lm(HC ~ ScaledDist * Nest * Trial + Colony, data = FullHCDistFinal), 
+          show.stat = T)
 
 # NETWORK EFFICIENCY
 
@@ -3885,7 +4009,8 @@ summary(lm(HC ~ ScaledDist * Nest * Trial + Colony, data = FullHCDistFinal))$coe
 # Nest - Nest shape (Tube / Circle)
 # Trial - The assay of the video (Aggn / Pre), note that pre is the baseline assay
 # Colony - Colony identification 
-summary(lm(log(Efficiency) ~ Nest * Trial + Colony, data = FullNetEfficiencyFinal))
+tab_model(lm(log(Efficiency) ~ Nest * Trial + Colony, data = FullNetEfficiencyFinal),
+          show.stat = T)
 
 # NETWORK COMPARISONS
 
@@ -3897,7 +4022,8 @@ summary(lm(log(Efficiency) ~ Nest * Trial + Colony, data = FullNetEfficiencyFina
 # Nest - Nest shape (Tube / Circle)
 # Trial - The assay of the video (Aggn / Pre), note that pre is the baseline assay
 # Colony - Colony identification 
-summary(lm(GamConn ~ Nest * Trial + Colony, data = FullNetComparisonFinal))
+tab_model(lm(GamConn ~ Nest * Trial + Colony, data = FullNetComparisonFinal),
+          show.stat = T)
 
 # NETWORK DIAMETER
 # LINEAR REGRESSION
@@ -3907,7 +4033,8 @@ summary(lm(GamConn ~ Nest * Trial + Colony, data = FullNetComparisonFinal))
 # Nest - Nest shape (Tube / Circle)
 # Trial - The assay of the video (Aggn / Pre), note that pre is the baseline assay
 # Colony - Colony identification 
-summary(lm(Diam ~ Nest * Trial + Colony, data = FullNetComparisonFinal))
+tab_model(lm(Diam ~ Nest * Trial + Colony, data = FullNetComparisonFinal),
+          show.stat = T)
 
 # NETWORK RECIPROCITY
 # LINEAR REGRESSION
@@ -3917,7 +4044,8 @@ summary(lm(Diam ~ Nest * Trial + Colony, data = FullNetComparisonFinal))
 # Nest - Nest shape (Tube / Circle)
 # Trial - The assay of the video (Aggn / Pre), note that pre is the baseline assay
 # Colony - Colony identification 
-summary(lm(Recip ~ Nest * Trial + Colony, data = FullNetComparisonFinal))
+tab_model(lm(Recip ~ Nest * Trial + Colony, data = FullNetComparisonFinal),
+          show.stat = T)
 
 # NETWORK TRANSITIVITY
 # LINEAR REGRESSION
@@ -3927,7 +4055,8 @@ summary(lm(Recip ~ Nest * Trial + Colony, data = FullNetComparisonFinal))
 # Nest - Nest shape (Tube / Circle)
 # Trial - The assay of the video (Aggn / Pre), note that pre is the baseline assay
 # Colony - Colony identification 
-summary(lm(Trans ~ Nest * Trial + Colony, data = FullNetComparisonFinal))
+tab_model(lm(Trans ~ Nest * Trial + Colony, data = FullNetComparisonFinal),
+          show.stat = T)
 
 ##########################################################################################################
 # PLOTS
@@ -3944,8 +4073,10 @@ large_points <- function(data, params, size) {
 # HARMONIC CENTRALITY
 # TUBE NEST
 # AGGRESSION ASSAY
-TubeAggnHC <- ggplot(data = FullHCDistFinal %>% filter(Nest == "Tube" & Trial == "Aggn"),
-                    aes(x = ScaledDist, y = ScaledHC)) +
+TubeAggnHC
+TubeAggnHC <- FullHCDistFinal %>% 
+  filter(Nest == "Tube" & Trial == "Aggn") %>%
+  ggplot(aes(x = ScaledDist, y = ScaledHC)) +
   ggtitle("Tube Invader") +
   geom_point(key_glyph = large_points, size = 2.5, alpha = 0.75, color = "red") +
   geom_smooth(method = 'lm', se = FALSE, size = 1.5, color = "black") +
@@ -3957,13 +4088,12 @@ TubeAggnHC <- ggplot(data = FullHCDistFinal %>% filter(Nest == "Tube" & Trial ==
         plot.title = element_text(size = 20, color = "black", hjust = 0.1),
         legend.key = element_blank()) +
   xlab(NULL) +
-  ylab(NULL) +
-  ylim(0, 0.33) + 
-  xlim(0, 1)
+  ylab(NULL)
 
 # BASELINE ASSAY  
-TubePreHC <- ggplot(data = FullHCDistFinal %>% filter(Nest == "Tube" & Trial == "Pre"),
-                     aes(x = ScaledDist, y = ScaledHC)) +
+TubePreHC <- FullHCDistFinal %>% 
+  filter(Nest == "Tube" & Trial == "Pre") %>%
+  ggplot(aes(x = ScaledDist, y = ScaledHC)) +
     ggtitle("Tube Baseline") +
     geom_point(key_glyph = large_points, size = 2.5, alpha = 0.75, color = "red") +
     geom_smooth(method = 'lm', se = FALSE, size = 1.5, color = "black") +
@@ -3975,14 +4105,13 @@ TubePreHC <- ggplot(data = FullHCDistFinal %>% filter(Nest == "Tube" & Trial == 
           plot.title = element_text(size = 20, color = "black", hjust = 0.1),
           legend.key = element_blank()) +
     xlab(NULL) +
-    ylab(NULL) +
-  ylim(0, 0.33) + 
-  xlim(0, 1)
+    ylab(NULL) 
 
 # CIRCLE NEST
 # AGGRESSION ASSAY
-CircleAggnHC <- ggplot(data = FullHCDistFinal %>% filter(Nest == "Circle" & Trial == "Aggn"),
-                     aes(x = ScaledDist, y = ScaledHC)) +
+CircleAggnHC <- FullHCDistFinal %>% 
+  filter(Nest == "Circle" & Trial == "Aggn") %>%
+  ggplot(aes(x = ScaledDist, y = ScaledHC)) +
     ggtitle("Circle Invader") +
     geom_point(key_glyph = large_points, size = 2.5, alpha = 0.75, color = "blue") +
     geom_smooth(method = 'lm', se = FALSE, size = 1.5, color = "black") +
@@ -3995,12 +4124,12 @@ CircleAggnHC <- ggplot(data = FullHCDistFinal %>% filter(Nest == "Circle" & Tria
           legend.key = element_blank()) +
     xlab(NULL) +
     ylab(NULL) +
-  ylim(0, 0.33) + 
-  xlim(0, 1)
+    ylim(0, 1)
   
 # BASELINE ASSAY
-CirclePreHC <- ggplot(data = FullHCDistFinal %>% filter(Nest == "Circle" & Trial == "Pre"),
-                    aes(x = ScaledDist, y = ScaledHC)) +
+CirclePreHC <- FullHCDistFinal %>% 
+  filter(Nest == "Circle" & Trial == "Pre") %>%
+  ggplot(aes(x = ScaledDist, y = ScaledHC)) +
     ggtitle("Circle Baseline") +
     geom_point(key_glyph = large_points, size = 2.5, alpha = 0.75, color = "blue") +
     geom_smooth(method = 'lm', se = FALSE, size = 1.5, color = "black") +
@@ -4012,9 +4141,7 @@ CirclePreHC <- ggplot(data = FullHCDistFinal %>% filter(Nest == "Circle" & Trial
           plot.title = element_text(size = 20, color = "black", hjust = 0.1),
           legend.key = element_blank()) +
     xlab(NULL) +
-    ylab(NULL) +
-  ylim(0, 0.33) + 
-  xlim(0, 1)
+    ylab(NULL) 
 
 # Compiling the harmonic centrality plots  
 TestHCDistPlot <- ggarrange(CirclePreHC, TubePreHC,
@@ -4055,9 +4182,9 @@ NetworkEfficiencyPre <- ggplot(data = FullNetEfficiencyFinal %>% filter(Trial ==
         legend.text = element_text(size = 18, color = "black"),
         legend.title = element_text(size = 18, color = "black"),
         plot.title = element_text(size = 20, color = "black")) +
-  scale_y_log10(breaks = c(10^-13, 10^-12, 10^-11, 10^-10, 10^-9, 10^-8, 10^-7, 10^-6, 10^-5, 10^-4, 10^-3),
+  scale_y_log10(breaks = c(10^-6, 10^-5, 10^-4, 10^-3),
                 labels = trans_format("log10", math_format(10^.x)),
-                limits = c(10^-13, 10^-3)) +
+                limits = c(10^-6, 10^-3)) +
   scale_fill_manual(breaks = c("Circle", "Tube"), 
                     name = "Nest",
                     values = c("blue", "red")) + 
@@ -4080,9 +4207,9 @@ NetworkEfficiencyAggn <- ggplot(data = FullNetEfficiencyFinal %>% filter(Trial =
         legend.text = element_text(size = 18, color = "black"),
         legend.title = element_text(size = 18, color = "black"),
         plot.title = element_text(size = 20, color = "black")) +
-  scale_y_log10(breaks = c(10^-13, 10^-12, 10^-11, 10^-10, 10^-9, 10^-8, 10^-7, 10^-6, 10^-5, 10^-4, 10^-3),
+  scale_y_log10(breaks = c(10^-6, 10^-5, 10^-4, 10^-3),
                 labels = trans_format("log10", math_format(10^.x)),
-                limits = c(10^-13, 10^-3)) +
+                limits = c(10^-6, 10^-3)) +
   scale_fill_manual(breaks = c("Circle", "Tube"), 
                     name = "Nest",
                     values = c("blue", "red")) 
@@ -4128,7 +4255,7 @@ NetworkGamConnPre <- ggplot(data = FullNetComparisonFinal %>% filter(Trial == "P
   scale_fill_manual(breaks = c("Circle", "Tube"), 
                     name = "Nest",
                     values = c("blue", "red")) +
-  ylim(0, 0.15)
+  ylim(0, 25)
 
 # AGGRESSION ASSAY
 NetworkGamConnAggn <- ggplot(data = FullNetComparisonFinal %>% filter(Trial == "Aggn"),
@@ -4150,7 +4277,7 @@ NetworkGamConnAggn <- ggplot(data = FullNetComparisonFinal %>% filter(Trial == "
   scale_fill_manual(breaks = c("Circle", "Tube"), 
                     name = "Nest",
                     values = c("blue", "red")) +
-  ylim(0, 0.15)
+  ylim(0, 25)
 
 # Compile the gamma connectivity plots
 NetComparisonsGamma <- ggarrange(NetworkGamConnPre, NetworkGamConnAggn,
@@ -4368,7 +4495,7 @@ pal <- wes_palette("Zissou1", 100, type = "continuous")
 # CIRCLE NEST
 # BASELINE ASSAY
 # Number of nodes in the matrix
-n <- gsize(Colony11CirclePreNetworkUnweighted)
+n <- gorder(Colony11CirclePreNetworkUnweighted)
 
 # Harmonic centrality calculation
 HC1 <- harmonic_centrality(Colony11CirclePreNetworkUnweighted, mode = c("all"))
@@ -4391,7 +4518,7 @@ Col11CirclePreNet <- ggraph(Colony11CirclePreNetworkUnweighted, layout = "lgl") 
 
 # AGGRESSION ASSAY
 # Number of nodes in the matrix
-n <- gsize(Colony11CircleAggnNetworkUnweighted)
+n <- gorder(Colony11CircleAggnNetworkUnweighted)
 
 # Harmonic centrality calculation
 HC2 <- harmonic_centrality(Colony11CircleAggnNetworkUnweighted, mode = c("all"))
@@ -4415,7 +4542,7 @@ Col11CircleAggnNet <- ggraph(Colony11CircleAggnNetworkUnweighted, layout = "lgl"
 # TUBE NEST
 # BASELINE ASSAY
 # Number of nodes in the matrix
-n <- gsize(Colony11TubePreNetworkUnweighted)
+n <- gorder(Colony11TubePreNetworkUnweighted)
 
 # Harmonic centrality calculation
 HC3 <- harmonic_centrality(Colony11TubePreNetworkUnweighted, mode = c("all"))
@@ -4437,7 +4564,7 @@ Col11TubePreNet <- ggraph(Colony11TubePreNetworkUnweighted, layout = "lgl") +
   theme(legend.position = "none")
 
 # Number of nodes in the matrix
-n <- gsize(Colony11TubeAggnNetworkUnweighted)
+n <- gorder(Colony11TubeAggnNetworkUnweighted)
 
 # Harmonic centrality calculation
 HC4 <- harmonic_centrality(Colony11TubeAggnNetworkUnweighted, mode = c("all"))
@@ -4464,8 +4591,9 @@ Col11TubeAggnNet <- ggraph(Colony11TubeAggnNetworkUnweighted, layout = "lgl") +
 
 # TUBE NEST
 # AGGRESSION ASSAY
-TubeAggnHC11 <- ggplot(data = Colony11HCDistFinal %>% filter(Nest == "Tube" & Trial == "Aggn"),
-                   aes(x = ScaledDist, y = ScaledHC)) +
+TubeAggnHC11 <- Colony11HCDistFinal %>% 
+  filter(Nest == "Tube" & Trial == "Aggn") %>%
+  ggplot(aes(x = ScaledDist, y = ScaledHC)) +
   ggtitle("Colony 11 Tube Invader") +
   geom_point(key_glyph = large_points, size = 2.5, alpha = 0.75, color = "red") +
   geom_smooth(method = 'lm', se = FALSE, size = 1.5, color = "black") +
@@ -4478,12 +4606,13 @@ TubeAggnHC11 <- ggplot(data = Colony11HCDistFinal %>% filter(Nest == "Tube" & Tr
         legend.key = element_blank()) +
   xlab(NULL) +
   ylab(NULL) +
-  ylim(0, 0.05) + 
+  ylim(0.2, 0.9) + 
   xlim(0, 1)
 
 # BASELINE ASSAY
-TubePreHC11 <- ggplot(data = Colony11HCDistFinal %>% filter(Nest == "Tube" & Trial == "Pre"),
-                  aes(x = ScaledDist, y = ScaledHC)) +
+TubePreHC11 <- Colony11HCDistFinal %>% 
+  filter(Nest == "Tube" & Trial == "Pre") %>%
+  ggplot(aes(x = ScaledDist, y = ScaledHC)) +
   ggtitle("Colony 11 Tube Baseline") +
   geom_point(key_glyph = large_points, size = 2.5, alpha = 0.75, color = "red") +
   geom_smooth(method = 'lm', se = FALSE, size = 1.5, color = "black") +
@@ -4496,13 +4625,14 @@ TubePreHC11 <- ggplot(data = Colony11HCDistFinal %>% filter(Nest == "Tube" & Tri
         legend.key = element_blank()) +
   xlab(NULL) +
   ylab(NULL) +
-  ylim(0, 0.05) + 
+  ylim(0.2, 0.9) + 
   xlim(0, 1)
 
 # CIRCLE NEST
 # AGGRESSION ASSAY
-CircleAggnHC11 <- ggplot(data = Colony11HCDistFinal %>% filter(Nest == "Circle" & Trial == "Aggn"),
-                     aes(x = ScaledDist, y = ScaledHC)) +
+CircleAggnHC11 <- Colony11HCDistFinal %>% 
+  filter(Nest == "Circle" & Trial == "Aggn") %>%
+  ggplot(aes(x = ScaledDist, y = ScaledHC)) +
   ggtitle("Colony 11 Circle Invader")+
   geom_point(key_glyph = large_points, size = 2.5, alpha = 0.75, color = "blue") +
   geom_smooth(method = 'lm', se = FALSE, size = 1.5, color = "black") +
@@ -4514,12 +4644,13 @@ CircleAggnHC11 <- ggplot(data = Colony11HCDistFinal %>% filter(Nest == "Circle" 
         legend.key = element_blank()) +
   xlab(NULL) +
   ylab(NULL) +
-  ylim(0, 0.05) + 
+  ylim(0.2, 0.9) + 
   xlim(0, 1)
 
 # BASELINE ASSAY
-CirclePreHC11 <- ggplot(data = Colony11HCDistFinal %>% filter(Nest == "Circle" & Trial == "Pre"),
-                    aes(x = ScaledDist, y = ScaledHC)) +
+CirclePreHC11 <- Colony11HCDistFinal %>% 
+  filter(Nest == "Circle" & Trial == "Pre") %>%
+  ggplot(aes(x = ScaledDist, y = ScaledHC)) +
   ggtitle("Colony 11 Circle Baseline") +
   geom_point(key_glyph = large_points, size = 2.5, alpha = 0.75, color = "blue") +
   geom_smooth(method = 'lm', se = FALSE, size = 1.5, color = "black") +
@@ -4531,7 +4662,7 @@ CirclePreHC11 <- ggplot(data = Colony11HCDistFinal %>% filter(Nest == "Circle" &
         legend.key = element_blank()) +
   xlab(NULL) +
   ylab(NULL) +
-  ylim(0, 0.05) + 
+  ylim(0.2, 0.9) + 
   xlim(0, 1)
 
 # Compile the baseline harmonic centrality plots

@@ -41,7 +41,7 @@ Once loaded, run `git clone https://github.com/Gchism94/Data7_EDA_In_R_Workshops
     │   └── Supplementary_Tables/      
     |                       # supplementary tables for the main manuscript 
     |
-    └── R                   # Run in the following order (also see associated README.md
+    └── R                   # Run in the following order (also see associated README.md files)
         ├── Stat_boxplot_custom.R
         |                   # Custom box plot function to extend the whiskers to full data range (0th and 100th percentiles)
         ├── AggnPerformance.R        

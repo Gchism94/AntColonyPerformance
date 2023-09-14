@@ -22,8 +22,10 @@ install.packages("pacman") # Download package with function to load multiple pac
 pacman::p_load(data.table, # Loading required packages for code below. p_load() will download packages that aren't in system library
                forcats,
                ggpubr,
+               here,
                janitor,
                rbenchmark,
+               Rcpp,
                readr,
                tidyr,
                tidyverse
@@ -35,6 +37,241 @@ pacman::p_load(data.table, # Loading required packages for code below. p_load() 
 
 # ABCTRACKER RAW DATA FILES
 # All raw ABCTracker outpus files needed for the code below 
+# COLONY 5 
+# INVADER ASSAY
+# Import the data and change raw column headers to a more compatible format
+Colony5CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Circle_Aggn.csv"))
+
+Colony5CircleAggnT <- setNames(Colony5CircleAggnT, c("ID", "Frames", "X", "Y", "Orientation",
+                                                     "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
+
+Colony5TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Tube_Aggn.csv"))
+
+Colony5TubeAggnT <- setNames(Colony5TubeAggnT, c("ID", "Frames", "X", "Y", "Orientation",
+                                                 "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
+
+
+# BASELINE ASSAY
+Colony5CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Circle_Pre.csv"))
+
+Colony5CirclePreT <- setNames(Colony5CirclePreT, c("ID", "Frames", "X", "Y", "Orientation",
+                                                   "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
+
+Colony5TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Tube_Pre.csv"))
+
+Colony5TubePreT <- setNames(Colony5TubePreT, c("ID", "Frames", "X", "Y", "Orientation",
+                                               "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
+
+# COLONY 6 
+# INVADER ASSAY
+Colony6CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Circle_Aggn.csv"))
+
+Colony6CircleAggnT <- setNames(Colony6CircleAggnT, c("ID", "Frames", "X", "Y", "Orientation",
+                                                     "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
+
+Colony6TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Tube_Aggn.csv"))
+
+Colony6TubeAggnT <- setNames(Colony6TubeAggnT, c("ID", "Frames", "X", "Y", "Orientation",
+                                                 "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
+
+# BASELINE ASSAY
+Colony6CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Circle_Pre.csv"))
+
+Colony6CirclePreT <- setNames(Colony6CirclePreT, c("ID", "Frames", "X", "Y", "Orientation",
+                                                   "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
+
+Colony6TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Tube_Pre.csv"))
+
+Colony6TubePreT <- setNames(Colony6TubePreT, c("ID", "Frames", "X", "Y", "Orientation",
+                                               "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
+
+# COLONY 7 
+# INVADER ASSAY
+Colony7CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Circle_Aggn.csv"))
+
+Colony7CircleAggnT <- setNames(Colony7CircleAggnT, c("ID","Frames","X","Y","Orientation",
+                                                     "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony7TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Tube_Aggn.csv")) 
+
+Colony7TubeAggnT <- setNames(Colony7TubeAggnT, c("ID","Frames","X","Y","Orientation",
+                                                 "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+# BASELINE ASSAY
+Colony7CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Circle_Pre.csv"))
+
+Colony7CirclePreT <- setNames(Colony7CirclePreT, c("ID","Frames","X","Y","Orientation",
+                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony7TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Tube_Pre.csv"))
+
+Colony7TubePreT <- setNames(Colony7TubePreT, c("ID","Frames","X","Y","Orientation",
+                                               "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+
+# COLONY 8
+# INVADER ASSAY
+Colony8CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Circle_Aggn.csv")) 
+
+Colony8CircleAggnT <- setNames(Colony8CircleAggnT, c("ID","Frames","X","Y","Orientation",
+                                                     "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony8TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Tube_Aggn.csv")) 
+
+Colony8TubeAggnT <- setNames(Colony8TubeAggnT, c("ID","Frames","X","Y","Orientation",
+                                                 "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+# BASELINE ASSAY 
+Colony8CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Circle_Pre.csv")) 
+
+Colony8CirclePreT <- setNames(Colony8CirclePreT, c("ID","Frames","X","Y","Orientation",
+                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony8TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Tube_Pre.csv"))
+
+Colony8TubePreT <- setNames(Colony8TubePreT, c("ID","Frames","X","Y","Orientation",
+                                               "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+
+# COLONY 9
+# INVADER ASSAY
+Colony9CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Circle_Aggn.csv"))
+
+Colony9CircleAggnT <- setNames(Colony9CircleAggnT, c("ID","Frames","X","Y","Orientation",
+                                                     "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony9TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Tube_Aggn.csv"))
+
+Colony9TubeAggnT <- setNames(Colony9TubeAggnT, c("ID","Frames","X","Y","Orientation",
+                                                 "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+
+# BASELINE ASSAY 
+Colony9CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Circle_Pre.csv"))
+
+Colony9CirclePreT <- setNames(Colony9CirclePreT, c("ID","Frames","X","Y","Orientation",
+                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+Colony9TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Tube_Pre.csv"))
+
+Colony9TubePreT <- setNames(Colony9TubePreT, c("ID","Frames","X","Y","Orientation",
+                                               "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+
+# COLONY 11
+# INVADER ASSAY
+Colony11CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Circle_Aggn.csv")) %>%
+  dplyr::select(-c("Tag", "Completed"))
+
+Colony11CircleAggnT <- setNames(Colony11CircleAggnT, c("ID","Frames","X","Y","Orientation",
+                                                       "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony11TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Tube_Aggn.csv")) 
+
+Colony11TubeAggnT <- setNames(Colony11TubeAggnT, c("ID","Frames","X","Y","Orientation",
+                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+
+# BASELINE ASSAY
+Colony11CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Circle_Pre.csv"))
+
+Colony11CirclePreT <- setNames(Colony11CirclePreT, c("ID","Frames","X","Y","Orientation",
+                                                     "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+Colony11TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Tube_Pre.csv"))
+
+Colony11TubePreT <- setNames(Colony11TubePreT, c("ID","Frames","X","Y","Orientation",
+                                                 "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+
+# COLONY 13
+# INVADER ASSAY
+Colony13CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Circle_Aggn.csv"))
+
+Colony13CircleAggnT <- setNames(Colony13CircleAggnT, c("ID","Frames","X","Y","Orientation",
+                                                       "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony13TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Tube_Aggn.csv")) 
+
+Colony13TubeAggnT <- setNames(Colony13TubeAggnT, c("ID","Frames","X","Y","Orientation",
+                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+# Pre assay
+Colony13CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Circle_Pre.csv"))
+
+Colony13CirclePreT <- setNames(Colony13CirclePreT, c("ID","Frames","X","Y","Orientation",
+                                                     "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+Colony13TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Tube_Pre.csv"))
+
+Colony13TubePreT <- setNames(Colony13TubePreT, c("ID","Frames","X","Y","Orientation",
+                                                 "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+
+# COLONY 17
+# INVADER ASSAY
+Colony17CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Circle_Aggn.csv"))
+
+Colony17CircleAggnT <- setNames(Colony17CircleAggnT, c("ID","Frames","X","Y","Orientation",
+                                                       "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony17TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Tube_Aggn.csv"))
+
+Colony17TubeAggnT <- setNames(Colony17TubeAggnT, c("ID","Frames","X","Y","Orientation",
+                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+# BASELINE ASSAY
+Colony17CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Circle_Pre.csv"))
+
+Colony17CirclePreT <- setNames(Colony17CirclePreT, c("ID","Frames","X","Y","Orientation",
+                                                     "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony17TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Tube_Pre.csv"))
+
+Colony17TubePreT <- setNames(Colony17TubePreT, c("ID","Frames","X","Y","Orientation",
+                                                 "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+# COLONY18
+# INVADER ASSAY
+Colony18CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Circle_Aggn.csv")) 
+
+Colony18CircleAggnT <- setNames(Colony18CircleAggnT, c("ID","Frames","X","Y","Orientation",
+                                                       "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony18TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Tube_Aggn.csv"))
+
+Colony18TubeAggnT <- setNames(Colony18TubeAggnT, c("ID","Frames","X","Y","Orientation",
+                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+# BASELINE ASSAY
+Colony18CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Circle_Pre.csv"))
+
+Colony18CirclePreT <- setNames(Colony18CirclePreT, c("ID","Frames","X","Y","Orientation",
+                                                     "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony18TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Tube_Pre.csv")) 
+
+Colony18TubePreT <- setNames(Colony18TubePreT, c("ID","Frames","X","Y","Orientation",
+                                                 "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+# COLONY 20
+# INVADER ASSAY
+Colony20CircleAggnT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Circle_Aggn.csv"))
+
+Colony20CircleAggnT <- setNames(Colony20CircleAggnT, c("ID","Frames","X","Y","Orientation",
+                                                       "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony20TubeAggnT<- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Tube_Aggn.csv")) 
+
+Colony20TubeAggnT <- setNames(Colony20TubeAggnT, c("ID","Frames","X","Y","Orientation",
+                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+# BASELINE ASSAY
+Colony20CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Circle_Pre.csv")) 
+
+Colony20CirclePreT <- setNames(Colony20CirclePreT, c("ID","Frames","X","Y","Orientation",
+                                                     "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
+
+Colony20TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Tube_Pre.csv"))
+
+Colony20TubePreT <- setNames(Colony20TubePreT, c("ID","Frames","X","Y","Orientation",
+                                                 "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 ##########################################################################################################
 # PROCESSING DATA, CONSTRUCTING, FILLING, AND EXPORTING MATRICES
@@ -79,61 +316,6 @@ data1 <- Colony5CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -141,61 +323,75 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
+
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -268,61 +464,6 @@ data1 <- Colony5TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -330,61 +471,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -457,60 +611,6 @@ data1 <- Colony5CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
 
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
@@ -519,61 +619,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -644,61 +757,6 @@ data1 <- Colony5TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -706,61 +764,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -831,61 +902,6 @@ data1 <- Colony6CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -893,61 +909,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -1018,61 +1047,6 @@ data1 <- Colony6TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -1080,61 +1054,75 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
+
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -1207,61 +1195,6 @@ data1 <- Colony6CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -1269,61 +1202,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -1394,61 +1340,6 @@ data1 <- Colony6TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -1456,61 +1347,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -1581,61 +1485,6 @@ data1 <- Colony7CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -1643,61 +1492,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -1768,61 +1630,6 @@ data1 <- Colony7TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -1830,61 +1637,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -1955,61 +1775,6 @@ data1 <- Colony7CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -2017,61 +1782,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -2142,61 +1920,6 @@ data1 <- Colony7TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -2204,61 +1927,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -2329,61 +2065,6 @@ data1 <- Colony8CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -2391,61 +2072,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -2516,61 +2210,6 @@ data1 <- Colony8TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -2578,61 +2217,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -2703,61 +2355,6 @@ data1 <- Colony8CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -2765,61 +2362,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -2890,61 +2500,6 @@ data1 <- Colony8TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -2952,61 +2507,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -3079,61 +2647,6 @@ data1 <- Colony9CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -3141,61 +2654,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -3268,61 +2794,6 @@ data1 <- Colony9TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -3330,61 +2801,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -3455,61 +2939,6 @@ data1 <- Colony9CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -3517,61 +2946,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -3642,61 +3084,6 @@ data1 <- Colony9TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -3704,61 +3091,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -3831,61 +3231,6 @@ data1 <- Colony11CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -3893,61 +3238,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -4018,61 +3376,6 @@ data1 <- Colony11TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -4080,61 +3383,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -4205,61 +3521,6 @@ data1 <- Colony11CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -4267,61 +3528,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -4392,61 +3666,6 @@ data1 <- Colony11TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -4454,61 +3673,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -4581,61 +3813,6 @@ data1 <- Colony13CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -4643,61 +3820,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -4770,61 +3960,6 @@ data1 <- Colony13TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -4832,61 +3967,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -4957,61 +4105,6 @@ data1 <- Colony13CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -5019,61 +4112,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -5150,61 +4256,6 @@ data1 <- Colony13TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -5212,61 +4263,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -5387,61 +4451,6 @@ data1 <- Colony17CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -5449,61 +4458,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -5574,61 +4596,6 @@ data1 <- Colony17TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -5636,61 +4603,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -5761,61 +4741,6 @@ data1 <- Colony17CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -5823,61 +4748,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -5948,61 +4886,6 @@ data1 <- Colony17TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -6010,61 +4893,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -6135,61 +5031,6 @@ data1 <- Colony18CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -6197,61 +5038,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -6322,61 +5176,6 @@ data1 <- Colony18TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -6384,61 +5183,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -6509,61 +5321,6 @@ data1 <- Colony18CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -6571,61 +5328,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -6696,61 +5466,6 @@ data1 <- Colony18TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -6758,61 +5473,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -6883,61 +5611,6 @@ data1 <- Colony20CirclePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -6945,61 +5618,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -7070,61 +5756,6 @@ data1 <- Colony20TubePreT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -7132,61 +5763,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -7257,61 +5901,6 @@ data1 <- Colony20CircleAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
-# nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
-
-# Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
-
-# The distance reference for a proximity qualification in the matrix loop
-# The distance is the average length of the box that represents each ant in the ABCTracker
-distance <- 0.3 * mean(v)
-
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
-# Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
-
-##########################################################################################################
-# MATRIX GENERATION TOWARDS STATIC NETWORKS 
-# Create empty matrices to be filled interactions below
-##########################################################################################################
-
-# NON-RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-NonR_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-NonR_matrix [is.na(NonR_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(NonR_matrix) <- A
-colnames(NonR_matrix) <- A
-
-# RECIPROCAL MATRIX
-# The matrix size is determined by the number of IDs
-R_matrix <- matrix(data = NA, nrow = nbr_ID , ncol = nbr_ID , byrow = F, dimnames = list(A)) 
-
-# Fill the matrix with zeros
-R_matrix [is.na(R_matrix)] <- 0
-
-# Row and column names are the sequential IDs
-rownames(R_matrix) <- A
-colnames(R_matrix) <- A
-
 ##########################################################################################################
 # FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
 # Here the nested for loops go through each ID and determine whether they interact with all other IDs
@@ -7319,61 +5908,74 @@ colnames(R_matrix) <- A
 # This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
 ##########################################################################################################
 
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
+# nbr_ID will be the number of individual IDs in a data set
+nbr_ID <- length(unique_IDs)
+
+# Create a vector that will contain all the value of box length to work on it
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
+
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
+
+# The distance reference for a proximity qualification in the matrix loop
+# The distance is the average length of the box that represents each ant in the ABCTracker
+distance <- 0.3 * mean(v)
+
+# Create a vector that will contain all the values ant ids
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
       
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
       
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
           }
         }
       }
     }
   }
-}
-)
+})
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
@@ -7450,33 +6052,81 @@ data1 <- Colony20TubeAggnT %>% # Original data
   # Rename the ID column as obs, this will allow us to change the matrix column and row names to the true ids
   rename(ID = obs)
 
+##########################################################################################################
+# FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
+# Here the nested for loops go through each ID and determine whether they interact with all other IDs
+# This nested loop both fills the matrices for our overall networks and the lists that we rbind to form the pairwise interaction dataframes for our time ordered networks
+# This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
+##########################################################################################################
+
+# Data preparation and initial setup
+unique_IDs <- unique(data1$ID)
+
 # nbr_ID will be the number of individual IDs in a data set
-nbr_ID <- length(unique(data1$ID)) 
+nbr_ID <- length(unique_IDs)
 
 # Create a vector that will contain all the value of box length to work on it
-v <- vector("numeric", nbr_ID) 
+v <- tapply(data1$SizeLeng.px, data1$ID, function(x) x[1])
 
-# This loop fills the vector with the length of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  v[i] <- v[i] <- data1$SizeLeng.px[ID][1] # Retrieve one value of size for each ID
-} 
+# Create a vector that will contain all the value of box width to work on it
+g <- tapply(data1$SizeWidth.px, data1$ID, function(x) x[1])
 
 # The distance reference for a proximity qualification in the matrix loop
 # The distance is the average length of the box that represents each ant in the ABCTracker
 distance <- 0.3 * mean(v)
 
-# Create a vector that will contain all the value of box width to work on it
-g <- vector("numeric", nbr_ID) 
-
-# This loop fills the vector with the width of the box that represents each ant in ABCTracker
-for (i in 1:length(unique(data1$ID))) {
-  ID <- unique(data1$ID)[i] # Each ID in data1
-  g[i] <- data1$SizeWidth.px[ID][1] # Retrieve one value of size for each ID
-}
-
 # Create a vector that will contain all the values ant ids
-A <- c(1:nbr_ID) 
+A <- 1:nbr_ID
+
+# Initialize empty matrices
+NonR_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+R_matrix <- matrix(0, nrow = nbr_ID, ncol = nbr_ID, dimnames = list(A))
+
+# Loop through each unique ID
+system.time({
+  for (i in unique_IDs) {
+    cat("starting ID ", i, " ")
+    frames_id <- subset(data1, ID == i)
+    
+    for (f in frames_id$Frames) {
+      frames_match <- subset(data1, Frames == f)
+      
+      headX_i <- frames_match$HeadX[frames_match$ID == i]
+      headY_i <- frames_match$HeadY[frames_match$ID == i]
+      middleX_i <- frames_match$X[frames_match$ID == i]
+      middleY_i <- frames_match$Y[frames_match$ID == i]
+      
+      for (r in 1:nrow(frames_match)) {
+        if (frames_match$ID[r] == i) next # Skip same ID
+        
+        headX_r <- frames_match$HeadX[r]
+        headY_r <- frames_match$HeadY[r]
+        middleX_r <- frames_match$X[r]
+        middleY_r <- frames_match$Y[r]
+        
+        # Condition calculations
+        dist_head <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2)
+        dist_middle_head <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2)
+        dist_middle <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2)
+        
+        cond1 <- dist_head <= distance
+        cond2 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] + 160 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] + 200
+        cond3 <- frames_match$Orientation[r] >= frames_match$Orientation[frames_match$ID == i] - 200 && frames_match$Orientation[r] <= frames_match$Orientation[frames_match$ID == i] -160
+        cond4 <- dist_middle_head <= 1.5 * mean(v)
+        cond5 <- dist_middle > 0.5 * mean(g)
+        
+        # Update matrices based on conditions
+        if ((cond4 && cond5) || (cond1 && cond5)) {
+          if (cond1 && (cond2 || cond3)) {
+            R_matrix [frames_match$ID[r], i] <- R_matrix [frames_match$ID[r], i] + 1
+          } else {
+            NonR_matrix [frames_match$ID[r], i] <- NonR_matrix [frames_match$ID[r], i] + 1
+          }
+        }
+      }
+    }
+  }
+})
 
 ##########################################################################################################
 # MATRIX GENERATION TOWARDS STATIC NETWORKS 
@@ -7504,69 +6154,6 @@ R_matrix [is.na(R_matrix)] <- 0
 # Row and column names are the sequential IDs
 rownames(R_matrix) <- A
 colnames(R_matrix) <- A
-
-##########################################################################################################
-# FILL EACH ADJACENCY MATRIX WITH INTERACTIONS
-# Here the nested for loops go through each ID and determine whether they interact with all other IDs
-# This nested loop both fills the matrices for our overall networks and the lists that we rbind to form the pairwise interaction dataframes for our time ordered networks
-# This is done every frame - necessarily so - which is why it is so computationally expensive and the largest processes take several hours
-##########################################################################################################
-
-system.time(for (i in unique(data1$ID)){ # Do it for all the ID in the big data set
-  cat("starting ID ", i, " ") # Just tracks the progress of the loop, so you will know which ID the loop is on
-  frames_id <- data1[data1$ID == i,] # Subset of the overall data sets that is ID i
-  for (f in frames_id$Frames){ # For every frame in the subsetted data
-    frames.match <- data1[data1$Frames == f,] # First, we create a data frame with only rows where frames are equal
-    for(r in 1:nrow(frames.match)) { # Comparison of each row in the new dataframe
-      
-      # THE COORDINATES USED FOR PROXIMITY CONDITIONS BELOW
-      headX_r <- frames.match$HeadX[r] # Definitions of X coordinates of head for the r individual
-      headY_r <- frames.match$HeadY[r] # Definitions of Y coordinates of head for the r individual
-      headX_i <- frames.match$HeadX[frames.match$ID == i] # Definitions of X coordinates of head for the i individual
-      headY_i <- frames.match$HeadY[frames.match$ID == i] # Definitions of Y coordinates of head for the i individual
-      middleY_r <- frames.match$Y[r] # Definitions of X coordinates of middle of the square for the r individual
-      middleX_r <- frames.match$X[r] # Definitions of Y coordinates of middle of the square for the r individual
-      middleX_i <- frames.match$X[frames.match$ID == i] # Definitions of X coordinates of middle of the square for the i individual
-      middleY_i <- frames.match$Y[frames.match$ID == i] # Definitions of Y coordinates of middle of the square for the i individual
-      
-      # INTRODUCTIONS OF ALL OF THE CONDITIONS TO QUALIFY WHETHER ANTS ARE IN PROXIMITY TO ONE ANOTHER
-      # For non-reciprocal matrices, the conditions are to determine if ants are in our proximity window 
-      # We also determine if the head of the target ant is close to the head of the other ant (condition for reciprocal interactions)
-      
-      # RECIPROCAL CONDITIONS
-      # The distance between two heads is within the distance threshold (1/3 of the mean ant-length)
-      cond1 <- sqrt((headX_r - headX_i)^2 + (headY_r - headY_i)^2) <= distance 
-      # Cond2 and cond3 determines whether the Orientation of the two workers are towards one another within an 80 degree field
-      cond2 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] + 160 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] + 200
-      cond3 <- frames.match$Orientation[r] >= frames.match$Orientation[frames.match$ID == i] - 200 && frames.match$Orientation[r] <= frames.match$Orientation[frames.match$ID == i] -160
-      
-      # PROXIMITY CONDITIONS
-      # Is the head close to the middle of the other ant (distance has to be less or equal to 1.5 * the average length of ants)
-      cond4 <- sqrt((headX_r - middleX_i)^2 + (headY_r - middleY_i)^2) <= 1.5 * mean(v) 
-      # Are the two ant bodies close to each other (1/2 * the average width of ants)
-      cond5 <- sqrt((middleX_r - middleX_i)^2 + (middleY_r - middleY_i)^2) > 0.5 * mean(g)
-      
-      # DETERMINE PROXIMITY AND ADD TO MATRICES
-      # If the row of r is different of the row of i 
-      if (frames.match$ID[r] != i) 
-      { # Proximity condition throws back an NA
-        # If the ants are in proximity
-        if(cond4 && cond5 | cond1 && cond5) {
-          # If the head is close to the head of the other ant (reciprocal interaction)
-          if(cond1 && cond2 | cond1 && cond3)
-          { # Fill the reciprocal matrix + 1 for that reciprocal interaction
-            R_matrix [frames.match$ID[r], i] <- R_matrix [frames.match$ID[r], i] + 1 
-          } # Add 1 to the value in the cell of the matrix
-          else {
-            # Else fill the non-reciprocal matrix
-            NonR_matrix [frames.match$ID[r], i] <- NonR_matrix [frames.match$ID[r], i] + 1
-          }
-        }
-      }
-    }
-  }
-}
-)
 
 ##########################################################################################################
 # PROCESSING THE MATRICES & EXPORTING THEM 
