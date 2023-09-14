@@ -4161,7 +4161,7 @@ TestHCDistPlot_Full <- annotate_figure(TestHCDistPlot,
 )
 
 # Save plot as a PDF
-ggsave(file = "Fig3a_d.pdf", plot = TestHCDistPlot_Full, width = 10.4, height = 10.4, units = "in")
+ggsave(file = here("analysis", "figures", "Fig3a_d.pdf"), plot = TestHCDistPlot_Full, width = 10.4, height = 10.4, units = "in")
 
 
 # NETWORK EFFICIENCY
@@ -4231,7 +4231,7 @@ NetEfficiency_Full <- annotate_figure(NetEfficiency,
 )
 
 # Save plot as a PDF
-ggsave(file = "Fig4.pdf", plot = NetEfficiency_Full, width = 10.4, height = 5.2, units = "in")
+ggsave(file = here("analysis", "figures", "Fig4.pdf"), plot = NetEfficiency_Full, width = 10.4, height = 5.2, units = "in")
 
 # COMPARATIVE PLOTS
 # GAMMA CONNECTIVITY
@@ -4295,7 +4295,7 @@ NetComparisonsGamma_Full <- annotate_figure(NetComparisonsGamma,
 )
 
 # Save plot as a PDF
-ggsave(file = "FigS4.pdf", plot = NetComparisonsGamma_Full, width = 10.4, height = 5.2, units = "in")
+ggsave(file = here("analysis", "supplementary-materials", "Supplementary_Figures", "FigS4.pdf"), plot = NetComparisonsGamma_Full, width = 10.4, height = 5.2, units = "in")
 
 
 # NETWORK DIAMETER
@@ -4358,7 +4358,7 @@ NetComparisonsDiam_Full <- annotate_figure(NetComparisonsDiam,
 )
 
 # Save plot as a PDF (CURRENTLY NOT USING)
-# ggsave(file = "FigS5.pdf", plot = NetComparisonsDiam_Full, width = 10.4, height = 5.2, units = "in")
+# ggsave(file = here("analysis", "supplementary-materials", "Supplementary_Figures", "FigS5.pdf"), plot = NetComparisonsDiam_Full, width = 10.4, height = 5.2, units = "in")
 
 # NETWORK RECIPROCITY
 # BASELINE ASSAY
@@ -4421,7 +4421,7 @@ NetComparisonsRecip_Full <- annotate_figure(NetComparisonsRecip,
 )
 
 # Save plot as a PDF
-ggsave(file = "FigS5.pdf", plot = NetComparisonsRecip_Full, width = 10.4, height = 5.2, units = "in")
+ggsave(file = here("analysis", "supplementary-materials", "Supplementary_Figures", "FigS5.pdf"), plot = NetComparisonsRecip_Full, width = 10.4, height = 5.2, units = "in")
 
 # NETWORK TRANSITIVITY
 # BASELINE ASSAY
@@ -4484,7 +4484,7 @@ NetComparisonsTrans_Full <- annotate_figure(NetComparisonsTrans,
 )
 
 # Save plot as a PDF
-ggsave(file = "FigS6.pdf", plot = NetComparisonsTrans_Full, width = 10.4, height = 5.2, units = "in")
+ggsave(file = here("analysis", "supplementary-materials", "Supplementary_Figures", "FigS6.pdf"), plot = NetComparisonsTrans_Full, width = 10.4, height = 5.2, units = "in")
 
 # NETWORKS 
 # Palette for networks
