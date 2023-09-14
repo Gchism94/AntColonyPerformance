@@ -21,19 +21,13 @@
 if (!require(pacman)) install.packages('pacman')
 
 pacman::p_load(assertthat, # Loading required packages for code below. p_load() will download packages that aren't in system library
-               data.table,
-               forcats,
                janitor,
-               gganimate,
                ggpubr,
                here,
                lme4,
                lmerTest,
-               magrittr,
                MuMIn,
-               readr,
-               tidyverse,
-               RColorBrewer)
+               tidyverse)
 
 ##########################################################################################################
 # LOAD THE REQUIRED DATA SETS
@@ -366,13 +360,13 @@ Colony9Pre <- full_join(Colony9CirclePre, Colony9TubePre)
 
 # COLONY 11
 # INVADER ASSAY
-Colony11CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Circle_Aggn.csv")) %>%
+Colony11CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony11_Circle_Aggn.csv") %>%
   dplyr::select(-c("Tag", "Completed"))
 
 Colony11CircleAggnT <- setNames(Colony11CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony11TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Tube_Aggn.csv")) 
+Colony11TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony11_Tube_Aggn.csv") 
 
 Colony11TubeAggnT <- setNames(Colony11TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -4291,8 +4285,9 @@ write.csv(Colony6Aggn, here("analysis", "data", "derived_data", "tracking_standa
 # Colony 6 Baseline
 write.csv(Colony6Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony6Pre.csv"))
 
-# Colony 7 Aggression
-write.csv(Colony7Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Aggn.csv"))
+# Colony 7 Aggression 
+# (use the following link to import data: )
+# write.csv(Colony7Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Aggn.csv"))
 
 # Colony 7 Baseline
 write.csv(Colony7Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Pre.csv"))
@@ -4847,6 +4842,68 @@ Colony17AggnDist <- full_join(Colony17CircleAggnDist, Colony17TubeAggnDist)
 Colony18AggnDist <- full_join(Colony18CircleAggnDist, Colony18TubeAggnDist)
 Colony20AggnDist <- full_join(Colony20CircleAggnDist, Colony20TubeAggnDist)
 
+# Write datasets
+# Colony 5 Aggression Circle
+write.csv(Colony5CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony5CircleAggnDist.csv"))
+
+# Colony 5 Aggression Tube
+write.csv(Colony5TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony5TubeAggnDist.csv"))
+
+# Colony 6 Aggression Circle
+write.csv(Colony6CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony6CircleAggnDist.csv"))
+
+# Colony 6 Aggression Tube
+write.csv(Colony6TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony6TubeAggnDist.csv"))
+
+# Colony 7 Aggression Circle
+write.csv(Colony7CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony7CircleAggnDist.csv"))
+
+# Colony 7 Aggression Tube
+write.csv(Colony7TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony7TubeAggnDist.csv"))
+
+# Colony 8 Aggression Circle
+write.csv(Colony8CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony8CircleAggnDist.csv"))
+
+# Colony 8 Aggression Tube
+write.csv(Colony8TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony8TubeAggnDist.csv"))
+
+# Colony 9 Aggression Circle
+write.csv(Colony9CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony9CircleAggnDist.csv"))
+
+# Colony 9 Aggression Tube
+write.csv(Colony9TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony9TubeAggnDist.csv"))
+
+# Colony 11 Aggression Circle
+# (Use the following link to import data: https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony11CircleAggnDist.csv)
+# write.csv(Colony11CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony11CircleAggnDist.csv"))
+
+# Colony 11 Aggression Tube
+write.csv(Colony11TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony11TubeAggnDist.csv"))
+
+# Colony 13 Aggression Circle
+write.csv(Colony13CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony13CircleAggnDist.csv"))
+
+# Colony 13 Aggression Tube
+write.csv(Colony13TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony13TubeAggnDist.csv"))
+
+# Colony 17 Aggression Circle
+write.csv(Colony17CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony17CircleAggnDist.csv"))
+
+# Colony 17 Aggression Tube
+write.csv(Colony17TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony17TubeAggnDist.csv"))
+
+# Colony 18 Aggression Circle
+write.csv(Colony18CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony18CircleAggnDist.csv"))
+
+# Colony 18 Aggression Tube
+write.csv(Colony18TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony18TubeAggnDist.csv"))
+
+# Colony 20 Aggression Circle
+write.csv(Colony20CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony20CircleAggnDist.csv"))
+
+# Colony 20 Aggression Tube
+write.csv(Colony20TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony20TubeAggnDist.csv"))
+
 # Full join a subset of the aggression assay data sets (prevents too much computer memory use)
 AggnAssayDistTest <-
   Colony5AggnDist %>%
@@ -4879,6 +4936,68 @@ Colony13PreDist <- full_join(Colony13CirclePreDist, Colony13TubePreDist)
 Colony17PreDist <- full_join(Colony17CirclePreDist, Colony17TubePreDist)
 Colony18PreDist <- full_join(Colony18CirclePreDist, Colony18TubePreDist)
 Colony20PreDist <- full_join(Colony20CirclePreDist, Colony20TubePreDist)
+
+# Write datasets
+# Colony 5 Baseline Circle
+write.csv(Colony5CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony5CirclePreDist.csv"))
+
+# Colony 5 Baseline Tube
+write.csv(Colony5TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony5TubePreDist.csv"))
+
+# Colony 6 Baseline Circle
+write.csv(Colony6CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony6CirclePreDist.csv"))
+
+# Colony 6 Baseline Tube
+write.csv(Colony6TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony6TubePreDist.csv"))
+
+# Colony 7 Baseline Circle
+write.csv(Colony7CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony7CirclePreDist.csv"))
+
+# Colony 7 Baseline Tube
+write.csv(Colony7TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony7TubePreDist.csv"))
+
+# Colony 8 Baseline Circle
+write.csv(Colony8CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony8CirclePreDist.csv"))
+
+# Colony 8 Baseline Tube
+write.csv(Colony8TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony8TubePreDist.csv"))
+
+# Colony 9 Baseline Circle
+write.csv(Colony9CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony9CirclePreDist.csv"))
+
+# Colony 9 Baseline Tube
+write.csv(Colony9TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony9TubePreDist.csv"))
+
+# Colony 11 Baseline Circle
+# (Use the following link to import data: https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony11CirclePreDist.csv)
+# write.csv(Colony11CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony11CirclePreDist.csv"))
+
+# Colony 11 Baseline Tube
+write.csv(Colony11TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony11TubePreDist.csv"))
+
+# Colony 13 Baseline Circle
+write.csv(Colony13CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony13CirclePreDist.csv"))
+
+# Colony 13 Baseline Tube
+write.csv(Colony13TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony13TubePreDist.csv"))
+
+# Colony 17 Baseline Circle
+write.csv(Colony17CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony17CirclePreDist.csv"))
+
+# Colony 17 Baseline Tube
+write.csv(Colony17TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony17TubePreDist.csv"))
+
+# Colony 18 Baseline Circle
+write.csv(Colony18CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony18CirclePreDist.csv"))
+
+# Colony 18 Baseline Tube
+write.csv(Colony18TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony18TubePreDist.csv"))
+
+# Colony 20 Baseline Circle
+write.csv(Colony20CirclePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony20CirclePreDist.csv"))
+
+# Colony 20 Baseline Tube
+write.csv(Colony20TubePreDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony20TubePreDist.csv"))
 
 # Full join a subset of the baseline assay data sets (prevents too much computer memory use)
 PreAssayDistTest <- Colony13PreDist %>%

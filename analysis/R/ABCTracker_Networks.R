@@ -2671,7 +2671,7 @@ Colony11CircleAggnHC <- as.data.frame(cbind(HC))
 Colony11CircleAggnHC <- rownames_to_column(Colony11CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony11CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony11CircleAggnDist.csv"))
+Colony11CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony11CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony11CircleAggnDist1 <- Colony11CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2737,7 +2737,7 @@ Colony11CirclePreHC <- as.data.frame(cbind(HC))
 Colony11CirclePreHC <- rownames_to_column(Colony11CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony11CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony11CirclePreDist.csv"))
+Colony11CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony11CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony11CirclePreDist1 <- Colony11CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)

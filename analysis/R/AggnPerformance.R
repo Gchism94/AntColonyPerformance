@@ -17,15 +17,11 @@ if (!require(pacman)) install.packages('pacman')
 
 pacman::p_load(assertthat, # Loading required packages for code below. p_load() will download packages that aren't in system library
                CRSSIO,
-               data.table,
-               forcats,
                ggpubr,
                here,
                lme4,
                lmerTest,
-               magrittr,
                MuMIn,
-               readr,
                tidyverse)
 
  ##########################################################################################################

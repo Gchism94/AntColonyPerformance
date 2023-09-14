@@ -19,14 +19,11 @@ if (!require(pacman)) install.packages('pacman')
 
 pacman::p_load(assertthat, # Loading required packages for code below. p_load() will download packages that aren't in system library
                data.table,
-               forcats,
                ggpubr,
                here,
                lme4,
                lmerTest,
-               magrittr,
                MuMIn,
-               readr,
                tidyverse)
 
 ##########################################################################################################
@@ -47,10 +44,10 @@ Colony6Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Stand
 Colony6Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony6Pre.csv"))
 
 # Colony 7 Aggression
-Colony7Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony7Aggn.csv"))
+Colony7Aggn <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/tracking_standard/Colony7Aggn.csv")
 
 # Colony 7 Baseline
-Colony7Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony7Pre.csv"))
+Colony7Pre <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/tracking_standard/Colony7Pre.csv")
 
 # Colony 8 Aggression
 Colony8Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony8Aggn.csv"))
@@ -59,16 +56,16 @@ Colony8Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Stand
 Colony8Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony8Pre.csv"))
 
 # Colony 9 Aggression
-Colony9Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony9Aggn.csv"))
+Colony9Aggn <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/tracking_standard/Colony9Aggn.csv")
 
 # Colony 9 Baseline
-Colony9Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony9Pre.csv"))
+Colony9Pre <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/tracking_standard/Colony9Pre.csv")
 
 # Colony 11 Aggression
-Colony11Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony11Aggn.csv"))
+Colony11Aggn <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/tracking_standard/Colony11Aggn.csv")
 
 # Colony 11 Baseline
-Colony11Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony11Pre.csv"))
+Colony11Pre <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/tracking_standard/Colony11Pre.csv")
 
 # Colony 13 Aggression
 Colony13Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony13Aggn.csv"))
@@ -77,10 +74,10 @@ Colony13Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Stan
 Colony13Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony13Pre.csv"))
 
 # Colony 17 Aggression
-Colony17Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony17Aggn.csv"))
+Colony17Aggn <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/tracking_standard/Colony17Aggn.csv")
 
 # Colony 17 Baseline
-Colony17Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony17Pre.csv"))
+Colony17Pre <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/tracking_standard/Colony17Pre.csv")
 
 # Colony 18 Aggression
 Colony18Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony18Aggn.csv"))

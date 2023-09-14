@@ -20,16 +20,12 @@ install.packages("pacman") # Download package with function to load multiple pac
 
 
 pacman::p_load(data.table, # Loading required packages for code below. p_load() will download packages that aren't in system library
-               forcats,
                ggpubr,
                here,
                janitor,
                rbenchmark,
                Rcpp,
-               readr,
-               tidyr,
-               tidyverse
-)
+               tidyverse)
 
 ##########################################################################################################
 # LOAD THE REQUIRED DATA SETS
@@ -159,7 +155,7 @@ Colony9TubePreT <- setNames(Colony9TubePreT, c("ID","Frames","X","Y","Orientatio
 
 # COLONY 11
 # INVADER ASSAY
-Colony11CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Circle_Aggn.csv")) %>%
+Colony11CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony11_Circle_Aggn.csv") %>%
   dplyr::select(-c("Tag", "Completed"))
 
 Colony11CircleAggnT <- setNames(Colony11CircleAggnT, c("ID","Frames","X","Y","Orientation",
@@ -172,7 +168,7 @@ Colony11TubeAggnT <- setNames(Colony11TubeAggnT, c("ID","Frames","X","Y","Orient
 
 
 # BASELINE ASSAY
-Colony11CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Circle_Pre.csv"))
+Colony11CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony11_Circle_Pre.csv")
 
 Colony11CirclePreT <- setNames(Colony11CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
