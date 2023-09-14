@@ -4,3 +4,5 @@ analysis/data/derived_data/distance_entrance/*.csv filter=lfs diff=lfs merge=lfs
 analysis/data/derived_data/matrices/*.csv filter=lfs diff=lfs merge=lfs -text
 analysis/data/raw_data/aggression/*.csv filter=lfs diff=lfs merge=lfs -text
 analysis/data/raw_data/tracker_data/*.csv filter=lfs diff=lfs merge=lfs -text
+analysis/figures/*.jpg filter=lfs diff=lfs merge=lfs -text
+analysis/figures/*.pdf filter=lfs diff=lfs merge=lfs -text
