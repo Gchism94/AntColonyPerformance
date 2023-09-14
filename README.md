@@ -32,18 +32,18 @@ Once loaded, run `git clone https://github.com/Gchism94/Data7_EDA_In_R_Workshops
     ├── figures/            # location of the figures produced by the scripts in R
     |
     ├── data/
-    │   ├── RawData/        # data obtained from elsewhere
-    │   └── RefData/        # data used to obtain final data and during the analysis
+    │   ├── raw_data/       # data obtained from elsewhere
+    |   ├── derived_data    # data derived from the code in analysis/R
+    │   └── ref_data/       # data used to obtain final data and during the analysis
     |   
     ├── supplementary-materials/
     │   ├── Supplementary_Figures/     
     |   |                   # supplementary figures for the main manuscript
     │   └── Supplementary_Tables/      
-    |                       # supplementary tables for the main manuscript 
+    |                       # supplementary tables for the main manuscript (currently empty)
     |
-    └── R                   # Run in the following order (also see associated README.md files)
-        ├── Stat_boxplot_custom.R
-        |                   # Custom box plot function to extend the whiskers to full data range (0th and 100th percentiles)
+    └── R                   # Suggested run order is shown (also see associated README.md files)
+        |                   
         ├── AggnPerformance.R        
         |                   # R script used to determine colony performance against an invader, including code for analyses and figures
         ├── ABCTracker_Movement.R 
