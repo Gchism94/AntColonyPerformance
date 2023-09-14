@@ -2,3 +2,5 @@
 analysis/data/derived_data/tracking_standard/*.csv filter=lfs diff=lfs merge=lfs -text
 analysis/data/derived_data/distance_entrance/*.csv filter=lfs diff=lfs merge=lfs -text
 analysis/data/derived_data/matrices/*.csv filter=lfs diff=lfs merge=lfs -text
+analysis/data/raw_data/aggression/*.csv filter=lfs diff=lfs merge=lfs -text
+analysis/data/raw_data/tracker_data/*.csv filter=lfs diff=lfs merge=lfs -text
