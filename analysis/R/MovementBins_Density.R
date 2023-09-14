@@ -14,7 +14,8 @@
 ##########################################################################################################
 # INSTALL & LOAD REQUIRED PACKAGES
 ##########################################################################################################
-install.packages("pacman") # Download package with function to load multiple packaged at once
+# Download package with function to load multiple packaged at once
+if (!require(pacman)) install.packages('pacman')
 
 pacman::p_load(assertthat, # Loading required packages for code below. p_load() will download packages that aren't in system library
                data.table,
@@ -32,10 +33,70 @@ pacman::p_load(assertthat, # Loading required packages for code below. p_load() 
 # LOAD THE REQUIRED DATA SETS
 ##########################################################################################################
 
+# DATASETS FROM ABCTracker_Movement.R
+# Colony 5 Aggression
+Colony5Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony5Aggn.csv"))
+
+# Colony 5 Baseline
+Colony5Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony5Pre.csv"))
+
+# Colony 6 Aggression
+Colony6Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony6Aggn.csv"))
+
+# Colony 6 Baseline
+Colony6Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony6Pre.csv"))
+
+# Colony 7 Aggression
+Colony7Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony7Aggn.csv"))
+
+# Colony 7 Baseline
+Colony7Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony7Pre.csv"))
+
+# Colony 8 Aggression
+Colony8Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony8Aggn.csv"))
+
+# Colony 8 Baseline
+Colony8Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony8Pre.csv"))
+
+# Colony 9 Aggression
+Colony9Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony9Aggn.csv"))
+
+# Colony 9 Baseline
+Colony9Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony9Pre.csv"))
+
+# Colony 11 Aggression
+Colony11Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony11Aggn.csv"))
+
+# Colony 11 Baseline
+Colony11Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony11Pre.csv"))
+
+# Colony 13 Aggression
+Colony13Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony13Aggn.csv"))
+
+# Colony 13 Baseline
+Colony13Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony13Pre.csv"))
+
+# Colony 17 Aggression
+Colony17Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony17Aggn.csv"))
+
+# Colony 17 Baseline
+Colony17Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony17Pre.csv"))
+
+# Colony 18 Aggression
+Colony18Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony18Aggn.csv"))
+
+# Colony 18 Baseline
+Colony18Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony18Pre.csv"))
+
+# Colony 20 Aggression
+Colony20Aggn <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony20Aggn.csv"))
+
+# Colony 20 Baseline
+Colony20Pre <- read.csv(here("analysis", "data", "derived_data", "tracking_Standard", "Colony20Pre.csv"))
+
 # REFERENCE DATA SETS
 # BIN REFERENCE COORDINATES
 BinCoordAssignMove <- read.csv(here("analysis", "data", "ref_data", "BinCoordAssignMove.csv"))
-
 
 # BIN ASSIGNMENT FUNCTION
 # The code below bins x and y coordinate colony data into eight even area nest sections
@@ -58,7 +119,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony5BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony5BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "5" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -123,7 +184,6 @@ CoordBinnedMoveAggn <- function(data_table){
 # Run the CoordBinnedMoveAggn for the Colony5Aggn data set
 CoordBinnedMoveAggn(Colony5Aggn)
 
-
 # BASELINE ASSAY
 CoordBinnedMovePre <- function(data_table){
   # REFERENCE COORDINATES
@@ -137,7 +197,7 @@ CoordBinnedMovePre <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony5BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony5BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "5" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -216,7 +276,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony6BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony6BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "6" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -295,7 +355,7 @@ CoordBinnedMovePre <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony6BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony6BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "6" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -374,7 +434,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony7BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony7BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "7" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -452,7 +512,7 @@ CoordBinnedMovePre<-function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony7BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony7BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "7" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -531,7 +591,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony8BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony8BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "8" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -609,7 +669,7 @@ CoordBinnedMovePre<-function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony8BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony8BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "8" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -688,7 +748,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony9BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony9BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "9" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -766,7 +826,7 @@ CoordBinnedMovePre<-function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony9BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony9BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "9" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -845,7 +905,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony11BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony11BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "11" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -923,7 +983,7 @@ CoordBinnedMovePre<-function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony11BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony11BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "11" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1002,7 +1062,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony13BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony13BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "13" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1080,7 +1140,7 @@ CoordBinnedMovePre<-function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony13BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony13BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "13" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1159,7 +1219,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony17BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony17BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "17" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1237,7 +1297,7 @@ CoordBinnedMovePre<-function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony17BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony17BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "17" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1316,7 +1376,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony18BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony18BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "18" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1394,7 +1454,7 @@ CoordBinnedMovePre<-function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony18BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony18BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "18" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1473,7 +1533,7 @@ CoordBinnedMoveAggn <- function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony20BinnedMoveTubeAggn <<- data_table %>% # Data table to bin coordinates
+  Colony20BinnedMoveTubeAggn <- data_table %>% # Data table to bin coordinates
     filter(Colony == "20" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1551,7 +1611,7 @@ CoordBinnedMovePre<-function(data_table){
   
   # BINNING THE DATA
   # TUBE NEST
-  Colony20BinnedMoveTubePre <<- data_table %>% # Data table to bin coordinates
+  Colony20BinnedMoveTubePre <- data_table %>% # Data table to bin coordinates
     filter(Colony == "20" & Nest == "Tube") %>% # Filter out the desired subset
     mutate(Bin = # Bin function, which qualifies whether each coordinate in within the reference coordinates for the bin
              if_else(X >= BinCoordAssignMoveTube$X[2] & 
@@ -1617,11 +1677,11 @@ CoordBinnedMovePre<-function(data_table){
 CoordBinnedMovePre(Colony20Pre)
 
 # IF NEEDED: Remove unnecessary data sets to free up computer memory
-#rm("Colony5Aggn", "Colony5Pre", "Colony6Aggn", "Colony6Pre",
-#     "Colony7Aggn", "Colony7Pre", "Colony8Aggn", "Colony8Pre",
-#     "Colony9Aggn", "Colony9Pre", "Colony11Aggn", "Colony11Pre",
-#     "Colony13Aggn", "Colony13Pre", "Colony17Aggn", "Colony17Pre",
-#     "Colony18Aggn", "Colony18Pre", "Colony20Aggn", "Colony20Pre")
+rm("Colony5Aggn", "Colony5Pre", "Colony6Aggn", "Colony6Pre",
+     "Colony7Aggn", "Colony7Pre", "Colony8Aggn", "Colony8Pre",
+     "Colony9Aggn", "Colony9Pre", "Colony11Aggn", "Colony11Pre",
+     "Colony13Aggn", "Colony13Pre", "Colony17Aggn", "Colony17Pre",
+     "Colony18Aggn", "Colony18Pre", "Colony20Aggn", "Colony20Pre")
 
 ##########################################################################################################
 # DATA PROCESSING, ANALYSES, VISUALIZATION: WORKER DENSITY IN NEST SECTIONS
@@ -1710,6 +1770,14 @@ FullAssayDensity <- AggnAssayDensity %>%
   full_join(PreAssayDensity) %>%
   full_join(PreAssayDensity1)
 
+# IF NEEDED: Remove unnecessary data sets to free up computer memory
+rm("Colony5AggnBinned", "Colony5PreBinned", "Colony6AggnBinned", "Colony6PreBinned",
+   "Colony7AggnBinned", "Colony7PreBinned", "Colony8AggnBinned", "Colony8PreBinned",
+   "Colony9AggnBinned", "Colony9PreBinned", "Colony11AggnBinned", "Colony11PreBinned",
+   "Colony13AggnBinned", "Colony13PreBinned", "Colony17AggnBinned", "Colony17PreBinned",
+   "Colony18AggnBinned", "Colony18PreBinned", "Colony20AggnBinned", "Colony20PreBinned",
+   "AggnAssayDensity", "AggnAssayDensity1", "PreAssayDensity", "PreAssayDensity1")
+
 # Mean & standard deviation 
 # Aggression assay
 FullAssayDensity %>% 
@@ -1743,6 +1811,13 @@ r.squaredGLMM(lmer(AvgSpeed ~ PropWorkers * Nest * Trial + poly(Bin, degree = 2,
 
 # WORKER DENSITIES IN NEST SECTIONS
 
+# Function to produce larger scatterplot legends
+large_points <- function(data, params, size) {
+  # Multiply by some number
+  data$size <- data$size * 2
+  draw_key_point(data = data, params = params, size = size)
+}
+
 # SCATTERPLOTS
 # AGGRESSION ASSAY
 # CIRCLE NEST
@@ -1755,8 +1830,8 @@ CircleAggn.Density <- ggplot(data = FullAssayDensity %>% filter(Trial == "Aggn" 
              color = "blue", 
              shape = 16) +
   geom_smooth(method = 'lm', 
-              se=FALSE, 
-              size = 1.5,
+              se = FALSE, 
+              linewidth = 1.5,
               color = "black") +
   theme_pubclean() +
   theme(axis.ticks = element_blank(),
@@ -1781,7 +1856,7 @@ TubeAggn.Density <- ggplot(data = FullAssayDensity %>% filter(Trial == "Aggn" & 
              shape = 17) +
   geom_smooth(method = 'lm', 
               se = FALSE, 
-              size = 1.5, 
+              linewidth = 1.5, 
               color = "black") +
   theme_pubclean() +
   theme(axis.ticks = element_blank(),
@@ -1808,7 +1883,7 @@ CirclePre.Density <- ggplot(data = FullAssayDensity %>% filter(Trial == "Pre" & 
              shape = 16) +
   geom_smooth(method = 'lm', 
               se = FALSE, 
-              size = 1.5, 
+              linewidth = 1.5, 
               color = "black") +
   theme_pubclean() +
   theme(axis.text.y = element_text(size = 18, color = "black"),
@@ -1832,7 +1907,7 @@ TubePre.Density <- ggplot(data = FullAssayDensity %>% filter(Trial == "Pre" & Ne
              shape = 17) +
   geom_smooth(method = 'lm', 
               se = FALSE, 
-              size = 1.5,
+              linewidth = 1.5,
               color = "black") +
   theme_pubclean() +
   theme(axis.ticks = element_blank(),
@@ -1866,5 +1941,5 @@ SpeedDensityPlot <- annotate_figure(SpeedDensity,
 )
 
 # Save plot as a PDF
-ggsave(file = "Fig8.jpg", plot = SpeedDensityPlot, width = 10.4, height = 10.4, units = "in")
+ggsave(file = "Fig8.pdf", plot = SpeedDensityPlot, width = 10.4, height = 10.4, units = "in")
 
