@@ -29,7 +29,7 @@ pacman::p_load(assertthat, # Loading required packages for code below. p_load() 
 ##########################################################################################################
 
 # RAW DATA PROCESSING
-Aggression_Data_Full <- read.csv(here("analysis", "data", "raw_data", "aggression", "Aggression_Data_Working.csv")) %>% # Raw data set
+Aggression_Data_Full <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/aggression/Aggression_Data_Working.csv") %>% # Raw data set
   mutate(Removed = Inv.Remov - Inv.Insert) # Add a column for invader removal time (invader removal time - invader insertion time, in seconds)
 
 ##########################################################################################################

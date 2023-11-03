@@ -51,10 +51,10 @@ pacman::p_load(assertthat,
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony5TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony5TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE)
+Colony5TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony5TubeAggnNRMatrix.csv", row.names = 1, header = TRUE)
 
 # RECIPROCAL
-Colony5TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony5TubeAggnRMatrix.csv"), row.names = 1, header = TRUE)
+Colony5TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony5TubeAggnRMatrix.csv", row.names = 1, header = TRUE)
 
 # Matrix addition of the two matrices
 Colony5TubeAggnMatrix <- as.matrix(Colony5TubeAggnNRMatrix + Colony5TubeAggnRMatrix)
@@ -64,10 +64,10 @@ rm("Colony5TubeAggnNRMatrix", "Colony5TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony5CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony5CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony5CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony5CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony5CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony5CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony5CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony5CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony5CircleAggnMatrix <- as.matrix(Colony5CircleAggnNRMatrix + Colony5CircleAggnRMatrix)
@@ -78,10 +78,10 @@ rm("Colony5CircleAggnNRMatrix", "Colony5CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony5TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony5TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony5TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony5TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony5TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony5TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony5TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony5TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony5TubePreMatrix <- as.matrix(Colony5TubePreNRMatrix + Colony5TubePreRMatrix)
@@ -91,10 +91,10 @@ rm("Colony5TubePreNRMatrix", "Colony5TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony5CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony5CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony5CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony5CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony5CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony5CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony5CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony5CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony5CirclePreMatrix <- as.matrix(Colony5CirclePreNRMatrix + Colony5CirclePreRMatrix)
@@ -106,10 +106,10 @@ rm("Colony5CirclePreNRMatrix", "Colony5CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony6TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony6TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony6TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony6TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony6TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony6TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony6TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony6TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony6TubeAggnMatrix <- as.matrix(Colony6TubeAggnNRMatrix + Colony6TubeAggnRMatrix)
@@ -119,10 +119,10 @@ rm("Colony6TubeAggnNRMatrix", "Colony6TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony6CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony6CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony6CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony6CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony6CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony6CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony6CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony6CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony6CircleAggnMatrix <- as.matrix(Colony6CircleAggnNRMatrix + Colony6CircleAggnRMatrix)
@@ -133,10 +133,10 @@ rm("Colony6CircleAggnNRMatrix", "Colony6CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony6TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony6TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony6TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony6TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony6TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony6TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony6TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony6TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony6TubePreMatrix <- as.matrix(Colony6TubePreNRMatrix + Colony6TubePreRMatrix)
@@ -146,10 +146,10 @@ rm("Colony6TubePreNRMatrix", "Colony6TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony6CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony6CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony6CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony6CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony6CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony6CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony6CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony6CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony6CirclePreMatrix <- as.matrix(Colony6CirclePreNRMatrix + Colony6CirclePreRMatrix)
@@ -161,10 +161,10 @@ rm("Colony6CirclePreNRMatrix", "Colony6CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony7TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony7TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony7TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony7TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony7TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony7TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony7TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony7TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony7TubeAggnMatrix <- as.matrix(Colony7TubeAggnNRMatrix + Colony7TubeAggnRMatrix)
@@ -174,10 +174,10 @@ rm("Colony7TubeAggnNRMatrix", "Colony7TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony7CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony7CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony7CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony7CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony7CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony7CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony7CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony7CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony7CircleAggnMatrix <- as.matrix(Colony7CircleAggnNRMatrix + Colony7CircleAggnRMatrix)
@@ -187,10 +187,10 @@ rm("Colony7CircleAggnNRMatrix", "Colony7CircleAggnRMatrix")
 
 # BASELINE ASSAY
 # TUBE NEST
-Colony7TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony7TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony7TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony7TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony7TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony7TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony7TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony7TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony7TubePreMatrix <- as.matrix(Colony7TubePreNRMatrix + Colony7TubePreRMatrix)
@@ -200,10 +200,10 @@ rm("Colony7TubePreNRMatrix", "Colony7TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony7CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony7CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony7CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony7CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony7CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony7CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony7CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony7CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony7CirclePreMatrix <- as.matrix(Colony7CirclePreNRMatrix + Colony7CirclePreRMatrix)
@@ -215,10 +215,10 @@ rm("Colony7CirclePreNRMatrix", "Colony7CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony8TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony8TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony8TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony8TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony8TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony8TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony8TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony8TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony8TubeAggnMatrix <- as.matrix(Colony8TubeAggnNRMatrix + Colony8TubeAggnRMatrix)
@@ -228,10 +228,10 @@ rm("Colony8TubeAggnNRMatrix", "Colony8TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony8CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony8CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony8CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony8CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony8CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony8CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony8CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony8CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony8CircleAggnMatrix <- as.matrix(Colony8CircleAggnNRMatrix + Colony8CircleAggnRMatrix)
@@ -242,10 +242,10 @@ rm("Colony8CircleAggnNRMatrix", "Colony8CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony8TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony8TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony8TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony8TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony8TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony8TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony8TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony8TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony8TubePreMatrix <- as.matrix(Colony8TubePreNRMatrix + Colony8TubePreRMatrix)
@@ -255,10 +255,10 @@ rm("Colony8TubePreNRMatrix", "Colony8TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony8CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony8CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony8CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony8CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony8CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony8CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony8CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony8CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony8CirclePreMatrix <- as.matrix(Colony8CirclePreNRMatrix + Colony8CirclePreRMatrix)
@@ -270,10 +270,10 @@ rm("Colony8CirclePreNRMatrix", "Colony8CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony9TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony9TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony9TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony9TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony9TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony9TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony9TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony9TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony9TubeAggnMatrix <- as.matrix(Colony9TubeAggnNRMatrix + Colony9TubeAggnRMatrix)
@@ -283,10 +283,10 @@ rm("Colony9TubeAggnNRMatrix", "Colony9TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony9CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony9CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony9CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony9CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony9CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony9CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony9CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony9CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony9CircleAggnMatrix <- as.matrix(Colony9CircleAggnNRMatrix + Colony9CircleAggnRMatrix)
@@ -297,10 +297,10 @@ rm("Colony9CircleAggnNRMatrix", "Colony9CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony9TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony9TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony9TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony9TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony9TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony9TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony9TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony9TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony9TubePreMatrix <- as.matrix(Colony9TubePreNRMatrix + Colony9TubePreRMatrix)
@@ -310,10 +310,10 @@ rm("Colony9TubePreNRMatrix", "Colony9TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony9CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony9CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony9CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony9CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony9CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony9CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony9CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony9CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony9CirclePreMatrix <- as.matrix(Colony9CirclePreNRMatrix + Colony9CirclePreRMatrix)
@@ -325,10 +325,10 @@ rm("Colony9CirclePreNRMatrix", "Colony9CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony11TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony11TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony11TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony11TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony11TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony11TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony11TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony11TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony11TubeAggnMatrix <- as.matrix(Colony11TubeAggnNRMatrix + Colony11TubeAggnRMatrix)
@@ -338,10 +338,10 @@ rm("Colony11TubeAggnNRMatrix", "Colony11TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony11CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony11CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony11CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony11CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony11CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony11CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony11CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony11CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony11CircleAggnMatrix <- as.matrix(Colony11CircleAggnNRMatrix + Colony11CircleAggnRMatrix)
@@ -352,10 +352,10 @@ rm("Colony11CircleAggnNRMatrix", "Colony11CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony11TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony11TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony11TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony11TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony11TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony11TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony11TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony11TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony11TubePreMatrix <- as.matrix(Colony11TubePreNRMatrix + Colony11TubePreRMatrix)
@@ -365,10 +365,10 @@ rm("Colony11TubePreNRMatrix", "Colony11TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony11CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony11CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony11CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony11CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony11CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony11CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony11CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony11CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony11CirclePreMatrix <- as.matrix(Colony11CirclePreNRMatrix + Colony11CirclePreRMatrix)
@@ -380,10 +380,10 @@ rm("Colony11CirclePreNRMatrix", "Colony11CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony13TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony13TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony13TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony13TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony13TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony13TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony13TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony13TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony13TubeAggnMatrix <- as.matrix(Colony13TubeAggnNRMatrix + Colony13TubeAggnRMatrix)
@@ -393,10 +393,10 @@ rm("Colony13TubeAggnNRMatrix", "Colony13TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony13CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony13CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony13CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony13CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony13CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony13CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony13CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony13CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony13CircleAggnMatrix <- as.matrix(Colony13CircleAggnNRMatrix + Colony13CircleAggnRMatrix) 
@@ -407,10 +407,10 @@ rm("Colony13CircleAggnNRMatrix", "Colony13CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony13TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony13TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony13TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony13TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony13TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony13TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony13TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony13TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony13TubePreMatrix <- as.matrix(Colony13TubePreNRMatrix + Colony13TubePreRMatrix)
@@ -420,10 +420,10 @@ rm("Colony13TubePreNRMatrix", "Colony13TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony13CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony13CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony13CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony13CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony13CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony13CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony13CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony13CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony13CirclePreMatrix <- as.matrix(Colony13CirclePreNRMatrix + Colony13CirclePreRMatrix)
@@ -435,10 +435,10 @@ rm("Colony13CirclePreNRMatrix", "Colony13CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony17TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony17TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony17TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony17TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony17TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony17TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony17TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony17TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony17TubeAggnMatrix <- as.matrix(Colony17TubeAggnNRMatrix + Colony17TubeAggnRMatrix)
@@ -448,10 +448,10 @@ rm("Colony17TubeAggnNRMatrix", "Colony17TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony17CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony17CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony17CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony17CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony17CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony17CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony17CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony17CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony17CircleAggnMatrix <- as.matrix(Colony17CircleAggnNRMatrix + Colony17CircleAggnRMatrix)
@@ -462,10 +462,10 @@ rm("Colony17CircleAggnNRMatrix", "Colony17CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony17TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony17TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony17TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony17TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony17TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony17TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony17TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony17TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony17TubePreMatrix <- as.matrix(Colony17TubePreNRMatrix + Colony17TubePreRMatrix)
@@ -475,10 +475,10 @@ rm("Colony17TubePreNRMatrix", "Colony17TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony17CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony17CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony17CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony17CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony17CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony17CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony17CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony17CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony17CirclePreMatrix <- as.matrix(Colony17CirclePreNRMatrix + Colony17CirclePreRMatrix)
@@ -490,10 +490,10 @@ rm("Colony17CirclePreNRMatrix", "Colony17CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony18TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony18TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony18TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony18TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony18TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony18TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony18TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony18TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony18TubeAggnMatrix <- as.matrix(Colony18TubeAggnNRMatrix + Colony18TubeAggnRMatrix)
@@ -503,10 +503,10 @@ rm("Colony18TubeAggnNRMatrix", "Colony18TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony18CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony18CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony18CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony18CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony18CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony18CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony18CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony18CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony18CircleAggnMatrix <- as.matrix(Colony18CircleAggnNRMatrix + Colony18CircleAggnRMatrix)
@@ -517,10 +517,10 @@ rm("Colony18CircleAggnNRMatrix", "Colony18CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony18TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony18TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony18TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony18TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony18TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony18TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony18TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony18TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony18TubePreMatrix <- as.matrix(Colony18TubePreNRMatrix + Colony18TubePreRMatrix)
@@ -530,10 +530,10 @@ rm("Colony18TubePreNRMatrix", "Colony18TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony18CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony18CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony18CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony18CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony18CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony18CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony18CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony18CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony18CirclePreMatrix <- as.matrix(Colony18CirclePreNRMatrix + Colony18CirclePreRMatrix)
@@ -545,10 +545,10 @@ rm("Colony18CirclePreNRMatrix", "Colony18CirclePreRMatrix")
 # AGGRESSION ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony20TubeAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony20TubeAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony20TubeAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony20TubeAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony20TubeAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony20TubeAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony20TubeAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony20TubeAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony20TubeAggnMatrix <- as.matrix(Colony20TubeAggnNRMatrix + Colony20TubeAggnRMatrix)
@@ -558,10 +558,10 @@ rm("Colony20TubeAggnNRMatrix", "Colony20TubeAggnRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony20CircleAggnNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony20CircleAggnNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony20CircleAggnNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony20CircleAggnNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony20CircleAggnRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony20CircleAggnRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony20CircleAggnRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony20CircleAggnRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony20CircleAggnMatrix <- as.matrix(Colony20CircleAggnNRMatrix + Colony20CircleAggnRMatrix)
@@ -572,10 +572,10 @@ rm("Colony20CircleAggnNRMatrix", "Colony20CircleAggnRMatrix")
 # BASELINE ASSAY
 # TUBE NEST
 # NON-RECIPROCAL
-Colony20TubePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony20TubePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony20TubePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony20TubePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony20TubePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony20TubePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony20TubePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony20TubePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony20TubePreMatrix <- as.matrix(Colony20TubePreNRMatrix + Colony20TubePreRMatrix)
@@ -585,10 +585,10 @@ rm("Colony20TubePreNRMatrix", "Colony20TubePreRMatrix")
 
 # CIRCLE NEST
 # NON-RECIPROCAL
-Colony20CirclePreNRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony20CirclePreNRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony20CirclePreNRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony20CirclePreNRMatrix.csv", row.names = 1, header = TRUE) 
 
 # RECIPROCAL
-Colony20CirclePreRMatrix <- read.csv(here("analysis", "data", "derived_data", "matrices", "Colony20CirclePreRMatrix.csv"), row.names = 1, header = TRUE) 
+Colony20CirclePreRMatrix <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/Matrices/Colony20CirclePreRMatrix.csv", row.names = 1, header = TRUE) 
 
 # Matrix addition of the two matrices
 Colony20CirclePreMatrix <- as.matrix(Colony20CirclePreNRMatrix + Colony20CirclePreRMatrix)
@@ -1098,7 +1098,7 @@ Colony5TubeAggnHC <- as.data.frame(cbind(HC))
 Colony5TubeAggnHC <- rownames_to_column(Colony5TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony5TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony5TubeAggnDist.csv"))
+Colony5TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony5TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony5TubeAggnDist1 <- Colony5TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1164,7 +1164,7 @@ Colony5TubePreHC <- as.data.frame(cbind(HC))
 Colony5TubePreHC <- rownames_to_column(Colony5TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony5TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony5TubePreDist.csv"))
+Colony5TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony5TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony5TubePreDist1 <- Colony5TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1234,7 +1234,7 @@ Colony5CircleAggnHC <- as.data.frame(cbind(HC))
 Colony5CircleAggnHC <- rownames_to_column(Colony5CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony5CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony5CircleAggnDist.csv"))
+Colony5CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony5CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony5CircleAggnDist1 <- Colony5CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1300,7 +1300,7 @@ Colony5CirclePreHC <- as.data.frame(cbind(HC))
 Colony5CirclePreHC <- rownames_to_column(Colony5CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony5CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony5CirclePreDist.csv"))
+Colony5CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony5CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony5CirclePreDist1 <- Colony5CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1385,7 +1385,7 @@ Colony6TubeAggnHC <- as.data.frame(cbind(HC))
 Colony6TubeAggnHC <- rownames_to_column(Colony6TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony6TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony6TubeAggnDist.csv"))
+Colony6TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony6TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony6TubeAggnDist1 <- Colony6TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1451,7 +1451,7 @@ Colony6TubePreHC <- as.data.frame(cbind(HC))
 Colony6TubePreHC <- rownames_to_column(Colony6TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony6TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony6TubePreDist.csv"))
+Colony6TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony6TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony6TubePreDist1 <- Colony6TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1521,7 +1521,7 @@ Colony6CircleAggnHC <- as.data.frame(cbind(HC))
 Colony6CircleAggnHC <- rownames_to_column(Colony6CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony6CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony6CircleAggnDist.csv"))
+Colony6CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony6CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony6CircleAggnDist1 <- Colony6CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1588,7 +1588,7 @@ Colony6CirclePreHC <- as.data.frame(cbind(HC))
 Colony6CirclePreHC <- rownames_to_column(Colony6CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony6CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony6CirclePreDist.csv"))
+Colony6CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony6CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony6CirclePreDist1 <- Colony6CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1673,7 +1673,7 @@ Colony7TubeAggnHC <- as.data.frame(cbind(HC))
 Colony7TubeAggnHC <- rownames_to_column(Colony7TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony7TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony7TubeAggnDist.csv"))
+Colony7TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony7TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony7TubeAggnDist1 <- Colony7TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1739,7 +1739,7 @@ Colony7TubePreHC <- as.data.frame(cbind(HC))
 Colony7TubePreHC <- rownames_to_column(Colony7TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony7TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony7TubePreDist.csv"))
+Colony7TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony7TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony7TubePreDist1 <- Colony7TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1809,7 +1809,7 @@ Colony7CircleAggnHC <- as.data.frame(cbind(HC))
 Colony7CircleAggnHC <- rownames_to_column(Colony7CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony7CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony7CircleAggnDist.csv"))
+Colony7CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony7CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony7CircleAggnDist1 <- Colony7CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1875,7 +1875,7 @@ Colony7CirclePreHC <- as.data.frame(cbind(HC))
 Colony7CirclePreHC <- rownames_to_column(Colony7CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony7CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony7CirclePreDist.csv"))
+Colony7CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony7CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony7CirclePreDist1 <- Colony7CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -1959,7 +1959,7 @@ Colony8TubeAggnHC <- as.data.frame(cbind(HC))
 Colony8TubeAggnHC <- rownames_to_column(Colony8TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony8TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony8TubeAggnDist.csv"))
+Colony8TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony8TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony8TubeAggnDist1 <- Colony8TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2027,7 +2027,7 @@ Colony8TubePreHC <- as.data.frame(cbind(HC))
 Colony8TubePreHC <- rownames_to_column(Colony8TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony8TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony8TubePreDist.csv"))
+Colony8TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony8TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony8TubePreDist1 <- Colony8TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2097,7 +2097,7 @@ Colony8CircleAggnHC <- as.data.frame(cbind(HC))
 Colony8CircleAggnHC <- rownames_to_column(Colony8CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony8CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony8CircleAggnDist.csv"))
+Colony8CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony8CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony8CircleAggnDist1 <- Colony8CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2163,7 +2163,7 @@ Colony8CirclePreHC <- as.data.frame(cbind(HC))
 Colony8CirclePreHC <- rownames_to_column(Colony8CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony8CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony8CirclePreDist.csv"))
+Colony8CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony8CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony8CirclePreDist1 <- Colony8CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2248,7 +2248,7 @@ Colony9TubeAggnHC <- as.data.frame(cbind(HC))
 Colony9TubeAggnHC <- rownames_to_column(Colony9TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony9TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony9TubeAggnDist.csv"))
+Colony9TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony9TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony9TubeAggnDist1 <- Colony9TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2314,7 +2314,7 @@ Colony9TubePreHC <- as.data.frame(cbind(HC))
 Colony9TubePreHC <- rownames_to_column(Colony9TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony9TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony9TubePreDist.csv"))
+Colony9TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony9TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony9TubePreDist1 <- Colony9TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2384,7 +2384,7 @@ Colony9CircleAggnHC <- as.data.frame(cbind(HC))
 Colony9CircleAggnHC <- rownames_to_column(Colony9CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony9CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony9CircleAggnDist.csv"))
+Colony9CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony9CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony9CircleAggnDist1 <- Colony9CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2450,7 +2450,7 @@ Colony9CirclePreHC <- as.data.frame(cbind(HC))
 Colony9CirclePreHC <- rownames_to_column(Colony9CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony9CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony9CirclePreDist.csv"))
+Colony9CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony9CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony9CirclePreDist1 <- Colony9CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2535,7 +2535,7 @@ Colony11TubeAggnHC <- as.data.frame(cbind(HC))
 Colony11TubeAggnHC <- rownames_to_column(Colony11TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony11TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony11TubeAggnDist.csv"))
+Colony11TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony11TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony11TubeAggnDist1 <- Colony11TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2601,7 +2601,7 @@ Colony11TubePreHC <- as.data.frame(cbind(HC))
 Colony11TubePreHC <- rownames_to_column(Colony11TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony11TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony11TubePreDist.csv"))
+Colony11TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony11TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony11TubePreDist1 <- Colony11TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2822,7 +2822,7 @@ Colony13TubeAggnHC <- as.data.frame(cbind(HC))
 Colony13TubeAggnHC <- rownames_to_column(Colony13TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony13TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony13TubeAggnDist.csv"))
+Colony13TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony13TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony13TubeAggnDist1 <- Colony13TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2888,7 +2888,7 @@ Colony13TubePreHC <- as.data.frame(cbind(HC))
 Colony13TubePreHC <- rownames_to_column(Colony13TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony13TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony13TubePreDist.csv"))
+Colony13TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony13TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony13TubePreDist1 <- Colony13TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -2958,7 +2958,7 @@ Colony13CircleAggnHC <- as.data.frame(cbind(HC))
 Colony13CircleAggnHC <- rownames_to_column(Colony13CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony13CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony13CircleAggnDist.csv"))
+Colony13CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony13CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony13CircleAggnDist1 <- Colony13CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3024,7 +3024,7 @@ Colony13CirclePreHC <- as.data.frame(cbind(HC))
 Colony13CirclePreHC <- rownames_to_column(Colony13CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony13CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony13CirclePreDist.csv"))
+Colony13CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony13CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony13CirclePreDist1 <- Colony13CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3109,7 +3109,7 @@ Colony17TubeAggnHC <- as.data.frame(cbind(HC))
 Colony17TubeAggnHC <- rownames_to_column(Colony17TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony17TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony17TubeAggnDist.csv"))
+Colony17TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony17TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony17TubeAggnDist1 <- Colony17TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3175,7 +3175,7 @@ Colony17TubePreHC <- as.data.frame(cbind(HC))
 Colony17TubePreHC <- rownames_to_column(Colony17TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony17TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony17TubePreDist.csv"))
+Colony17TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony17TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony17TubePreDist1 <- Colony17TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3245,7 +3245,7 @@ Colony17CircleAggnHC <- as.data.frame(cbind(HC))
 Colony17CircleAggnHC <- rownames_to_column(Colony17CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony17CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony17CircleAggnDist.csv"))
+Colony17CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony17CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony17CircleAggnDist1 <- Colony17CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3311,7 +3311,7 @@ Colony17CirclePreHC <- as.data.frame(cbind(HC))
 Colony17CirclePreHC <- rownames_to_column(Colony17CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony17CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony17CirclePreDist.csv"))
+Colony17CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony17CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony17CirclePreDist1 <- Colony17CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3396,7 +3396,7 @@ Colony18TubeAggnHC <- as.data.frame(cbind(HC))
 Colony18TubeAggnHC <- rownames_to_column(Colony18TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony18TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony18TubeAggnDist.csv"))
+Colony18TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony18TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony18TubeAggnDist1 <- Colony18TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3462,7 +3462,7 @@ Colony18TubePreHC <- as.data.frame(cbind(HC))
 Colony18TubePreHC <- rownames_to_column(Colony18TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony18TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony18TubePreDist.csv"))
+Colony18TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony18TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony18TubePreDist1 <- Colony18TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3532,7 +3532,7 @@ Colony18CircleAggnHC <- as.data.frame(cbind(HC))
 Colony18CircleAggnHC <- rownames_to_column(Colony18CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony18CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony18CircleAggnDist.csv"))
+Colony18CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony18CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony18CircleAggnDist1 <- Colony18CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3598,7 +3598,7 @@ Colony18CirclePreHC <- as.data.frame(cbind(HC))
 Colony18CirclePreHC <- rownames_to_column(Colony18CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony18CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony18CirclePreDist.csv"))
+Colony18CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony18CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony18CirclePreDist1 <- Colony18CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3683,7 +3683,7 @@ Colony20TubeAggnHC <- as.data.frame(cbind(HC))
 Colony20TubeAggnHC <- rownames_to_column(Colony20TubeAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony20TubeAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony20TubeAggnDist.csv"))
+Colony20TubeAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony20TubeAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony20TubeAggnDist1 <- Colony20TubeAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3749,7 +3749,7 @@ Colony20TubePreHC <- as.data.frame(cbind(HC))
 Colony20TubePreHC <- rownames_to_column(Colony20TubePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony20TubePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony20TubePreDist.csv"))
+Colony20TubePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony20TubePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony20TubePreDist1 <- Colony20TubePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3819,7 +3819,7 @@ Colony20CircleAggnHC <- as.data.frame(cbind(HC))
 Colony20CircleAggnHC <- rownames_to_column(Colony20CircleAggnHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony20CircleAggnDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony20CircleAggnDist.csv"))
+Colony20CircleAggnDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony20CircleAggnDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony20CircleAggnDist1 <- Colony20CircleAggnDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)
@@ -3885,7 +3885,7 @@ Colony20CirclePreHC <- as.data.frame(cbind(HC))
 Colony20CirclePreHC <- rownames_to_column(Colony20CirclePreHC, "ID") 
 
 # Read in distance to entrance dataset
-Colony20CirclePreDist <- read.csv(here("analysis", "data", "derived_data", "distance_entrance", "Colony20CirclePreDist.csv"))
+Colony20CirclePreDist <- read.csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony20CirclePreDist.csv")
 
 # Taking the distance to the nest entrance dataset and filtering out only data from the very beginning of the video
 Colony20CirclePreDist1 <- Colony20CirclePreDist %>% ungroup() %>% filter(Seconds < 0.05) %>% mutate(ID = as.character(ID)) %>% dplyr::select(Colony, Nest, Trial, ScaledDist, ID, Seconds)

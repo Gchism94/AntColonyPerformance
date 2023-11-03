@@ -50,12 +50,12 @@ AggnStudyCircleRefCoords <- read.csv(here("analysis", "data", "ref_data", "AggnS
 # COLONY 5 
 # INVADER ASSAY
 # Import the data and change raw column headers to a more compatible format
-Colony5CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Circle_Aggn.csv"))
+Colony5CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony5_Circle_Aggn.csv")
 
 Colony5CircleAggnT <- setNames(Colony5CircleAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                      "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony5TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Tube_Aggn.csv"))
+Colony5TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony5_Tube_Aggn.csv")
 
 Colony5TubeAggnT <- setNames(Colony5TubeAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                  "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
@@ -89,12 +89,12 @@ Colony5TubeAggn <- Colony5TubeAggnT %>%
 Colony5Aggn <- full_join(Colony5CircleAggn, Colony5TubeAggn)
 
 # BASELINE ASSAY
-Colony5CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Circle_Pre.csv"))
+Colony5CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony5_Circle_Pre.csv")
 
 Colony5CirclePreT <- setNames(Colony5CirclePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                    "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony5TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Tube_Pre.csv"))
+Colony5TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony5_Tube_Pre.csv")
 
 Colony5TubePreT <- setNames(Colony5TubePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
@@ -121,12 +121,12 @@ Colony5Pre <- full_join(Colony5CirclePre, Colony5TubePre)
 
 # COLONY 6 
 # INVADER ASSAY
-Colony6CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Circle_Aggn.csv"))
+Colony6CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony6_Circle_Aggn.csv")
 
 Colony6CircleAggnT <- setNames(Colony6CircleAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                      "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony6TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Tube_Aggn.csv"))
+Colony6TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony6_Tube_Aggn.csv")
 
 Colony6TubeAggnT <- setNames(Colony6TubeAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                  "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
@@ -150,12 +150,12 @@ Colony6TubeAggn <- Colony6TubeAggnT %>%
 Colony6Aggn <- full_join(Colony6CircleAggn, Colony6TubeAggn)
 
 # BASELINE ASSAY
-Colony6CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Circle_Pre.csv"))
+Colony6CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony6_Circle_Pre.csv")
 
 Colony6CirclePreT <- setNames(Colony6CirclePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                    "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony6TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Tube_Pre.csv"))
+Colony6TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony6_Tube_Pre.csv")
 
 Colony6TubePreT <- setNames(Colony6TubePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
@@ -180,12 +180,12 @@ Colony6Pre <- full_join(Colony6CirclePre, Colony6TubePre)
 
 # COLONY 7 
 # INVADER ASSAY
-Colony7CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Circle_Aggn.csv"))
+Colony7CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony7_Circle_Aggn.csv")
 
 Colony7CircleAggnT <- setNames(Colony7CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony7TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Tube_Aggn.csv")) 
+Colony7TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony7_Tube_Aggn.csv")
 
 Colony7TubeAggnT <- setNames(Colony7TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -209,12 +209,12 @@ Colony7TubeAggn <- Colony7TubeAggnT %>%
 Colony7Aggn <- full_join(Colony7CircleAggn, Colony7TubeAggn)
 
 # BASELINE ASSAY
-Colony7CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Circle_Pre.csv"))
+Colony7CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony7_Circle_Pre.csv")
 
 Colony7CirclePreT <- setNames(Colony7CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony7TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Tube_Pre.csv"))
+Colony7TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony7_Tube_Pre.csv")
 
 Colony7TubePreT <- setNames(Colony7TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -240,12 +240,12 @@ Colony7Pre <- full_join(Colony7CirclePre, Colony7TubePre)
 
 # COLONY 8
 # INVADER ASSAY
-Colony8CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Circle_Aggn.csv")) 
+Colony8CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony8_Circle_Aggn.csv")
 
 Colony8CircleAggnT <- setNames(Colony8CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony8TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Tube_Aggn.csv")) 
+Colony8TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony8_Tube_Aggn.csv")
 
 Colony8TubeAggnT <- setNames(Colony8TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -269,12 +269,12 @@ Colony8TubeAggn <- Colony8TubeAggnT%>%
 Colony8Aggn <- full_join(Colony8CircleAggn, Colony8TubeAggn)
 
 # BASELINE ASSAY 
-Colony8CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Circle_Pre.csv")) 
+Colony8CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony8_Circle_Pre.csv")
 
 Colony8CirclePreT <- setNames(Colony8CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony8TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Tube_Pre.csv"))
+Colony8TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony8_Tube_Pre.csv")
 
 Colony8TubePreT <- setNames(Colony8TubePreT, c("ID","Frames","X","Y","Orientation",
                                              "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -300,12 +300,12 @@ Colony8Pre <- full_join(Colony8CirclePre, Colony8TubePre)
 
 # COLONY 9
 # INVADER ASSAY
-Colony9CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Circle_Aggn.csv"))
+Colony9CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony9_Circle_Aggn.csv")
 
 Colony9CircleAggnT <- setNames(Colony9CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony9TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Tube_Aggn.csv"))
+Colony9TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony9_Tube_Aggn.csv")
 
 Colony9TubeAggnT <- setNames(Colony9TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -330,11 +330,12 @@ Colony9TubeAggn <- Colony9TubeAggnT %>%
 Colony9Aggn <- full_join(Colony9CircleAggn, Colony9TubeAggn)
 
 # BASELINE ASSAY 
-Colony9CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Circle_Pre.csv"))
+Colony9CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony9_Circle_Pre.csv")
 
 Colony9CirclePreT <- setNames(Colony9CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony9TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Tube_Pre.csv"))
+
+Colony9TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony9_Tube_Pre.csv")
 
 Colony9TubePreT <- setNames(Colony9TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -391,11 +392,11 @@ Colony11TubeAggn <- Colony11TubeAggnT %>%
 Colony11Aggn <- full_join(Colony11CircleAggn, Colony11TubeAggn)
 
 # BASELINE ASSAY
-Colony11CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Circle_Pre.csv"))
+Colony11CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony11_Circle_Pre.csv")
 
 Colony11CirclePreT <- setNames(Colony11CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                   "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony11TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Tube_Pre.csv"))
+Colony11TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony11_Tube_Pre.csv")
 
 Colony11TubePreT <- setNames(Colony11TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -421,12 +422,12 @@ Colony11Pre <- full_join(Colony11TubePre, Colony11CirclePre)
 
 # COLONY 13
 # INVADER ASSAY
-Colony13CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Circle_Aggn.csv"))
+Colony13CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony13_Circle_Aggn.csv")
 
 Colony13CircleAggnT <- setNames(Colony13CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony13TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Tube_Aggn.csv")) 
+Colony13TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony13_Tube_Aggn.csv")
 
 Colony13TubeAggnT <- setNames(Colony13TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -451,11 +452,11 @@ Colony13TubeAggn <- Colony13TubeAggnT %>%
 Colony13Aggn <- full_join(Colony13CircleAggn, Colony13TubeAggn)
 
 #Pre assay
-Colony13CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Circle_Pre.csv"))
+Colony13CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony13_Circle_Pre.csv")
 
 Colony13CirclePreT <- setNames(Colony13CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony13TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Tube_Pre.csv"))
+Colony13TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony13_Tube_Pre.csv")
 
 Colony13TubePreT <- setNames(Colony13TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -481,12 +482,12 @@ Colony13Pre <- full_join(Colony13CirclePre, Colony13TubePre)
 
 # COLONY 17
 # INVADER ASSAY
-Colony17CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Circle_Aggn.csv"))
+Colony17CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony17_Circle_Aggn.csv")
 
 Colony17CircleAggnT <- setNames(Colony17CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony17TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Tube_Aggn.csv"))
+Colony17TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony17_Tube_Aggn.csv")
 
 Colony17TubeAggnT <- setNames(Colony17TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -511,12 +512,12 @@ Colony17TubeAggn <- Colony17TubeAggnT %>%
 Colony17Aggn <- full_join(Colony17CircleAggn, Colony17TubeAggn)
 
 # BASELINE ASSAY
-Colony17CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Circle_Pre.csv"))
+Colony17CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony17_Circle_Pre.csv")
 
 Colony17CirclePreT <- setNames(Colony17CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony17TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Tube_Pre.csv"))
+Colony17TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony17_Tube_Pre.csv")
 
 Colony17TubePreT <- setNames(Colony17TubePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -542,12 +543,12 @@ Colony17Pre <- full_join(Colony17CirclePre, Colony17TubePre)
 
 # COLONY18
 # INVADER ASSAY
-Colony18CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Circle_Aggn.csv")) 
+Colony18CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony18_Circle_Aggn.csv") 
 
 Colony18CircleAggnT <- setNames(Colony18CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony18TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Tube_Aggn.csv"))
+Colony18TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony18_Tube_Aggn.csv")
 
 Colony18TubeAggnT <- setNames(Colony18TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -572,12 +573,12 @@ Colony18TubeAggn <- Colony18TubeAggnT %>%
 Colony18Aggn <- full_join(Colony18CircleAggn, Colony18TubeAggn)
 
 # BASELINE ASSAY
-Colony18CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Circle_Pre.csv"))
+Colony18CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony18_Circle_Pre.csv")
 
 Colony18CirclePreT <- setNames(Colony18CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony18TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Tube_Pre.csv")) 
+Colony18TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony18_Tube_Pre.csv") 
 
 Colony18TubePreT <- setNames(Colony18TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -607,12 +608,12 @@ Colony18Pre <- full_join(Colony18CirclePre, Colony18TubePre)
 
 # COLONY 20
 # INVADER ASSAY
-Colony20CircleAggnT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Circle_Aggn.csv"))
+Colony20CircleAggnT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony20_Circle_Aggn.csv")
 
 Colony20CircleAggnT <- setNames(Colony20CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony20TubeAggnT<- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Tube_Aggn.csv")) 
+Colony20TubeAggnT<- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony20_Tube_Aggn.csv") 
 
 Colony20TubeAggnT <- setNames(Colony20TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -637,12 +638,12 @@ Colony20TubeAggn <- Colony20TubeAggnT %>%
 Colony20Aggn <- full_join(Colony20CircleAggn, Colony20TubeAggn)
 
 # BASELINE ASSAY
-Colony20CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Circle_Pre.csv")) 
+Colony20CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony20_Circle_Pre.csv") 
 
 Colony20CirclePreT <- setNames(Colony20CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony20TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Tube_Pre.csv"))
+Colony20TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony20_Tube_Pre.csv")
 
 Colony20TubePreT <- setNames(Colony20TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -4272,67 +4273,66 @@ PreAssayTestFullRaw <- full_join(PreAssayTest, PreAssayTest1)
 # FULL DATA SET
 FullAssayTestSpeed <- full_join(AggnAssayTestFullRaw, PreAssayTestFullRaw)
 
-# Write datasets for later use
+# Write datasets for later use (only use if needed)
 # Colony 5 Aggression
-write.csv(Colony5Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony5Aggn.csv"))
+# write.csv(Colony5Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony5Aggn.csv"))
 
 # Colony 5 Baseline
-write.csv(Colony5Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony5Pre.csv"))
+# write.csv(Colony5Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony5Pre.csv"))
 
 # Colony 6 Aggression
-write.csv(Colony6Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony6Aggn.csv"))
+# write.csv(Colony6Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony6Aggn.csv"))
 
 # Colony 6 Baseline
-write.csv(Colony6Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony6Pre.csv"))
+# write.csv(Colony6Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony6Pre.csv"))
 
 # Colony 7 Aggression 
-# (use the following link to import data: )
-# write.csv(Colony7Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Aggn.csv"))
+# write.csv(Colony7Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Aggn.csv")
 
 # Colony 7 Baseline
-write.csv(Colony7Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Pre.csv"))
+# write.csv(Colony7Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony7Pre.csv"))
 
 # Colony 8 Aggression
-write.csv(Colony8Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony8Aggn.csv"))
+# write.csv(Colony8Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony8Aggn.csv"))
 
 # Colony 8 Baseline
-write.csv(Colony8Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony8Pre.csv"))
+# write.csv(Colony8Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony8Pre.csv"))
 
 # Colony 9 Aggression
-write.csv(Colony9Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony9Aggn.csv"))
+# write.csv(Colony9Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony9Aggn.csv"))
 
 # Colony 9 Baseline
-write.csv(Colony9Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony9Pre.csv"))
+# write.csv(Colony9Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony9Pre.csv"))
 
 # Colony 11 Aggression
-write.csv(Colony11Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony11Aggn.csv"))
+# write.csv(Colony11Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony11Aggn.csv"))
 
 # Colony 11 Baseline
-write.csv(Colony11Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony11Pre.csv"))
+# write.csv(Colony11Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony11Pre.csv"))
 
 # Colony 13 Aggression
-write.csv(Colony13Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony13Aggn.csv"))
+# write.csv(Colony13Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony13Aggn.csv"))
 
 # Colony 13 Baseline
-write.csv(Colony13Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony13Pre.csv"))
+# write.csv(Colony13Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony13Pre.csv"))
 
 # Colony 17 Aggression
-write.csv(Colony17Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony17Aggn.csv"))
+# write.csv(Colony17Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony17Aggn.csv"))
 
 # Colony 17 Baseline
-write.csv(Colony17Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony17Pre.csv"))
+# write.csv(Colony17Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony17Pre.csv"))
 
 # Colony 18 Aggression
-write.csv(Colony18Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony18Aggn.csv"))
+# write.csv(Colony18Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony18Aggn.csv"))
 
 # Colony 18 Baseline
-write.csv(Colony18Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony18Pre.csv"))
+# write.csv(Colony18Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony18Pre.csv"))
 
 # Colony 20 Aggression
-write.csv(Colony20Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony20Aggn.csv"))
+# write.csv(Colony20Aggn, here("analysis", "data", "derived_data", "tracking_standard", "Colony20Aggn.csv"))
 
 # Colony 20 Baseline
-write.csv(Colony20Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony20Pre.csv"))
+# write.csv(Colony20Pre, here("analysis", "data", "derived_data", "tracking_standard", "Colony20Pre.csv"))
 
 # Remove the data sets that were combined, you don't need them and they take up a lot of computer memory 
 rm("Colony5Aggn", "Colony5Pre", "Colony6Aggn", "Colony6Pre",
@@ -4842,67 +4842,67 @@ Colony17AggnDist <- full_join(Colony17CircleAggnDist, Colony17TubeAggnDist)
 Colony18AggnDist <- full_join(Colony18CircleAggnDist, Colony18TubeAggnDist)
 Colony20AggnDist <- full_join(Colony20CircleAggnDist, Colony20TubeAggnDist)
 
-# Write datasets
+# Write datasets (use only if needed)
 # Colony 5 Aggression Circle
-write.csv(Colony5CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony5CircleAggnDist.csv"))
+# write.csv(Colony5CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony5CircleAggnDist.csv"))
 
 # Colony 5 Aggression Tube
-write.csv(Colony5TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony5TubeAggnDist.csv"))
+# write.csv(Colony5TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony5TubeAggnDist.csv"))
 
 # Colony 6 Aggression Circle
-write.csv(Colony6CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony6CircleAggnDist.csv"))
+# write.csv(Colony6CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony6CircleAggnDist.csv"))
 
 # Colony 6 Aggression Tube
-write.csv(Colony6TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony6TubeAggnDist.csv"))
+# write.csv(Colony6TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony6TubeAggnDist.csv"))
 
 # Colony 7 Aggression Circle
-write.csv(Colony7CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony7CircleAggnDist.csv"))
+# write.csv(Colony7CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony7CircleAggnDist.csv"))
 
 # Colony 7 Aggression Tube
-write.csv(Colony7TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony7TubeAggnDist.csv"))
+# write.csv(Colony7TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony7TubeAggnDist.csv"))
 
 # Colony 8 Aggression Circle
-write.csv(Colony8CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony8CircleAggnDist.csv"))
+# write.csv(Colony8CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony8CircleAggnDist.csv"))
 
 # Colony 8 Aggression Tube
-write.csv(Colony8TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony8TubeAggnDist.csv"))
+# write.csv(Colony8TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony8TubeAggnDist.csv"))
 
 # Colony 9 Aggression Circle
-write.csv(Colony9CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony9CircleAggnDist.csv"))
+# write.csv(Colony9CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony9CircleAggnDist.csv"))
 
 # Colony 9 Aggression Tube
-write.csv(Colony9TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony9TubeAggnDist.csv"))
+# write.csv(Colony9TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony9TubeAggnDist.csv"))
 
 # Colony 11 Aggression Circle
 # (Use the following link to import data: https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Derived_Data/distance_entrance/Colony11CircleAggnDist.csv)
 # write.csv(Colony11CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony11CircleAggnDist.csv"))
 
 # Colony 11 Aggression Tube
-write.csv(Colony11TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony11TubeAggnDist.csv"))
+# write.csv(Colony11TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony11TubeAggnDist.csv"))
 
 # Colony 13 Aggression Circle
-write.csv(Colony13CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony13CircleAggnDist.csv"))
+# write.csv(Colony13CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony13CircleAggnDist.csv"))
 
 # Colony 13 Aggression Tube
-write.csv(Colony13TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony13TubeAggnDist.csv"))
+# write.csv(Colony13TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony13TubeAggnDist.csv"))
 
 # Colony 17 Aggression Circle
-write.csv(Colony17CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony17CircleAggnDist.csv"))
+# write.csv(Colony17CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony17CircleAggnDist.csv"))
 
 # Colony 17 Aggression Tube
-write.csv(Colony17TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony17TubeAggnDist.csv"))
+# write.csv(Colony17TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony17TubeAggnDist.csv"))
 
 # Colony 18 Aggression Circle
-write.csv(Colony18CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony18CircleAggnDist.csv"))
+# write.csv(Colony18CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony18CircleAggnDist.csv"))
 
 # Colony 18 Aggression Tube
-write.csv(Colony18TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony18TubeAggnDist.csv"))
+# write.csv(Colony18TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony18TubeAggnDist.csv"))
 
 # Colony 20 Aggression Circle
-write.csv(Colony20CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony20CircleAggnDist.csv"))
+# write.csv(Colony20CircleAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony20CircleAggnDist.csv"))
 
 # Colony 20 Aggression Tube
-write.csv(Colony20TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony20TubeAggnDist.csv"))
+# write.csv(Colony20TubeAggnDist, here("analysis", "data", "derived_data", "distance_entrance", "Colony20TubeAggnDist.csv"))
 
 # Full join a subset of the aggression assay data sets (prevents too much computer memory use)
 AggnAssayDistTest <-

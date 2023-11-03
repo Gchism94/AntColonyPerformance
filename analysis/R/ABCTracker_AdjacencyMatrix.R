@@ -36,70 +36,70 @@ pacman::p_load(data.table, # Loading required packages for code below. p_load() 
 # COLONY 5 
 # INVADER ASSAY
 # Import the data and change raw column headers to a more compatible format
-Colony5CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Circle_Aggn.csv"))
+Colony5CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony5_Circle_Aggn.csv")
 
 Colony5CircleAggnT <- setNames(Colony5CircleAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                      "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony5TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Tube_Aggn.csv"))
+Colony5TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony5_Tube_Aggn.csv")
 
 Colony5TubeAggnT <- setNames(Colony5TubeAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                  "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
 
 # BASELINE ASSAY
-Colony5CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Circle_Pre.csv"))
+Colony5CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony5_Circle_Pre.csv")
 
 Colony5CirclePreT <- setNames(Colony5CirclePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                    "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony5TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony5_Tube_Pre.csv"))
+Colony5TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony5_Tube_Pre.csv")
 
 Colony5TubePreT <- setNames(Colony5TubePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
 # COLONY 6 
 # INVADER ASSAY
-Colony6CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Circle_Aggn.csv"))
+Colony6CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony6_Circle_Aggn.csv")
 
 Colony6CircleAggnT <- setNames(Colony6CircleAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                      "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony6TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Tube_Aggn.csv"))
+Colony6TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony6_Tube_Aggn.csv")
 
 Colony6TubeAggnT <- setNames(Colony6TubeAggnT, c("ID", "Frames", "X", "Y", "Orientation",
                                                  "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
 # BASELINE ASSAY
-Colony6CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Circle_Pre.csv"))
+Colony6CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony6_Circle_Pre.csv")
 
 Colony6CirclePreT <- setNames(Colony6CirclePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                    "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
-Colony6TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony6_Tube_Pre.csv"))
+Colony6TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony6_Tube_Pre.csv")
 
 Colony6TubePreT <- setNames(Colony6TubePreT, c("ID", "Frames", "X", "Y", "Orientation",
                                                "SizeWidth.px", "SizeLeng.px", "Speed.Px.s", "Interpolated", "HeadX", "HeadY"))
 
 # COLONY 7 
 # INVADER ASSAY
-Colony7CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Circle_Aggn.csv"))
+Colony7CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony7_Circle_Aggn.csv")
 
 Colony7CircleAggnT <- setNames(Colony7CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony7TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Tube_Aggn.csv")) 
+Colony7TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony7_Tube_Aggn.csv")
 
 Colony7TubeAggnT <- setNames(Colony7TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 # BASELINE ASSAY
-Colony7CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Circle_Pre.csv"))
+Colony7CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony7_Circle_Pre.csv")
 
 Colony7CirclePreT <- setNames(Colony7CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony7TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony7_Tube_Pre.csv"))
+Colony7TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony7_Tube_Pre.csv")
 
 Colony7TubePreT <- setNames(Colony7TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -107,23 +107,23 @@ Colony7TubePreT <- setNames(Colony7TubePreT, c("ID","Frames","X","Y","Orientatio
 
 # COLONY 8
 # INVADER ASSAY
-Colony8CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Circle_Aggn.csv")) 
+Colony8CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony8_Circle_Aggn.csv") 
 
 Colony8CircleAggnT <- setNames(Colony8CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony8TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Tube_Aggn.csv")) 
+Colony8TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony8_Tube_Aggn.csv")
 
 Colony8TubeAggnT <- setNames(Colony8TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 # BASELINE ASSAY 
-Colony8CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Circle_Pre.csv")) 
+Colony8CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony8_Circle_Pre.csv") 
 
 Colony8CirclePreT <- setNames(Colony8CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony8TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony8_Tube_Pre.csv"))
+Colony8TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony8_Tube_Pre.csv")
 
 Colony8TubePreT <- setNames(Colony8TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -131,23 +131,23 @@ Colony8TubePreT <- setNames(Colony8TubePreT, c("ID","Frames","X","Y","Orientatio
 
 # COLONY 9
 # INVADER ASSAY
-Colony9CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Circle_Aggn.csv"))
+Colony9CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony9_Circle_Aggn.csv")
 
 Colony9CircleAggnT <- setNames(Colony9CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony9TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Tube_Aggn.csv"))
+Colony9TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony9_Tube_Aggn.csv")
 
 Colony9TubeAggnT <- setNames(Colony9TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 
 # BASELINE ASSAY 
-Colony9CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Circle_Pre.csv"))
+Colony9CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony9_Circle_Pre.csv")
 
 Colony9CirclePreT <- setNames(Colony9CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony9TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony9_Tube_Pre.csv"))
+Colony9TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony9_Tube_Pre.csv")
 
 Colony9TubePreT <- setNames(Colony9TubePreT, c("ID","Frames","X","Y","Orientation",
                                                "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -161,7 +161,7 @@ Colony11CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/
 Colony11CircleAggnT <- setNames(Colony11CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony11TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Tube_Aggn.csv")) 
+Colony11TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony11_Tube_Aggn.csv")
 
 Colony11TubeAggnT <- setNames(Colony11TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -172,7 +172,7 @@ Colony11CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gc
 
 Colony11CirclePreT <- setNames(Colony11CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony11TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony11_Tube_Pre.csv"))
+Colony11TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony11_Tube_Pre.csv")
 
 Colony11TubePreT <- setNames(Colony11TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -180,22 +180,22 @@ Colony11TubePreT <- setNames(Colony11TubePreT, c("ID","Frames","X","Y","Orientat
 
 # COLONY 13
 # INVADER ASSAY
-Colony13CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Circle_Aggn.csv"))
+Colony13CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony13_Circle_Aggn.csv")
 
 Colony13CircleAggnT <- setNames(Colony13CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony13TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Tube_Aggn.csv")) 
+Colony13TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony13_Tube_Aggn.csv") 
 
 Colony13TubeAggnT <- setNames(Colony13TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 # Pre assay
-Colony13CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Circle_Pre.csv"))
+Colony13CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony13_Circle_Pre.csv")
 
 Colony13CirclePreT <- setNames(Colony13CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
-Colony13TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony13_Tube_Pre.csv"))
+Colony13TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony13_Tube_Pre.csv")
 
 Colony13TubePreT <- setNames(Colony13TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -203,68 +203,68 @@ Colony13TubePreT <- setNames(Colony13TubePreT, c("ID","Frames","X","Y","Orientat
 
 # COLONY 17
 # INVADER ASSAY
-Colony17CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Circle_Aggn.csv"))
+Colony17CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony17_Circle_Aggn.csv")
 
 Colony17CircleAggnT <- setNames(Colony17CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony17TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Tube_Aggn.csv"))
+Colony17TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony17_Tube_Aggn.csv")
 
 Colony17TubeAggnT <- setNames(Colony17TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 # BASELINE ASSAY
-Colony17CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Circle_Pre.csv"))
+Colony17CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony17_Circle_Pre.csv")
 
 Colony17CirclePreT <- setNames(Colony17CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony17TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony17_Tube_Pre.csv"))
+Colony17TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony17_Tube_Pre.csv")
 
 Colony17TubePreT <- setNames(Colony17TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 # COLONY18
 # INVADER ASSAY
-Colony18CircleAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Circle_Aggn.csv")) 
+Colony18CircleAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony18_Circle_Aggn.csv") 
 
 Colony18CircleAggnT <- setNames(Colony18CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony18TubeAggnT  <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Tube_Aggn.csv"))
+Colony18TubeAggnT  <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony18_Tube_Aggn.csv")
 
 Colony18TubeAggnT <- setNames(Colony18TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 # BASELINE ASSAY
-Colony18CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Circle_Pre.csv"))
+Colony18CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony18_Circle_Pre.csv")
 
 Colony18CirclePreT <- setNames(Colony18CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony18TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony18_Tube_Pre.csv")) 
+Colony18TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony18_Tube_Pre.csv")
 
 Colony18TubePreT <- setNames(Colony18TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 # COLONY 20
 # INVADER ASSAY
-Colony20CircleAggnT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Circle_Aggn.csv"))
+Colony20CircleAggnT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony20_Circle_Aggn.csv")
 
 Colony20CircleAggnT <- setNames(Colony20CircleAggnT, c("ID","Frames","X","Y","Orientation",
                                                        "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony20TubeAggnT<- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Tube_Aggn.csv")) 
+Colony20TubeAggnT<- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony20_Tube_Aggn.csv") 
 
 Colony20TubeAggnT <- setNames(Colony20TubeAggnT, c("ID","Frames","X","Y","Orientation",
                                                    "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
 # BASELINE ASSAY
-Colony20CirclePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Circle_Pre.csv")) 
+Colony20CirclePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony20_Circle_Pre.csv") 
 
 Colony20CirclePreT <- setNames(Colony20CirclePreT, c("ID","Frames","X","Y","Orientation",
                                                      "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
 
-Colony20TubePreT <- read_csv(here("analysis", "data", "raw_data", "tracker_data", "Colony20_Tube_Pre.csv"))
+Colony20TubePreT <- read_csv("https://data.cyverse.org/dav-anon/iplant/home/gchism/NestArchAggn/Raw_Data/tracking_raw/Colony20_Tube_Pre.csv")
 
 Colony20TubePreT <- setNames(Colony20TubePreT, c("ID","Frames","X","Y","Orientation",
                                                  "SizeWidth.px","SizeLeng.px","Speed.Px.s","Interpolated","HeadX","HeadY"))
@@ -419,8 +419,8 @@ Colony5CirclePreR <- R
 Colony5CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony5CirclePreR), Colony5CirclePreR), "Colony5CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony5CirclePreNR), Colony5CirclePreNR), "Colony5CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony5CirclePreR), Colony5CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony5CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony5CirclePreNR), Colony5CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony5CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 5
 # BASELINE ASSAY
@@ -566,8 +566,8 @@ Colony5TubePreR <- R
 Colony5TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony5TubePreR), Colony5TubePreR), "Colony5TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony5TubePreNR), Colony5TubePreNR), "Colony5TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony5TubePreR), Colony5TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony5TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony5TubePreNR), Colony5TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony5TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 5 
 # AGGRESSION ASSAY
@@ -714,8 +714,8 @@ Colony5CircleAggnR <- R
 Colony5CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony5CircleAggnR), Colony5CircleAggnR), "Colony5CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony5CircleAggnNR), Colony5CircleAggnNR), "Colony5CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony5CircleAggnR), Colony5CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony5CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony5CircleAggnNR), Colony5CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony5CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 5
 # AGGRESSION ASSAY
@@ -859,8 +859,8 @@ Colony5TubeAggnR <- R
 Colony5TubeAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony5TubeAggnR), Colony5TubeAggnR), "Colony5TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony5TubeAggnNR), Colony5TubeAggnNR), "Colony5TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony5TubeAggnR), Colony5TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony5TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony5TubeAggnNR), Colony5TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony5TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 6
 # BASELINE ASSAY
@@ -1004,8 +1004,8 @@ Colony6CirclePreR <- R
 Colony6CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony6CirclePreR), Colony6CirclePreR), "Colony6CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony6CirclePreNR), Colony6CirclePreNR), "Colony6CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony6CirclePreR), Colony6CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony6CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony6CirclePreNR), Colony6CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony6CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 6
 # BASELINE ASSAY
@@ -1150,8 +1150,8 @@ Colony6TubePreR <- R
 Colony6TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony6TubePreR), Colony6TubePreR), "Colony6TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony6TubePreNR), Colony6TubePreNR), "Colony6TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony6TubePreR), Colony6TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony6TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony6TubePreNR), Colony6TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony6TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 6
 # AGGRESSION ASSAY
@@ -1297,8 +1297,8 @@ Colony6CircleAggnR <- R
 Colony6CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony6CircleAggnR), Colony6CircleAggnR), "Colony6CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony6CircleAggnNR), Colony6CircleAggnNR), "Colony6CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony6CircleAggnR), Colony6CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony6CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony6CircleAggnNR), Colony6CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony6CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 6
 # AGGRESSION ASSAY
@@ -1442,8 +1442,8 @@ Colony6TubeAggnR <- R
 Colony6TubeAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony6TubeAggnR), Colony6TubeAggnR), "Colony6TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony6TubeAggnNR), Colony6TubeAggnNR), "Colony6TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony6TubeAggnR), Colony6TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony6TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony6TubeAggnNR), Colony6TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony6TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 7
 # BASELINE ASSAY
@@ -1587,8 +1587,8 @@ Colony7CirclePreR <- R
 Colony7CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony7CirclePreR), Colony7CirclePreR), "Colony7CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony7CirclePreNR), Colony7CirclePreNR), "Colony7CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony7CirclePreR), Colony7CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony7CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony7CirclePreNR), Colony7CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony7CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 7
 # BASELINE ASSAY
@@ -1732,8 +1732,8 @@ Colony7TubePreR <- R
 Colony7TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony7TubePreR), Colony7TubePreR), "Colony7TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony7TubePreNR), Colony7TubePreNR), "Colony7TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony7TubePreR), Colony7TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony7TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony7TubePreNR), Colony7TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony7TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 7
 # AGGRESSION ASSAY 
@@ -1877,8 +1877,8 @@ Colony7CircleAggnR <- R
 Colony7CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony7CircleAggnR), Colony7CircleAggnR), "Colony7CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony7CircleAggnNR), Colony7CircleAggnNR), "Colony7CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony7CircleAggnR), Colony7CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony7CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony7CircleAggnNR), Colony7CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony7CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 7
 # AGGRESSION ASSAY
@@ -2022,8 +2022,8 @@ Colony7TubeAggnR <- R
 Colony7TubeAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony7TubeAggnR), Colony7TubeAggnR), "Colony7TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony7TubeAggnNR), Colony7TubeAggnNR), "Colony7TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony7TubeAggnR), Colony7TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony7TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony7TubeAggnNR), Colony7TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony7TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 8
 # BASELINE ASSAY
@@ -2167,8 +2167,8 @@ Colony8CirclePreR <- R
 Colony8CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony8CirclePreR), Colony8CirclePreR), "Colony8CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony8CirclePreNR), Colony8CirclePreNR), "Colony8CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony8CirclePreR), Colony8CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony8CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony8CirclePreNR), Colony8CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony8CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 8
 # BASELINE ASSAY
@@ -2312,8 +2312,8 @@ Colony8TubePreR <- R
 Colony8TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony8TubePreR), Colony8TubePreR), "Colony8TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony8TubePreNR), Colony8TubePreNR), "Colony8TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony8TubePreR), Colony8TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony8TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony8TubePreNR), Colony8TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony8TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 8
 # AGGRESSION ASSAY 
@@ -2457,8 +2457,8 @@ Colony8CircleAggnR <- R
 Colony8CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony8CircleAggnR), Colony8CircleAggnR), "Colony8CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony8CircleAggnNR), Colony8CircleAggnNR), "Colony8CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony8CircleAggnR), Colony8CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony8CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony8CircleAggnNR), Colony8CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony8CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 8 
 # AGGRESSION ASSAY
@@ -2602,8 +2602,8 @@ Colony8TubeAggnR <- R
 Colony8TubeAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony8TubeAggnR), Colony8TubeAggnR), "Colony8TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony8TubeAggnNR), Colony8TubeAggnNR), "Colony8TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony8TubeAggnR), Colony8TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony8TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony8TubeAggnNR), Colony8TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony8TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 9
 # BASELINE ASSAY
@@ -2749,8 +2749,8 @@ Colony9CirclePreR <- R
 Colony9CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony9CirclePreR), Colony9CirclePreR), "Colony9CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony9CirclePreNR), Colony9CirclePreNR), "Colony9CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony9CirclePreR), Colony9CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony9CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony9CirclePreNR), Colony9CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony9CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 9
 # BASELINE ASSAY
@@ -2896,8 +2896,8 @@ Colony9TubePreR <- R
 Colony9TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony9TubePreR), Colony9TubePreR), "Colony9TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony9TubePreNR), Colony9TubePreNR), "Colony9TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony9TubePreR), Colony9TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony9TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony9TubePreNR), Colony9TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony9TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 9
 # AGGRESSION ASSAY 
@@ -3041,8 +3041,8 @@ Colony9CircleAggnR <- R
 Colony9CircleAggnNR <- NR
 
 # Export the matrices
-write.table(data.frame("ID" = rownames(Colony9CircleAggnR), Colony9CircleAggnR), "Colony9CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony9CircleAggnNR), Colony9CircleAggnNR), "Colony9CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony9CircleAggnR), Colony9CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony9CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony9CircleAggnNR), Colony9CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony9CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 9
 # AGGRESSION ASSAY
@@ -3186,8 +3186,8 @@ Colony9TubeAggnR <- R
 Colony9TubeAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony9TubeAggnR), Colony9TubeAggnR), "Colony9TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony9TubeAggnNR), Colony9TubeAggnNR), "Colony9TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony9TubeAggnR), Colony9TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony9TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony9TubeAggnNR), Colony9TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony9TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 11
 # BASELINE ASSAY
@@ -3333,8 +3333,8 @@ Colony11CirclePreR <- R
 Colony11CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony11CirclePreR), Colony11CirclePreR), "Colony11CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony11CirclePreNR), Colony11CirclePreNR), "Colony11CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony11CirclePreR), Colony11CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony11CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony11CirclePreNR), Colony11CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony11CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 11
 # BASELINE ASSAY
@@ -3478,8 +3478,8 @@ Colony11TubePreR <- R
 Colony11TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony11TubePreR), Colony11TubePreR), "Colony11TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony11TubePreNR), Colony11TubePreNR), "Colony11TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony11TubePreR), Colony11TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony11TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony11TubePreNR), Colony11TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony11TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 11
 # AGGRESSION ASSAY
@@ -3623,8 +3623,8 @@ Colony11CircleAggnR <- R
 Colony11CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony11CircleAggnR), Colony11CircleAggnR), "Colony11CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony11CircleAggnNR), Colony11CircleAggnNR), "Colony11CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony11CircleAggnR), Colony11CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony11CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony11CircleAggnNR), Colony11CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony11CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 11
 # AGGRESSION ASSAY
@@ -3768,8 +3768,8 @@ Colony11TubeAggnR <- R
 Colony11TubeAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony11TubeAggnR), Colony11TubeAggnR), "Colony11TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony11TubeAggnNR), Colony11TubeAggnNR), "Colony11TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony11TubeAggnR), Colony11TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony11TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony11TubeAggnNR), Colony11TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony11TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 13
 # BASELINE ASSAY
@@ -3915,8 +3915,8 @@ Colony13CirclePreR <- R
 Colony13CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony13CirclePreR), Colony13CirclePreR), "Colony13CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony13CirclePreNR), Colony13CirclePreNR), "Colony13CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony13CirclePreR), Colony13CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony13CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony13CirclePreNR), Colony13CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony13CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 13
 # BASELINE ASSAY
@@ -4062,8 +4062,8 @@ Colony13TubePreR <- R
 Colony13TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony13TubePreR), Colony13TubePreR), "Colony13TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony13TubePreNR), Colony13TubePreNR), "Colony13TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony13TubePreR), Colony13TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony13TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony13TubePreNR), Colony13TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony13TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 13
 # AGGRESSION ASSAY 
@@ -4207,8 +4207,8 @@ Colony13CircleAggnR <- R
 Colony13CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony13CircleAggnR), Colony13CircleAggnR), "Colony13CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony13CircleAggnNR), Colony13CircleAggnNR), "Colony13CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony13CircleAggnR), Colony13CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony13CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony13CircleAggnNR), Colony13CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony13CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 13
 # AGGRESSION ASSAY
@@ -4406,8 +4406,8 @@ rownames(Mat2) = "id_1"
 Colony13TubeAggnNR <- rbind(Mat2, R2)
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony13TubeAggnR), Colony13TubeAggnR), "Colony13TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony13TubeAggnNR), Colony13TubeAggnNR), "Colony13TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony13TubeAggnR), Colony13TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony13TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony13TubeAggnNR), Colony13TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony13TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 17
 # BASELINE ASSAY
@@ -4553,8 +4553,8 @@ Colony17CirclePreR <- R
 Colony17CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony17CirclePreR), Colony17CirclePreR), "Colony17CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony17CirclePreNR), Colony17CirclePreNR), "Colony17CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony17CirclePreR), Colony17CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony17CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony17CirclePreNR), Colony17CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony17CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # CIRCLE 17
 # BASELINE ASSAY
@@ -4698,8 +4698,8 @@ Colony17TubePreR <- R
 Colony17TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony17TubePreR), Colony17TubePreR), "Colony17TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony17TubePreNR), Colony17TubePreNR), "Colony17TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony17TubePreR), Colony17TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony17TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony17TubePreNR), Colony17TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony17TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 17
 # AGGRESSION ASSAY 
@@ -4843,8 +4843,8 @@ Colony17CircleAggnR <- R
 Colony17CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony17CircleAggnR), Colony17CircleAggnR), "Colony17CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony17CircleAggnNR), Colony17CircleAggnNR), "Colony17CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony17CircleAggnR), Colony17CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony17CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony17CircleAggnNR), Colony17CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony17CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 17
 # AGGRESSION ASSAY
@@ -4988,8 +4988,8 @@ Colony17TubeAggnR <- R
 Colony17TubeAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony17TubeAggnR), Colony17TubeAggnR), "Colony17TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony17TubeAggnNR), Colony17TubeAggnNR), "Colony17TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony17TubeAggnR), Colony17TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony17TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony17TubeAggnNR), Colony17TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony17TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 18 
 # BASELINE ASSAY
@@ -5133,8 +5133,8 @@ Colony18CirclePreR <- R
 Colony18CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony18CirclePreR), Colony18CirclePreR), "Colony18CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony18CirclePreNR), Colony18CirclePreNR), "Colony18CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony18CirclePreR), Colony18CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony18CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony18CirclePreNR), Colony18CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony18CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 18
 # BASELINE ASSAY
@@ -5278,8 +5278,8 @@ Colony18TubePreR <- R
 Colony18TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony18TubePreR), Colony18TubePreR), "Colony18TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony18TubePreNR), Colony18TubePreNR), "Colony18TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony18TubePreR), Colony18TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony18TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony18TubePreNR), Colony18TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony18TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 18
 # AGGRESSION 
@@ -5423,8 +5423,8 @@ Colony18CircleAggnR <- R
 Colony18CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony18CircleAggnR), Colony18CircleAggnR), "Colony18CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony18CircleAggnNR), Colony18CircleAggnNR), "Colony18CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony18CircleAggnR), Colony18CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony18CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony18CircleAggnNR), Colony18CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony18CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 18
 # AGGRESSION ASSAY
@@ -5568,8 +5568,8 @@ Colony18TubeAggnR <- R
 Colony18TubeAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony18TubeAggnR), Colony18TubeAggnR), "Colony18TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony18TubeAggnNR), Colony18TubeAggnNR), "Colony18TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony18TubeAggnR), Colony18TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony18TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony18TubeAggnNR), Colony18TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony18TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 20
 # BASELINE ASSAY
@@ -5713,8 +5713,8 @@ Colony20CirclePreR <- R
 Colony20CirclePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony20CirclePreR), Colony20CirclePreR), "Colony20CirclePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony20CirclePreNR), Colony20CirclePreNR), "Colony20CirclePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony20CirclePreR), Colony20CirclePreR), here("analysis", "data", "derived_data", "matrices", "Colony20CirclePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony20CirclePreNR), Colony20CirclePreNR), here("analysis", "data", "derived_data", "matrices", "Colony20CirclePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 20
 # BASELINE ASSAY
@@ -5858,8 +5858,8 @@ Colony20TubePreR <- R
 Colony20TubePreNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony20TubePreR), Colony20TubePreR), "Colony20TubePreRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony20TubePreNR), Colony20TubePreNR), "Colony20TubePreNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony20TubePreR), Colony20TubePreR), here("analysis", "data", "derived_data", "matrices", "Colony20TubePreRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony20TubePreNR), Colony20TubePreNR), here("analysis", "data", "derived_data", "matrices", "Colony20TubePreNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 20
 # AGGRESSION ASSAY
@@ -6003,8 +6003,8 @@ Colony20CircleAggnR <- R
 Colony20CircleAggnNR <- NR
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony20CircleAggnR), Colony20CircleAggnR), "Colony20CircleAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony20CircleAggnNR), Colony20CircleAggnNR), "Colony20CircleAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony20CircleAggnR), Colony20CircleAggnR), here("analysis", "data", "derived_data", "matrices", "Colony20CircleAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony20CircleAggnNR), Colony20CircleAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony20CircleAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
 
 # COLONY 20
 # AGGRESSION ASSAY
@@ -6229,5 +6229,5 @@ rownames(Mat2) = "id_1"
 Colony20TubeAggnNR <- rbind(Mat2, R2)
 
 # Export the matrices 
-write.table(data.frame("ID" = rownames(Colony20TubeAggnR), Colony20TubeAggnR), "Colony20TubeAggnRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
-write.table(data.frame("ID" = rownames(Colony20TubeAggnNR), Colony20TubeAggnNR), "Colony20TubeAggnNRMatrix.csv", row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony20TubeAggnR), Colony20TubeAggnR), here("analysis", "data", "derived_data", "matrices", "Colony20TubeAggnRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
+write.table(data.frame("ID" = rownames(Colony20TubeAggnNR), Colony20TubeAggnNR), here("analysis", "data", "derived_data", "matrices", "Colony20TubeAggnNRMatrix.csv"), row.names = FALSE, sep = ",", dec = ",")
